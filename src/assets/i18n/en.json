@@ -1,0 +1,9 @@
+{
+    "app-name": "PlantaCarotte",
+    "header": {
+        "home": "Home",
+        "add-plot": "Add a plot",
+        "find-plot": "Find a plot",
+        "login": "Sign-in"
+    }
+}

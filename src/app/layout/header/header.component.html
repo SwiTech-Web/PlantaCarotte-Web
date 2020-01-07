@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" routerLink="/home">
+    {{'app-name' | translate}}
+  </a>
+  <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0">
+    <li class="nav-item">
+      <button class="nav-link btn btn-green" routerLink=""><i class="far fa-plus-square mr-2"></i>{{'header.add-plot' | translate}}</button>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" routerLink=""><i class="fas fa-search mr-2"></i>{{'header.find-plot' | translate}}</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav mt-2 mt-lg-0">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/login" *ngIf="!authService.isLoggedIn">{{'header.login' | translate}}<i class="fas fa-sign-in-alt ml-2"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class=" nav-link" *ngIf="authService.isLoggedIn && authService.userData as user" (click)="authService.SignOut()" >
+        <img src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Mobile version -->
+<!--<nav [hidden]="!isMobile" class="navbar navbar-expand-lg  navbar-light bg-light sticky-top">-->
+<!--  <span (click)="openMenu()">&#9776;</span>-->
+<!--  <a class="navbar-brand mr-auto ml-auto" routerLink="/home">-->
+<!--    Ecotech-->
+<!--  </a>-->
+<!--  <a *ngIf="authService.isLoggedIn" [ngClass]="{'pulse': !isNotify}"  (click)="clickNotify()" routerLink="/notifications"><i class="fas fa-bell"></i></a>-->
+<!--</nav>-->
+<!--
+<div id="sideMenu" class="sidenav">
+  <div class="text-center mb-4">Ecotech</div>
+  <div href="javascript:void(0)" class="closebtn" (click)="closeMenu()">&times;</div>
+  <a class="txt-g" *ngIf="!authService.isLoggedIn" (click)="closeMenu()" routerLink="/sign-in"><i class="fas fa-user-circle txt-g mr-3"></i>Connexion</a>
+  <div class="text-center " *ngIf="authService.isLoggedIn && authService.userData as user" (click)="closeMenu()" routerLink="/dashboard">
+    <img class="" src="{{user.photoURL}}" onerror="this.src='../../assets/images/bg-home-1.jpg';">
+  </div>
+  <hr/>
+  <a (click)="closeMenu()" routerLink="/home"><i class="fas fa-home mr-3"></i>Accueil</a>
+  <a (click)="closeMenu()" routerLink="/articles"><i class="fas fa-newspaper mr-3"></i>Articles</a>
+  <a (click)="closeMenu()" routerLink="/products"><i class="fas fa-tag mr-3"></i>Comparateur écolo</a>
+  <a (click)="closeMenu()" routerLink="/news-feed"><i class="fas fa-book-open mr-3"></i>Fil d'actualité</a>
+  <a (click)="closeMenu()" routerLink="/ecology"><i class="fas fa-leaf mr-3"></i>Impact ecologique</a>
+  <hr/>
+  <a (click)="closeMenu()" class="nav-link" routerLink="/help"><i class="far fa-question-circle mr-3"></i>Qui somme nous ?</a>
+  <a class="nav-link txt-g" routerLink="/home" *ngIf="authService.isLoggedIn" (click)="authService.SignOut() && closeMenu()"><i class="fas fa-sign-out-alt txt-g mr-3"></i>Deconnexion</a>
+</div>-->

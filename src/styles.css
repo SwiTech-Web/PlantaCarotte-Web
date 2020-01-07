@@ -1,0 +1,27 @@
+/* global style */
+body {
+  background-color: #eeeeee !important;
+  overflow-x: hidden !important;
+  font-size: 14px !important;
+}
+
+.card {
+  box-shadow: 2px 2px 12px #555;
+}
+
+/* customize boutton */
+.btn-green {
+  background-color: #5cbd95 !important;
+  color: #ffffff !important;
+}
+.btn-green:hover {
+  background-color: #ffffff !important;
+  color: #5cbd95 !important;
+  border: 1px solid #5cbd95 !important;
+}
+.btn {
+  font-size: 14px !important;
+}
+.btn:focus {
+  outline: none !important;
+}

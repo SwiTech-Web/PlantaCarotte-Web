@@ -1,0 +1,9 @@
+{
+    "app-name": "PlantaCarotte",
+    "header": {
+        "home": "Accueil",
+        "add-plot": "Louer son terrain",
+        "find-plot": "Rechercher un terrain",
+        "login": "Se connecter"
+    }
+}

@@ -1,0 +1,19 @@
+<h3 class="txt-b text-center py-5 px-1">Bienvenue sur A</h3>
+<div class="form-group" *ngIf="authService.userData as user">
+  <p class="text-center px-1">Un email de confirmation à envoyé à <strong>{{user.email}}</strong>.</p>
+  <p class="text-center px-1">Merci de vérifier vos emails (ainsi que les spams) et cliquer sur le lien afin de valider votre adresse email</p>
+  <!-- <p class="text-center">Please check your email and click on the link to verfiy your email address.</p> -->
+</div>
+<!-- Calling SendVerificationMail() method using authService Api -->
+<form class="pt-3">
+  <div class="form-group d-flex justify-content-center px-1">
+    <button *ngIf="!isSend" type="button" class="btn btn-info" (click)="authService.SendVerificationMail() && clicked()">
+      <i class="fas fa-redo-alt"></i>
+     Renvoyer l'email de verification
+    </button>
+    <button *ngIf="isSend" type="button" class="btn btn-info disabled" disabled>
+      Nouvelle email de confirmation envoyé
+    </button>
+    <button type="button" class="btn btn-g ml-5" routerLink="/sign-in">Connexion</button>
+  </div>
+</form>
