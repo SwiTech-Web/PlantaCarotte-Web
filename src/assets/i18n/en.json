@@ -5,5 +5,23 @@
         "add-plot": "Add a plot",
         "find-plot": "Find a plot",
         "login": "Sign-in"
+    },
+    "login" : {
+        "connection": "Sign in",
+        "google": "Sign in with Google",
+        "or": "or",
+        "email": " Email address",
+        "password": "Password",
+        "btn-login": "Sign in",
+        "forgot-pwd": "Forgot password ?",
+        "no-account": "New to PlantaCarotte ?"
+    },
+    "register": {
+        "sign-up": "Sign up",
+        "nickname": "Nickname",
+        "email": "Email address",
+        "password": "Password",
+        "btn-register": "Sign up",
+        "account": "You already have a account ?"
     }
 }

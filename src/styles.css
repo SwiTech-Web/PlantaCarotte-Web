@@ -4,9 +4,16 @@ body {
   overflow-x: hidden !important;
   font-size: 14px !important;
 }
-
 .card {
   box-shadow: 2px 2px 12px #555;
+}
+input.form-control:focus {
+  box-shadow: inset 0 0 0 #ddd;
+  border-color: #ced4da;
+}
+.input-group-text {
+  background-color: transparent !important;
+  border-left: transparent !important;
 }
 
 /* customize boutton */
@@ -22,6 +29,14 @@ body {
 .btn {
   font-size: 14px !important;
 }
-.btn:focus {
-  outline: none !important;
+
+/* utilities */
+.no-border-right {
+  border-right: transparent !important;
+}
+.txt-none {
+    color: #484848 !important;
+}
+.txt-green {
+    color: #5cbd95 !important;
 }

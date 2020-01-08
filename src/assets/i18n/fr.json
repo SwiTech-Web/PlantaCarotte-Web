@@ -1,9 +1,27 @@
 {
-    "app-name": "PlantaCarotte",
+    "app-name": "PlantaCarotte", 
     "header": {
         "home": "Accueil",
         "add-plot": "Louer son terrain",
         "find-plot": "Rechercher un terrain",
         "login": "Se connecter"
+    },
+    "login" : {
+        "connection": "Connexion",
+        "google": "Se connecter avec Google",
+        "or": "ou",
+        "email": "Addresse email",
+        "password": "Mot de passe",
+        "btn-login": "Se connecter",
+        "forgot-pwd": "Mot de passe oublié ?",
+        "no-account": "Vous n'avez pas de compte ?"
+    },
+    "register": {
+        "sign-up": "Inscription",
+        "nickname": "Pseudo",
+        "email": "Addresse email",
+        "password": "Mot de passe",
+        "btn-register": "S'inscrire",
+        "account": "Vous avez déjà un compte PlantaCarotte ?"
     }
 }

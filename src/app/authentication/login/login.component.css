@@ -3,7 +3,6 @@
     font-weight: bold;
     color: #484848;
 }
-
 .or {
     text-align: center;
     display: block;
@@ -11,8 +10,7 @@
     background: white;
     position: relative;
     margin: 5px 0 0px;
-}
-  
+} 
 .orInner {
     background: white;
     display: inline-block;
@@ -20,7 +18,6 @@
     position: relative;
     padding: 0 12px;
 }
-  
 .or:before {
     position: absolute;
     content: '';
@@ -30,19 +27,23 @@
     height: 1px;
     background: #e2e2e2;
 }
-
-.forgotPassword {
+.forgot-pwd {
     text-align: center;
     margin: 0 0 15px 0;
     float: left;
     width: 100%;
 }
-  
-.forgotPassword a {
+.forgot-pwd a {
     text-decoration: none;
-    color: #5cbd95;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     cursor: pointer;
     padding-top: 20px;
+}
+.card {
+    width: 28rem;
+}
+
+button, .connected {
+    width: 100%;
 }

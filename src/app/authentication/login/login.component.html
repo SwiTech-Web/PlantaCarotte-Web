@@ -1,24 +1,24 @@
 <div class="d-flex justify-content-center py-5 px-1">
   <div class="card p-3">
-    <h3 class="text-center txt-g pb-3">Connexion</h3>
+    <h3 class="text-center txt-green pb-3">{{'login.connection' | translate}}</h3>
     <form>
       <!-- Calling GoogleAuth Api from AuthService -->
       <div class="form-group">
           <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
             <i class="fab fa-google mr-2"></i>
-            Connexion avec Google
+            {{'login.google' | translate}}
           </button>
       </div>
 
       <div class="form-group">
-        <span class="or"><span class="orInner">ou</span></span>
+        <span class="or"><span class="orInner">{{'login.or' | translate}}</span></span>
       </div>
         <!-- Calling SignIn Api from AuthService -->
       <div class="form-group">
         <form>
             <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control borderRight" placeholder="Adresse email" #userName required>
+              <input type="text" class="form-control no-border-right" placeholder="{{'login.email' | translate}}" #userName required>
                <div class="input-group-append">
                   <span class="input-group-text"><i class="far fa-envelope"></i></span>
               </div> 
@@ -27,7 +27,7 @@
       
           <div class="form-group">
             <div class="input-group">
-              <input type="password" class="form-control borderRight" placeholder="Mot de passe" #userPassword required>
+              <input type="password" class="form-control no-border-right" placeholder="{{'login.password' | translate}}" #userPassword required>
                 <div class="input-group-append">
                   <span class="input-group-text"><i class="fas fa-lock"></i></span>
               </div> 
@@ -35,15 +35,15 @@
           </div>
           <!-- Calling SignIn Api from AuthService -->
           <div class="form-group">
-            <input type="button" class="btn btn-g connected" value="Connexion" (click)="authService.SignIn(userName.value, userPassword.value)">
+            <input type="button" class="btn btn-outline-primary connected" value="{{'login.btn-login' | translate}}" (click)="authService.SignIn(userName.value, userPassword.value)">
           </div>
-          <div class="forgotPassword">
-            <a routerLink="/forgot-password">Mot de passe oublié ?</a>
+          <div class="forgot-pwd">
+            <a routerLink="/forgot-password">{{'login.forgot-pwd' | translate}}</a>
           </div>   
         </form>
       </div>
       <div class="form-group pt-2">
-          <span class="txt-none">Vous n'avez pas de compte ? <a routerLink="/register" class="txt-g fontBold">Inscription</a></span>
+          <span class="txt-none">{{'login.no-account' | translate}} <a routerLink="/register" class="txt-green"><strong>{{'register.sign-up' | translate}}</strong></a></span>
       </div>     
     </form>
   </div>
