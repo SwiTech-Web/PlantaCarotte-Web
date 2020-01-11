@@ -1,0 +1,11 @@
+<div class="container" *ngFor="let product of products.slice().reverse()">
+  <div class="card">
+    <p>(id du mec connecter) USER ID : {{product.uid}}</p>
+
+    <div class="card-body">
+      <h4>{{product.name}}</h4>
+      <p>{{product.description}}</p>
+    </div>
+  </div>
+
+</div>

@@ -20,6 +20,11 @@ import { ForgotPasswordComponent } from './authentication/forgot-password/forgot
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { CreateProductComponent } from './product/create-product/create-product.component';
+import { ListProductComponent } from './product/list-product/list-product.component';
+import { DetailProductComponent } from './product/detail-product/detail-product.component';
+import { SummaryProductComponent } from './product/summary-product/summary-product.component';
+import { PreviewProductComponent } from './product/preview-product/preview-product.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -34,7 +39,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     RegisterComponent,
     VerifyEmailComponent,
     ForgotPasswordComponent,
-    HomeComponent
+    HomeComponent,
+    CreateProductComponent,
+    ListProductComponent,
+    DetailProductComponent,
+    SummaryProductComponent,
+    PreviewProductComponent
   ],
   imports: [
     BrowserModule,

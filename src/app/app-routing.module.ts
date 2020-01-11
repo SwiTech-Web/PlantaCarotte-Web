@@ -8,12 +8,16 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './authentication/login/login.component';
 import {RegisterComponent} from './authentication/register/register.component';
+import { ListProductComponent } from './product/list-product/list-product.component';
+import { CreateProductComponent } from './product/create-product/create-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent},
-  { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard]},
-  { path: 'register', component: RegisterComponent, canActivate: [SecureInnerPagesGuard]},
+  { path: 'home', component: HomeComponent },
+  { path: 'product/list', component: ListProductComponent },
+  { path: 'product/add', component: CreateProductComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
