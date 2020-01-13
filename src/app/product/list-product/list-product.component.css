@@ -1,18 +1,23 @@
+.card {
+  border-radius: 10px;
+}
 .container {
-  padding-top: 5%;
+  padding-top: 3%;
+  float: right;
+  margin-right: 10%;
 }
 .text-muted{
   bottom: 0;
   position: absolute;
   margin-bottom: 10px;
 }
-
-.card {
-  border-radius: 10px;
-}
-
 .like {
   bottom: 0;
   position: absolute;
   margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.fa-heart {
+  color: #E00033;
 }
