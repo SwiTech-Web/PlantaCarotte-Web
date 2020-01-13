@@ -1,10 +1,25 @@
-<div class="container" *ngFor="let product of products">
+
+<div class="container" *ngFor="let product of products.slice().reverse()">
   <div class="card">
-    <div class="card-body">
-      <h4>{{product.type}}</h4>
-      <p>{{product.description}}</p>
-      <p>{{product.size}} m²</p>
-      <p>{{product.date.toString()}}</p>
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/%C3%89tang_d%27ILOA2.jpg/220px-%C3%89tang_d%27ILOA2.jpg" class="card-img" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <h6 class="card-title">{{product.dpts}}, {{product.city}}</h6>
+          <p class="card-text">{{product.description}}</p>
+          <p class="card-text"><small class="text-muted">Aujourd'hui, 19:38</small></p>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="card-body">
+          <h6>{{product.price * 30}}€ / mois</h6>
+          <h6>{{product.price}}€ / jours</h6>
+          <button type="button" class="btn btn-light like"><p class="card-text"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>Sauvegarder</p></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
