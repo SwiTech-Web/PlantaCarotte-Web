@@ -8,7 +8,21 @@
                 <input type="text" class="form-control" placeholder="Jardin" #type required>
               </div>
             </div>
-
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="ville" #city required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="departement" #dpts required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nom du jardin" #name required>
+              </div>
+            </div>
             <div class="form-group">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="description" #description required>
@@ -21,7 +35,12 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="button" class="btn btn-outline-primary connected" value="ajouter le produit" (click)="productService.createProduct(type.value, description.value, size.value)">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="prix" #price required>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="button" class="btn btn-outline-primary connected" value="ajouter le produit" (click)="productService.createProduct(type.value, city.value, dpts.value, name.value, description.value, size.value, price.value)">
             </div>
       </form>
     </div>

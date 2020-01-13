@@ -19,12 +19,17 @@ export class ProductService {
     return this.db.collection<Product>('products').valueChanges();
   }
 
-  createProduct(type, description, size) {
+  createProduct(type, city, dpts, name, description, size, price) {
     const product: Product = {
       type: type,
+      city: city,
+      dpts: dpts,
+      name: name,
       description: description,
       size: size,
+      price: price,
       rent: false,
+      like: false,
       date: new Date(),
       uid: this.authService.userData.uid
     }
