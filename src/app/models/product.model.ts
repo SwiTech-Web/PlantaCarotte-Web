@@ -1,5 +1,11 @@
+enum types {
+}
+
 export interface Product {
-    uid: string;
-    name: string;
-    description: string;
- }
+  type: string;
+  description: string;
+  size: number;
+  rent: boolean;
+  date: Date;
+  uid: string;
+}

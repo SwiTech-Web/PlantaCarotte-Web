@@ -19,12 +19,16 @@ export class ProductService {
     return this.db.collection<Product>('products').valueChanges();
   }
 
-  createProduct(name, desc) {
+  createProduct(type, description, size) {
     const product: Product = {
-      uid: this.authService.userData.uid,
-      name: name,
-      description: desc
+      type: type,
+      description: description,
+      size: size,
+      rent: false,
+      date: new Date(),
+      uid: this.authService.userData.uid
     }
+
     return this.db.collection('products').add(product)
     .then(() => {
       this.ngZone.run(() => {

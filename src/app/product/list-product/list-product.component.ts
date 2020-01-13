@@ -9,11 +9,13 @@ import {Product} from "../../models/product.model";
 })
 export class ListProductComponent implements OnInit {
   products: any[] = [];
+  format: string = 'dd/MM/yyyy hh:mm:ss';
   constructor(private productService:ProductService) { }
 
   ngOnInit() {
     this.listAllProducts();
   }
+
   listAllProducts() {
     this.productService.getProducts().subscribe(product => {
       this.products = product;
