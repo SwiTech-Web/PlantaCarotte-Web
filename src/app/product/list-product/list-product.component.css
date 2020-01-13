@@ -1,0 +1,18 @@
+.container {
+  padding-top: 5%;
+}
+.text-muted{
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 10px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.like {
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 10px;
+}

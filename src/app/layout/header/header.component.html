@@ -15,7 +15,7 @@
       <a class="nav-link" routerLink="/login" *ngIf="!authService.isLoggedIn">{{'header.login' | translate}}<i class="fas fa-sign-in-alt ml-2"></i></a>
     </li>
     <li class="nav-item">
-      <a class=" nav-link" *ngIf="authService.isLoggedIn && authService.userData as user" (click)="authService.SignOut()" >
+      <a class="nav-link" *ngIf="authService.isLoggedIn && authService.userData as user" (click)="authService.SignOut()" >
         <img src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
       </a>
     </li>
