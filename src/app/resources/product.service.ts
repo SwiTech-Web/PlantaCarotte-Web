@@ -40,7 +40,7 @@ export class ProductService {
         this.router.navigate(['home']);
       });
     }).catch((error) => {
-      window.alert(error.message)
+      window.alert(error.message);
     });
   }
 }
