@@ -1,10 +1,46 @@
-<!-- Carousel -->
-<div>
-    <img class="d-block w-100" src="../../assets/images/bg-home1.jpg" alt="bg-home">
+<div class="banner-home">
+  <div class="d-flex justify-content-end">
+    <div class="card filter-card m-5">
+      <div class="card-body">
+        <h5 class="mb-3">Réserver votre terrain pour manger 5 fruits
+          et légumes par jours.</h5>
+        <form>
+          <div class="form-group ">
+            <label><i class="fas fa-map-marker-alt"></i> Lieu</label>
+            <input type="email" class="form-control" placeholder="Paris">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Date de debut</label>
+              <input type="date" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label>Durée</label>
+              <select class="custom-select" required>
+                <option selected disabled value="">Choose...</option>
+                <option>1 ans</option>
+                <option>2 ans</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group ">
+            <label>Prix maximum par jour</label>
+            <input type="number" class="form-control" placeholder="20">
+          </div>
+          <div class="form-group ">
+            <button type="submit" class="btn btn-primary">Trouver un terrain</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
 <div class="container">
-    <h5 class="my-4">Explore</h5>
+  <div class="py-5">
+    <h5>Explorer PlantaCarotte</h5>
     <app-summary-product></app-summary-product>
+  </div>
 
     <h5 class="mt-4">PlantaCarotte vous accompagne dans une demarche bio</h5>
     <div class="d-flex justify-content-between">

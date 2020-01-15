@@ -1,4 +1,9 @@
-.d-block {
-    height: 90vh;
-    filter: brightness(40%);
+.banner-home {
+  background-image: url('../../assets/images/bg-home1.jpg');
+  height: 90vh;
+  background-position: center center;
+  background-size: cover;
+}
+.filter-card {
+  width: 380px;
 }

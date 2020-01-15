@@ -8,7 +8,7 @@
               <div class="input-group-append">
                 <span class="input-group-text"><i class="far fa-user"></i></span>
               </div>
-            </div> 
+            </div>
           </div>
         <div class="form-group">
           <div class="input-group">
@@ -16,30 +16,29 @@
             <div class="input-group-append">
               <span class="input-group-text"><i class="far fa-envelope"></i></span>
             </div>
-          </div> 
+          </div>
         </div>
-      
+
         <div class="form-group">
           <div class="input-group">
               <input type="password" class="form-control no-border-right" placeholder="{{'register.password' | translate}}" #userPwd required>
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-          </div> 
+          </div>
         </div>
-      
+
         <div class=" form-group d-flex justify-content-center">
-          <input type="button" class="btn btn-outline-primary connected" value="{{'register.btn-register' | translate}}" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+          <input type="button" class="btn btn-primary connected" value="{{'register.btn-register' | translate}}" (click)="authService.SignUp(userEmail.value, userPwd.value)">
         </div>
-  
+
         <div class="form-group">
             <span class="or"><span class="orInner"></span></span>
         </div>
         <div class="form-group">
           <span class="txt-none">{{'register.account' | translate}} <a routerLink="/login" ><strong>{{'login.connection' | translate}}</strong></a></span>
         </div>
-      </form> 
+      </form>
     </div>
   </div>
-  
-  
+
