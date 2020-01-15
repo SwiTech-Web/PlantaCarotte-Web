@@ -44,6 +44,10 @@
           <input id="choice_category_button_6" class="styled" type="checkbox" name="choice" id="choice_category_button_6">
           <label for="choice_category_button_6">Permaculture</label>
         </div>
+        <div class="checkbox">
+          <input id="choice_category_button_7" class="styled" type="checkbox" name="choice" id="choice_category_button_7">
+          <label for="choice_category_button_7">Beach</label>
+        </div>
       </div>
       <hr>
       <!-- Specification -->
@@ -53,15 +57,15 @@
       <div class="box">
         <div class="radio">
           <input id="choice_specification_button_1" class="styled" type="radio" name="choice" id="choice_specification_button_1">
-          <label for="choice_specification_button_1">Radio Sample 1</label>
+          <label for="choice_specification_button_1">Pets allowed</label>
         </div>
         <div class="radio">
           <input id="choice_specification_button_2" class="styled" type="radio" name="choice" id="choice_specification_button_2">
-          <label for="choice_specification_button_2">Radio Sample 2</label>
+          <label for="choice_specification_button_2">Barbecue</label>
         </div>
         <div class="radio">
           <input id="choice_specification_button_3" class="styled" type="radio" name="choice" id="choice_specification_button_3">
-          <label for="choice_specification_button_3">Radio Sample 2</label>
+          <label for="choice_specification_button_3">Sanitary</label>
         </div>
       </div>
 
@@ -83,7 +87,7 @@
           <span class="input-group-text">€</span>
         </div>
       </div>
-
+      <button type="button" class="btn btn-success">Apply</button>
     </form>
   </div>
   <div class="container" *ngFor="let product of products.slice().reverse()">
