@@ -1,25 +1,125 @@
 <div class="banner-list"></div>
-<div class="container" *ngFor="let product of products.slice().reverse()">
-  <div class="card">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/%C3%89tang_d%27ILOA2.jpg/220px-%C3%89tang_d%27ILOA2.jpg" class="card-img" alt="...">
-      </div>
-      <div class="col-md-6">
-        <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <h6 class="card-title">{{product.dpts}}, {{product.city}}</h6>
-          <p class="card-text">{{product.description}}</p>
-          <p class="card-text"><b>à 23 km</b></p>
-          <p class="card-text"><small class="text-muted">Aujourd'hui, 19:38</small></p>
+<!--<div class="container filter">
+  <h6 style="color:#333333"><b><i class="fas fa-times"></i> Filter & Refine</b></h6>
+  <button type="button" class="btn" data-toggle="collapse" data-target="#demo"><h5>Category<i class="fas fa-chevron-down"></i></h5></button>
+  <div id="demo" class="collapse">
+    Test
+  </div>
+</div>-->
+<!-- Filter -->
+<div class="main">
+
+  <div style="margin-left:10%;position:absolute;">
+    <form>
+      <div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search products...">
+              <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-2">
-        <div class="card-body">
-          <h6>{{product.price * 30}}€ / mois</h6>
-          <h6>{{product.price}}€ / jours</h6>
-          <button *ngIf="product.like == false" type="button" class="btn btn-light like"><p class="card-text"><i class="far fa-heart"></i> Sauvegarder</p></button>
-          <button *ngIf="product.like == true" type="button" class="btn btn-light like"><p class="card-text"><i class="fas fa-heart"></i> Sauvegarder</p></button>
+    </form>
+    <form>
+      <!-- Price -->
+      <hr>
+
+      <h3>
+        <span>Price</span>
+      </h3>
+      <span>
+        <input class="basic-slide" id="name" type="text" placeholder="Your best name" /><label class="label-in" for="name">Name</label>
+      </span>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_1">
+        <label class="custom-radio-btn-label" for="choice_price_button_1">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_2">
+        <label class="custom-radio-btn-label" for="choice_price_button_2">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_3">
+        <label class="custom-radio-btn-label" for="choice_price_button_3">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_4">
+        <label class="custom-radio-btn-label" for="choice_price_button_4">Button radio</label>
+      </div>
+      <hr>
+
+      <!-- Checkboxes -->
+      <h3 class="headline">
+        <span>Category</span>
+      </h3>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_categ_button_1">
+        <label class="custom-radio-btn-label" for="choice_categ_button_1">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_categ_button_2">
+        <label class="custom-radio-btn-label" for="choice_categ_button_2">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_categ_button_3">
+        <label class="custom-radio-btn-label" for="choice_categ_button_3">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_categ_button_4">
+        <label class="custom-radio-btn-label" for="choice_categ_button_4">Button radio</label>
+      </div>
+
+      <hr>
+      <!-- Radios -->
+      <h3 class="headline">
+        <span>Specification</span>
+      </h3>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_specification_button_1">
+        <label class="custom-radio-btn-label" for="choice_specification_button_1">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_specification_button_2">
+        <label class="custom-radio-btn-label" for="choice_specification_button_2">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_specification_button_3">
+        <label class="custom-radio-btn-label" for="choice_specification_button_3">Button radio</label>
+      </div>
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_specification_button_4">
+        <label class="custom-radio-btn-label" for="choice_specification_button_4">Button radio</label>
+      </div>
+    </form>
+  </div>
+  <div class="container" *ngFor="let product of products.slice().reverse()">
+    <div class="card">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/%C3%89tang_d%27ILOA2.jpg/220px-%C3%89tang_d%27ILOA2.jpg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <h6 class="card-title">{{product.dpts}}, {{product.city}}</h6>
+            <p class="card-text">{{product.description}}</p>
+            <p class="card-text"><b>à 23 km</b></p>
+            <p class="card-text"><small class="text-muted">Aujourd'hui, 19:38</small></p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card-body">
+            <h6>{{product.price * 30}}€ / mois</h6>
+            <h6>{{product.price}}€ / jours</h6>
+            <button *ngIf="product.like == false" type="button" class="btn btn-light like"><p class="card-text"><i class="far fa-heart"></i> Sauvegarder</p></button>
+            <button *ngIf="product.like == true" type="button" class="btn btn-light like"><p class="card-text"><i class="fas fa-heart"></i> Sauvegarder</p></button>
+          </div>
         </div>
       </div>
     </div>
