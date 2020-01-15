@@ -43,4 +43,16 @@ export class ProductService {
       window.alert(error.message);
     });
   }
+
+  deletePolicy(id: string){
+    this.db.collection('products').doc(id).delete()
+      .then(() => {
+      this.ngZone.run(() => {
+        this.router.navigate(['home']);
+      });
+    }).catch((error) => {
+      window.alert(error.message)
+    });
+  }
 }
+

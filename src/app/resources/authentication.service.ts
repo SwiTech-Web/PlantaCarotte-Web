@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { User } from '../models/user.model';
+import {Product} from "../models/product.model";
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class AuthenticationService {
 
   constructor(public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
-    public router: Router,  
+    public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
     ) {
-          
-    /* Saving user data in localstorage when 
+
+    /* Saving user data in localstorage when
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -48,7 +49,7 @@ export class AuthenticationService {
   SignUp(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
+        /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
@@ -78,7 +79,7 @@ export class AuthenticationService {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
-  
+
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider());
@@ -98,8 +99,8 @@ export class AuthenticationService {
     })
   }
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
+  /* Setting up user data when sign in with username/password,
+  sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
@@ -109,17 +110,31 @@ export class AuthenticationService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
-    } 
+    }
     return userRef.set(userData, {
       merge: true
     })
   }
 
-  // Sign out 
+  // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['home']);
     })
+  }
+
+  updateUser(displayName) {
+    const user: User = {
+      uid: this.userData.uid,
+      email: this.userData.email,
+      displayName: displayName,
+      photoURL: this.userData.photoURL,
+      emailVerified: this.userData.emailVerified
+    }
+    return this.afs
+      .collection('users')
+      .doc(this.userData.uid)
+      .set(user, {merge: true});
   }
 }

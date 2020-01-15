@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center py-5 px-1">
+  <div class="card p-3">
+    <h3 class="text-center txt-green pb-3"></h3>
+    <div class="form-group">
+      <form>
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Jardin" #displayName required>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="button" class="btn btn-outline-primary connected" value="modifier profil" (click)="authenticationService.updateUser(displayName.value)">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
