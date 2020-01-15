@@ -9,73 +9,38 @@
 <!-- Filter -->
 <div class="main">
 
-  <div style="margin-left:10%;position:absolute;">
-    <form>
-      <div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search products...">
-              <span class="input-group-btn">
-                  <button class="btn btn-primary" type="submit">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="filter-bar">
+    <form class="form-inline md-form form-sm mt-5 bar-search">
+      <input class="form-control form-control-sm mr-3 w-75 search" type="text" placeholder="Search" aria-label="Search">
+      <i class="fas fa-search active" aria-hidden="true"></i>
     </form>
     <form>
       <!-- Price -->
-      <hr>
-
       <h3>
-        <span>Price</span>
-      </h3>
-      <span>
-        <input class="basic-slide" id="name" type="text" placeholder="Your best name" /><label class="label-in" for="name">Name</label>
-      </span>
-      <div class="radio">
-        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_1">
-        <label class="custom-radio-btn-label" for="choice_price_button_1">Button radio</label>
-      </div>
-      <div class="radio">
-        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_2">
-        <label class="custom-radio-btn-label" for="choice_price_button_2">Button radio</label>
-      </div>
-      <div class="radio">
-        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_3">
-        <label class="custom-radio-btn-label" for="choice_price_button_3">Button radio</label>
-      </div>
-      <div class="radio">
-        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_4">
-        <label class="custom-radio-btn-label" for="choice_price_button_4">Button radio</label>
-      </div>
-      <hr>
-
-      <!-- Checkboxes -->
-      <h3 class="headline">
         <span>Category</span>
       </h3>
       <div class="radio">
-        <input class="custom-radio-btn" type="radio" name="test" id="choice_categ_button_1">
-        <label class="custom-radio-btn-label" for="choice_categ_button_1">Button radio</label>
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_1">
+        <label class="custom-radio-btn-label" for="choice_price_button_1">Forest</label>
       </div>
       <div class="radio">
-        <input class="custom-radio-btn" type="radio" name="test" id="choice_categ_button_2">
-        <label class="custom-radio-btn-label" for="choice_categ_button_2">Button radio</label>
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_2">
+        <label class="custom-radio-btn-label" for="choice_price_button_2">Vegetable garden</label>
       </div>
       <div class="radio">
-        <input class="custom-radio-btn" type="radio" name="test" id="choice_categ_button_3">
-        <label class="custom-radio-btn-label" for="choice_categ_button_3">Button radio</label>
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_3">
+        <label class="custom-radio-btn-label" for="choice_price_button_3">Gardens</label>
       </div>
       <div class="radio">
-        <input class="custom-radio-btn" type="radio" name="test" id="choice_categ_button_4">
-        <label class="custom-radio-btn-label" for="choice_categ_button_4">Button radio</label>
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_4">
+        <label class="custom-radio-btn-label" for="choice_price_button_4">Lake / Ponds</label>
       </div>
-
+      <div class="radio">
+        <input class="custom-radio-btn" type="radio" name="test" id="choice_price_button_5">
+        <label class="custom-radio-btn-label" for="choice_price_button_5">Swimming pool</label>
+      </div>
       <hr>
+
       <!-- Radios -->
       <h3 class="headline">
         <span>Specification</span>
@@ -96,6 +61,26 @@
         <input class="custom-radio-btn" type="radio" name="test" id="choice_specification_button_4">
         <label class="custom-radio-btn-label" for="choice_specification_button_4">Button radio</label>
       </div>
+
+      <hr>
+
+      <!-- Checkboxes -->
+      <h3 class="headline">
+        <span>Price</span>
+      </h3>
+      <div class="input-group mb-3">
+        <input type="min-price" class="form-control" placeholder="Minimum price">
+        <div class="input-group-append">
+          <span class="input-group-text">€</span>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="max-price" class="form-control" placeholder="Maximum price">
+        <div class="input-group-append">
+          <span class="input-group-text">€</span>
+        </div>
+      </div>
+
     </form>
   </div>
   <div class="container" *ngFor="let product of products.slice().reverse()">

@@ -85,3 +85,19 @@
   transform: translateX(-100%);
 }
 
+.search {
+  box-sizing: content-box;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0;
+  outline: none;
+}
+
+.filter-bar {
+  margin-left:10%;
+  position:absolute;
+}
+.bar-search {
+  margin-bottom: 10%;
+}
