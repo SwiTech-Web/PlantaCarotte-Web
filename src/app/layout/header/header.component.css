@@ -1,4 +1,9 @@
 /* Desktop version */
+@font-face {
+  font-family: Courgette;
+  src: url('https://fonts.googleapis.com/css?family=Courgette&display=swap') format("opentype");
+}
+
 ul a {
   display: block;
   position: relative;
@@ -31,6 +36,19 @@ img {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
+}
+
+.logo {
+  font-family: 'Courgette', cursive;
+  font-size: 38px;
+  background: -webkit-linear-gradient(0deg, rgba(49,66,161,1) 0%, rgba(65,155,221,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-icon {
+  width: 60px;
+  height: 60px;
 }
 
 /*@keyframes bounce {*/

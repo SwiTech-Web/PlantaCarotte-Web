@@ -150,23 +150,23 @@
     <div class="card">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/%C3%89tang_d%27ILOA2.jpg/220px-%C3%89tang_d%27ILOA2.jpg" class="card-img" alt="...">
+          <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="...">
         </div>
         <div class="col-md-6">
           <div class="card-body">
             <h5 class="card-title">{{product.name}}</h5>
             <h6 class="card-title">{{product.dpts}}, {{product.city}}</h6>
             <p class="card-text">{{product.description}}</p>
-            <p class="card-text"><b>à 23 km</b></p>
-            <p class="card-text"><small class="text-muted">Aujourd'hui, 19:38</small></p>
+            <p class="card-text"><b>23 km away</b></p>
+            <p class="card-text"><small class="text-muted">Today, 19:38</small></p>
           </div>
         </div>
         <div class="col-md-2">
           <div class="card-body">
-            <h6>{{product.price * 30}}€ / mois</h6>
-            <h6>{{product.price}}€ / jours</h6>
-            <button *ngIf="product.like == false" type="button" class="btn btn-light like"><p class="card-text"><i class="far fa-heart"></i> Sauvegarder</p></button>
-            <button *ngIf="product.like == true" type="button" class="btn btn-light like" style="border-color: #E00033"><p class="card-text"><i class="fas fa-heart"></i> Sauvegarder</p></button>
+            <h6>{{product.price * 30}}€ / month</h6>
+            <h6>{{product.price}}€ / day</h6>
+            <button *ngIf="product.like == false" type="button" class="btn btn-light like"><p class="card-text"><i class="far fa-heart"></i> Save</p></button>
+            <button *ngIf="product.like == true" type="button" class="btn btn-light like" style="border-color: #E00033"><p class="card-text"><i class="fas fa-heart"></i> Save</p></button>
           </div>
         </div>
       </div>
