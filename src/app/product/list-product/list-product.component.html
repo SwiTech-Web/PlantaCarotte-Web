@@ -1,12 +1,12 @@
 <!-- Header Banner List -->
 <header class="masthead">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-8 text-center">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="text-center mt-5">
         <h1>Simply place an ad to rent your property</h1>
         <p class="lead">Simplify your life by making it mesh</p>
         <br>
-        <button class="deposit-button" type="button"><b>Deposit an announcement</b></button>
+        <button class="btn deposit-button" type="button"><b>Deposit an announcement</b></button>
         <div class="row">
           <div class="icon-banner">
             <img src="/assets/images/forest.png" width="70" alt="">
@@ -34,9 +34,9 @@
   </div>
 </header>
 
-<!-- Filter bar left -->
-<div class="main">
-  <div class="filter-bar">
+<div class="d-flex justify-content-between container pt-5">
+  <!-- Filter bar left -->
+  <div class="mr-5">
     <h5>Remove filter <i class="fas fa-times fa-pull-right"></i></h5>
     <form class="form-inline md-form form-sm mt-5 bar-search">
       <input class="form-control form-control-sm mr-3 w-75 search" type="text" placeholder="Search" aria-label="Search">
@@ -141,13 +141,12 @@
           <span class="input-group-text">€</span>
         </div>
       </div>
-      <button type="button" class="btn btn-success">Apply</button>
+<!--      <button type="button" class="btn btn-success">Apply</button>-->
     </form>
   </div>
-
   <!-- List -->
-  <div class="container" *ngFor="let product of products.slice().reverse()">
-    <div class="card">
+  <div>
+    <div class="card mb-3" *ngFor="let product of products.slice().reverse()">
       <div class="row no-gutters">
         <div class="col-md-4">
           <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="...">
