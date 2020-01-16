@@ -1,48 +1,108 @@
-<div class="d-flex justify-content-center py-5 px-1">
-    <div class="card p-3">
-      <h3 class="text-center txt-green pb-3">Cree un produit</h3>
+<div class="container mt-5">
+  <form>
+    <div [hidden]="!validations.check1" class="card">
+      <div class="card-body">
+        <h5>Etape 1 : Quel type de bien voulez-vous louer ?</h5>
         <div class="form-group">
-          <form>
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Jardin" #type required>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="ville" #city required>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="departement" #dpts required>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Nom du jardin" #name required>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="description" #description required>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="taille" #size required>
-                <p>m²</p>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="prix" #price required>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="button" class="btn btn-outline-primary connected" value="ajouter le produit" (click)="productService.createProduct(type.value, city.value, dpts.value, name.value, description.value, size.value, price.value)">
-            </div>
-      </form>
+          <div class="col-md-6">
+            <label>Choisissez votre bien dans les différentes catégories</label>
+            <select class="custom-select">
+              <option selected disabled value="" #type required>Choose...</option>
+              <option>Fôret</option>
+              <option>Potager</option>
+              <option>Jardin</option>
+              <option> Lac / Etangs</option>
+              <option> Permaculture</option>
+              <option> Plage</option>
+              <option> Piscine</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          Êtes vous un particulier ou un professionnel ?
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label mx-1" for="exampleRadios1">
+              Particulier
+            </label>
+            <input class="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Professionnel
+            </label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="validate(checked.checked2)">SUIVANT</button>
+      </div>
     </div>
+
+    <div [hidden]="!validations.check2" class="card">
+      <div class="card-body">
+        <h5>Etape 1 : Combien de personnes vont accéder au METTRE LA VALEUR SELCTIONNER ?</h5>
+        <div class="form-group">
+          <div class="col-md-6">
+            <label>Choisissez votre bien dans les différentes catégories</label>
+            <select class="custom-select">
+              <option selected disabled value="" #type required>Choose...</option>
+              <option>1</option>
+              <option>2</option>
+              <option>5</option>
+              <option>10 ou +</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="validate(checked.checked3)">SUIVANT</button>
+      </div>
     </div>
+
+    <div [hidden]="!validations.check3" class="card">
+      <div class="card-body">
+        <h5>Etape 1 : Configuration du bien : liste des equipements annexes</h5>
+        <div class="form-group">
+          Êtes vous un particulier ou un professionnel ?
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label mx-1" for="exampleRadios1">
+              Particulier
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Professionnel
+            </label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="validate(checked.checked4)">Suivant</button>
+      </div>
+    </div>
+
+    <div [hidden]="!validations.check4" class="card">
+      <div class="card-body">
+        <h5>Etape 1 : Où est situé votre "variable du bien" ?</h5>
+        Affichage de leur bien sur une google map
+        <button type="button" class="btn btn-primary" (click)="validate(checked.checked5)">SUIVANT</button>
+      </div>
+    </div>
+
+    <div [hidden]="!validations.check5" class="card">
+      <div class="card-body">
+        <h5>Etape 1 : Un accès handicapé est-il prévu sur place ?</h5>
+        <button type="button" class="btn btn-primary" (click)="validate(checked.checked6)">SUIVANT</button>
+      </div>
+    </div>
+
+    <div [hidden]="!validations.check6" class="card">
+      <div class="card-body">
+        <h5>Etape 1 : Y a-t-il accès à un point d'eau extérieur ?</h5>
+        <button type="button" class="btn btn-primary" (click)="validate(checked.checked7)">SUIVANT</button>
+      </div>
+    </div>
+
+    <div [hidden]="!validations.check7" class="card">
+      <div class="card-body">
+        <h5>Etape 1 : Récapitulatif des donnes saisies. Passage à ETAPE 2</h5>
+        <button type="button" class="btn btn-primary">SUIVANT</button>
+      </div>
+    </div>
+  </form>
+<!--              <input type="button" class="btn btn-outline-primary connected" value="ajouter le produit" (click)="productService.createProduct(type.value, city.value, dpts.value, name.value, description.value, size.value, price.value)">-->
+
 </div>
