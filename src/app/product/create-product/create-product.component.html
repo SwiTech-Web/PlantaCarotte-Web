@@ -1,6 +1,13 @@
 <div class="container mt-5">
   <form>
     <div [hidden]="!validations.check1" class="card">
+<!--      <div style="width: 100%; height: 10px; background-color: #5cbd95; border-color: #5cbd95; border-radius: 0px 0px 50px 50px;"></div>-->
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="17"
+             aria-valuemin="0" aria-valuemax="100" style="width:17%">
+          <span class="sr-only">17% Complete</span>
+        </div>
+      </div>
       <div class="card-body">
         <h5>Etape 1 : Quel type de bien voulez-vous louer ?</h5>
         <div class="form-group">
@@ -11,16 +18,16 @@
               <option>Fôret</option>
               <option>Potager</option>
               <option>Jardin</option>
-              <option> Lac / Etangs</option>
-              <option> Permaculture</option>
-              <option> Plage</option>
-              <option> Piscine</option>
+              <option>Lac / Etangs</option>
+              <option>Permaculture</option>
+              <option>Plage</option>
+              <option>Piscine</option>
             </select>
           </div>
         </div>
         <div class="form-group">
           Êtes vous un particulier ou un professionnel ?
-          <div class="form-check">
+          <div class="form-check radio">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
             <label class="form-check-label mx-1" for="exampleRadios1">
               Particulier
@@ -31,11 +38,20 @@
             </label>
           </div>
         </div>
-        <button type="button" class="btn btn-primary" (click)="validate(checked.checked2)">SUIVANT</button>
+<!--        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked2)">SUIVANT</button>-->
+      </div>
+      <div style="height: 93%;width: 2%; background-color: #5cbd95; position: absolute; right: 0; bottom: 0; border-radius: 10px 0px 0px 10px" (click)="validate(checked.checked2)">
+        <i class="fas fa-caret-right fa-3x	" style="margin-top: 400%; margin-left: 20%; color: white;"></i>
       </div>
     </div>
 
     <div [hidden]="!validations.check2" class="card">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="34"
+             aria-valuemin="0" aria-valuemax="100" style="width:34%">
+          <span class="sr-only">34% Complete</span>
+        </div>
+      </div>
       <div class="card-body">
         <h5>Etape 1 : Combien de personnes vont accéder au METTRE LA VALEUR SELCTIONNER ?</h5>
         <div class="form-group">
@@ -45,61 +61,158 @@
               <option selected disabled value="" #type required>Choose...</option>
               <option>1</option>
               <option>2</option>
+              <option>3</option>
+              <option>4</option>
               <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
               <option>10 ou +</option>
             </select>
           </div>
         </div>
-        <button type="button" class="btn btn-primary" (click)="validate(checked.checked3)">SUIVANT</button>
+        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked3)">SUIVANT</button>
       </div>
     </div>
 
     <div [hidden]="!validations.check3" class="card">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="51"
+             aria-valuemin="0" aria-valuemax="100" style="width:51%">
+          <span class="sr-only">51% Complete</span>
+        </div>
+      </div>
       <div class="card-body">
         <h5>Etape 1 : Configuration du bien : liste des equipements annexes</h5>
-        <div class="form-group">
+        <div class="form-group checkbox">
           Êtes vous un particulier ou un professionnel ?
           <div class="form-check">
             <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option1" checked>
             <label class="form-check-label mx-1" for="exampleRadios1">
-              Particulier
+              Pets allowed
             </label>
             <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
             <label class="form-check-label ml-4" for="exampleRadios">
-              Professionnel
+              Barbecue
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Sanitary
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Table & chairs
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Terrace
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Beach umbrella
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Outdoor games
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Petanque
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Sports area
+            </label>
+            <input class="form-check-input mx-2" type="checkbox" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Accessible water point
             </label>
           </div>
         </div>
-        <button type="button" class="btn btn-primary" (click)="validate(checked.checked4)">Suivant</button>
+        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked4)">Suivant</button>
       </div>
     </div>
 
     <div [hidden]="!validations.check4" class="card">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="68"
+             aria-valuemin="0" aria-valuemax="100" style="width:68%">
+          <span class="sr-only">68% Complete</span>
+        </div>
+      </div>
       <div class="card-body">
         <h5>Etape 1 : Où est situé votre "variable du bien" ?</h5>
-        Affichage de leur bien sur une google map
-        <button type="button" class="btn btn-primary" (click)="validate(checked.checked5)">SUIVANT</button>
+        <div class="form-group">
+          <button class="btn btn-green" type="button"><b><i class="fas fa-map-marker-alt"></i> Use current location</b></button>
+        </div>
+        <div class="form-group col-md-6">
+          <label>
+            Country / Region
+          </label>
+          <input class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label>
+            Adresse postale
+          </label>
+          <input class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label>
+            Appartement, bâtiment (facultatif)
+          </label>
+          <input class="form-control">
+        </div>
+        <div class="form-group col-md-6 d-flex justify-content-between">
+          <label>
+            Code postal
+          </label>
+          <input class="form-control col-md-3">
+          <label>
+            Ville
+          </label>
+          <input class="form-control col-md-3">
+        </div>
+        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked5)">SUIVANT</button>
       </div>
     </div>
 
     <div [hidden]="!validations.check5" class="card">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="85"
+             aria-valuemin="0" aria-valuemax="100" style="width:85%">
+          <span class="sr-only">85% Complete</span>
+        </div>
+      </div>
       <div class="card-body">
         <h5>Etape 1 : Un accès handicapé est-il prévu sur place ?</h5>
-        <button type="button" class="btn btn-primary" (click)="validate(checked.checked6)">SUIVANT</button>
+        <div class="form-group">
+          <div class="form-check radio">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label mx-1" for="exampleRadios1">
+              Oui
+            </label>
+            <input class="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios" value="option2">
+            <label class="form-check-label ml-4" for="exampleRadios">
+              Non
+            </label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked6)">SUIVANT</button>
       </div>
     </div>
 
     <div [hidden]="!validations.check6" class="card">
-      <div class="card-body">
-        <h5>Etape 1 : Y a-t-il accès à un point d'eau extérieur ?</h5>
-        <button type="button" class="btn btn-primary" (click)="validate(checked.checked7)">SUIVANT</button>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="100"
+             aria-valuemin="0" aria-valuemax="100" style="width:100%">
+          <span class="sr-only">100% Complete</span>
+        </div>
       </div>
-    </div>
-
-    <div [hidden]="!validations.check7" class="card">
       <div class="card-body">
         <h5>Etape 1 : Récapitulatif des donnes saisies. Passage à ETAPE 2</h5>
-        <button type="button" class="btn btn-primary">SUIVANT</button>
+        <button type="button" class="btn btn-primary float-right">SUIVANT</button>
       </div>
     </div>
   </form>
