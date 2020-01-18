@@ -1,15 +1,17 @@
-<div class="d-flex justify-content-center py-5 px-1">
-    <div class="card p-3">
+<div class="d-flex justify-content-center py-5">
+  <div class="card">
+    <div class="card-body">
       <h3 class="text-center txt-green pb-3">{{'register.sign-up' | translate}}</h3>
       <form>
         <div class="form-group">
-            <div class="input-group">
-              <input type="email" class="form-control no-border-right" placeholder="{{'register.nickname' | translate}}" #userName required>
-              <div class="input-group-append">
-                <span class="input-group-text"><i class="far fa-user"></i></span>
-              </div>
+          <div class="input-group">
+            <input type="email" class="form-control no-border-right" placeholder="{{'register.nickname' | translate}}" #userName required>
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="far fa-user"></i></span>
             </div>
           </div>
+        </div>
+
         <div class="form-group">
           <div class="input-group">
             <input type="email" class="form-control no-border-right" placeholder="{{'register.email' | translate}}" #userEmail required>
@@ -21,24 +23,22 @@
 
         <div class="form-group">
           <div class="input-group">
-              <input type="password" class="form-control no-border-right" placeholder="{{'register.password' | translate}}" #userPwd required>
-              <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-              </div>
+            <input type="password" class="form-control no-border-right" placeholder="{{'register.password' | translate}}" #userPwd required>
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
           </div>
         </div>
 
-        <div class=" form-group d-flex justify-content-center">
-          <input type="button" class="btn btn-primary connected" value="{{'register.btn-register' | translate}}" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+        <div class="form-group d-flex justify-content-center">
+          <input type="button" class="btn btn-primary" value="{{'register.btn-register' | translate}}" (click)="authService.SignUp(userEmail.value, userPwd.value)">
         </div>
 
-        <div class="form-group">
-            <span class="or"><span class="orInner"></span></span>
-        </div>
         <div class="form-group">
           <span class="txt-none">{{'register.account' | translate}} <a routerLink="/login" ><strong>{{'login.connection' | translate}}</strong></a></span>
         </div>
       </form>
     </div>
   </div>
+</div>
 

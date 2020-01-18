@@ -9,23 +9,23 @@
         <button class="btn btn-green" type="button" routerLink="/product/add"><b>Deposit an announcement</b></button>
         <div class="row">
           <div class="icon-banner">
-            <img src="/assets/images/forest.png" width="70" alt="">
+            <img src="/assets/images/forest.png" width="70" alt="forest">
             <p>Forest</p>
           </div>
           <div class="icon-banner">
-            <img src="/assets/images/lake.png" width="70" alt="">
+            <img src="/assets/images/lake.png" width="70" alt="lake">
             <p>Lake</p>
           </div>
           <div class="icon-banner">
-            <img src="/assets/images/permaculture.png" width="70" alt="">
+            <img src="/assets/images/permaculture.png" width="70" alt="permaculture">
             <p>Permaculture</p>
           </div>
           <div class="icon-banner">
-            <img src="/assets/images/garden.png" width="70" alt="">
+            <img src="/assets/images/garden.png" width="70" alt="garden">
             <p>Garden</p>
           </div>
           <div class="icon-banner">
-            <img src="/assets/images/beach.png" width="70" alt="">
+            <img src="/assets/images/beach.png" width="70" alt="beach">
             <p>Beach</p>
           </div>
         </div>
@@ -33,19 +33,21 @@
     </div>
   </div>
 </header>
+
 <div class="d-flex justify-content-between container pt-5">
+
   <!-- Filter bar left -->
-  <div class="mr-5">
-    <h5>Remove filter <i class="fas fa-times fa-pull-right"></i></h5>
-    <form class="form-inline md-form form-sm mt-5 bar-search">
+  <div class="mr-3">
+    <h5>Remove filter<i class="fas fa-times ml-4"></i></h5>
+
+    <form class="form-inline md-form my-3">
+      <i class="fas fa-search" aria-hidden="true"></i>
       <input class="form-control form-control-sm mr-3 w-75 search" type="text" placeholder="Search" aria-label="Search">
-      <i class="fas fa-search active" aria-hidden="true"></i>
     </form>
+
     <form>
       <!-- Category -->
-      <h3>
-        <span>Category</span>
-      </h3>
+      <h3>Category</h3>
       <div class="box">
         <div class="checkbox">
           <input id="choice_category_button_1" class="styled" type="checkbox" name="choice">
@@ -77,10 +79,9 @@
         </div>
       </div>
       <hr>
+
       <!-- Specification -->
-      <h3 class="headline">
-        <span>Specification</span>
-      </h3>
+      <h3>Specification</h3>
       <div class="box">
         <div class="checkbox">
           <input id="choice_specification_button_1" class="styled" type="checkbox" name="choice">
@@ -124,31 +125,30 @@
         </div>
       </div>
       <hr>
+
       <!-- Price -->
-      <h3 class="headline">
-        <span>Price</span>
-      </h3>
+      <h3>Price</h3>
       <div class="input-group mb-3">
-        <input type="min-price" class="form-control" placeholder="Minimum price">
+        <input type="min-price" class="form-control no-border-right" placeholder="Minimum price">
         <div class="input-group-append">
-          <span class="input-group-text">€</span>
+          <span class="input-group-text"><i class="fas fa-euro-sign"></i></span>
         </div>
       </div>
       <div class="input-group mb-3">
-        <input type="max-price" class="form-control" placeholder="Maximum price">
+        <input type="max-price" class="form-control no-border-right" placeholder="Maximum price">
         <div class="input-group-append">
-          <span class="input-group-text">€</span>
+          <span class="input-group-text"><i class="fas fa-euro-sign"></i></span>
         </div>
       </div>
-<!--      <button type="button" class="btn btn-success">Apply</button>-->
     </form>
   </div>
+
   <!-- List -->
   <div>
     <div class="card mb-3" *ngFor="let product of products.slice().reverse()">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="...">
+          <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="image">
         </div>
           <div class="card-body d-flex justify-content-between">
             <div>

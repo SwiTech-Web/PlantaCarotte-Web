@@ -10,7 +10,7 @@
     background: white;
     position: relative;
     margin: 5px 0 0px;
-} 
+}
 .orInner {
     background: white;
     display: inline-block;
@@ -43,7 +43,6 @@
 .card {
     width: 28rem;
 }
-
-button, .connected {
+.btn {
     width: 100%;
 }

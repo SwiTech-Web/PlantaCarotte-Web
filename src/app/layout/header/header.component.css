@@ -3,7 +3,24 @@
   font-family: Courgette;
   src: url('https://fonts.googleapis.com/css?family=Courgette&display=swap&selection.subset=latin-ext');
 }
-
+.brand-icon {
+  width: 45px;
+  height: 45px;
+}
+.logo {
+  font-family: 'Courgette', cursive;
+  font-size: 25px;
+  background: -webkit-linear-gradient(0deg, rgba(49,66,161,1) 0%, rgba(65,155,221,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.user-icon {
+  width: 35px;
+  height: 35px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
 ul a {
   display: block;
   position: relative;
@@ -29,26 +46,6 @@ ul a:hover::before {
 }
 ul a:focus-within {
   color: #5cbd95 !important;
-}
-img {
-  width: 21px;
-  height: 21px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-}
-
-.logo {
-  font-family: 'Courgette', cursive;
-  font-size: 38px;
-  background: -webkit-linear-gradient(0deg, rgba(49,66,161,1) 0%, rgba(65,155,221,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.logo-icon {
-  width: 60px;
-  height: 60px;
 }
 
 /*@keyframes bounce {*/

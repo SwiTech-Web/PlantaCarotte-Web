@@ -1,24 +1,15 @@
-.card {
-  border-radius: 10px;
-}
-
-.text-muted{
-  bottom: 0;
-  position: absolute;
-  margin-bottom: 10px;
+.card-img{
+  height: 201.6px;
 }
 .like {
   border-radius: 20px;
 }
-
 .fa-heart {
   color: #E00033;
 }
-
 .text-center {
-  color: white;
+  color: #FFFFFF;
 }
-
 .masthead {
   height: 520px;
   min-height: 500px;
@@ -27,13 +18,8 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .icon-banner {
   margin: 5%;
-  color: #D2D0D2;
-}
-
-.image-banner {
   color: #D2D0D2;
 }
 
@@ -44,4 +30,7 @@
   border-bottom: 1px solid #ced4da;
   border-radius: 0;
   outline: none;
+}
+.search:focus {
+  border-bottom-color: #5cbd95;
 }
