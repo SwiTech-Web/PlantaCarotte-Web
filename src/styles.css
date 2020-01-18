@@ -17,7 +17,13 @@ input.form-control:focus {
   background-color: #FFFFFF !important;
   border-left: transparent !important;
 }
-
+.user-icon {
+  width: 35px;
+  height: 35px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
 /* customize boutton */
 .btn-green {
   background-color: #5cbd95 !important;

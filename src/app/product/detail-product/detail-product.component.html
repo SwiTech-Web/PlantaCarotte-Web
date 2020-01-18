@@ -1,1 +1,62 @@
-<p>detail-product works!</p>
+<div class="container pt-5" *ngIf="product">
+  <div class="d-flex justify-content-between row">
+    <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="rounded active-img" alt="active">
+    <div class="card">
+      <div class="card-body">
+        <h4>{{product.price * 30}}€ / month</h4>
+        <h4>{{product.price}}€ / day</h4>
+        <div>
+          <i class="text-warning fa fa-star"></i>
+          <i class="text-warning fa fa-star"></i>
+          <i class="text-warning fa fa-star"></i>
+          <i class="text-warning fa fa-star"></i>
+        </div>
+        <hr>
+        <div>
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Date de debut</label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label>Durée</label>
+                <select class="custom-select">
+                  <option selected disabled value="">Choose...</option>
+                  <option>1 ans</option>
+                  <option>2 ans</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group my-3">
+              <button type="submit" class="btn btn-primary">Louer ce terrain</button>
+            </div>
+            <div>
+              Ce terrain attire beaucoup l'attention.
+              L'annonce a été consultée plus de 500 fois au cours de la dernière semaine.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-2">
+    <div class="d-flex justify-content-start">
+      <h1>{{product.name}}</h1>
+      <div class="px-5 pt-2">
+        <img class="user-icon" src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
+        <p>{{user.displayName}}</p>
+      </div>
+    </div>
+
+    <h6>{{product.dpts}}, {{product.city}}</h6>
+    <hr>
+    <p>{{product.description}}</p>
+    <p class="card-text"><b>23 km away</b></p>
+  </div>
+  <hr>
+  <div>
+    <h4>Annonces simillaires</h4>
+  </div>
+</div>

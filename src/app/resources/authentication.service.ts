@@ -123,18 +123,4 @@ export class AuthenticationService {
       this.router.navigate(['home']);
     })
   }
-
-  updateUser(displayName) {
-    const user: User = {
-      uid: this.userData.uid,
-      email: this.userData.email,
-      displayName: displayName,
-      photoURL: this.userData.photoURL,
-      emailVerified: this.userData.emailVerified
-    }
-    return this.afs
-      .collection('users')
-      .doc(this.userData.uid)
-      .set(user, {merge: true});
-  }
 }

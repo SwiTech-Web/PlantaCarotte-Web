@@ -37,7 +37,7 @@
 <div class="d-flex justify-content-between container pt-5">
 
   <!-- Filter bar left -->
-  <div class="mr-3">
+  <div class="mr-5">
     <h5>Remove filter<i class="fas fa-times ml-4"></i></h5>
 
     <form class="form-inline md-form my-3">
@@ -146,7 +146,7 @@
   <!-- List -->
   <div>
     <div class="card mb-3" *ngFor="let product of products.slice().reverse()">
-      <div class="row no-gutters">
+      <div class="row no-gutters" routerLink="/product/detail/{{product.id}}">
         <div class="col-md-4">
           <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="image">
         </div>
@@ -161,6 +161,12 @@
             <div>
               <h6>{{product.price * 30}}€ / month</h6>
               <h6>{{product.price}}€ / day</h6>
+              <div>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+              </div>
               <div class="mt-5">
                 <button *ngIf="product.like == false" type="button" class="btn btn-light like"><p class="card-text"><i class="far fa-heart"></i> Save</p></button>
                 <button *ngIf="product.like == true" type="button" class="btn btn-light like" style="border-color: #E00033"><p class="card-text"><i class="fas fa-heart"></i> Save</p></button>

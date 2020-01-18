@@ -14,13 +14,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.user-icon {
-  width: 35px;
-  height: 35px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-}
 ul a {
   display: block;
   position: relative;
