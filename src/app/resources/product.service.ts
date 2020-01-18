@@ -16,9 +16,17 @@ export class ProductService {
     public authService: AuthenticationService) { }
 
   getProducts(): Observable<Product[]> {
-    return this.db.collection<Product>('products').valueChanges();
+    return this.db.collection<Product>('products').valueChanges({ idField: 'id' });
   }
 
+  getProductById(id: string) {
+    return this.db.collection<Product>('products').doc(id).valueChanges();
+  }
+
+  getProductsByType(type: string){
+    // return this.db.collection<Product>('products').().valueChanges();
+  }
+  
   createProduct(type, city, dpts, name, description, size, price) {
     const product: Product = {
       type: type,

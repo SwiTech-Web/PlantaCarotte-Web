@@ -11,6 +11,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { ListProductComponent } from './product/list-product/list-product.component';
 import { CreateProductComponent } from './product/create-product/create-product.component';
 import { ProfileComponent } from "./profile/profile.component";
+import {DetailProductComponent} from "./product/detail-product/detail-product.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'product/list', component: ListProductComponent },
+  { path: 'product/detail/:id', component: DetailProductComponent },
   { path: 'product/add', component: CreateProductComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [SecureInnerPagesGuard] },
