@@ -31,8 +31,6 @@ export class DetailProductComponent implements OnInit {
   }
 
   getUserDetails() {
-    this.userService.getUserById(this.product.uid).subscribe(user => {
-      this.user = user;
-    });
+    this.userService.getUserById(this.product.uid).subscribe(user => this.user = user);
   }
 }

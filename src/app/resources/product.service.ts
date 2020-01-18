@@ -26,7 +26,7 @@ export class ProductService {
   getProductsByType(type: string){
     // return this.db.collection<Product>('products').().valueChanges();
   }
-  
+
   createProduct(type, city, dpts, name, description, size, price) {
     const product: Product = {
       type: type,
