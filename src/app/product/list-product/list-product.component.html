@@ -152,11 +152,14 @@
         </div>
           <div class="card-body d-flex justify-content-between">
             <div>
-              <h5 class="card-title">{{product.name}}</h5>
-              <h6 class="card-title">{{product.dpts}}, {{product.city}}</h6>
-              <p class="card-text">{{product.description}}</p>
+              <h4 class="card-title">{{product.name}}
+                <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>
+              </h4>
+
+              <p class="card-text"><i class="fas fa-leaf"></i> {{product.type}}</p>
+              <p class="card-text ellipsis">{{product.description}}</p>
               <p class="card-text"><b>23 km away</b></p>
-              <p class="card-text"><small class="text-muted">Today, 19:38</small></p>
+              <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>
             </div>
             <div>
               <h6>{{product.price * 30}}€ / month</h6>

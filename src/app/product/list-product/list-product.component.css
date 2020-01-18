@@ -1,5 +1,12 @@
 .card-img{
-  height: 201.6px;
+  height: 100%;
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  width: 31em;
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
 }
 .like {
   border-radius: 20px;

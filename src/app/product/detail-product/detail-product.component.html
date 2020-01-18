@@ -1,4 +1,4 @@
-<div class="container pt-5" *ngIf="product">
+<div class="container pt-5" *ngIf="product && user">
   <div class="d-flex justify-content-between row">
     <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="rounded active-img" alt="active">
     <div class="card">
@@ -53,7 +53,9 @@
     <h6>{{product.dpts}}, {{product.city}}</h6>
     <hr>
     <p>{{product.description}}</p>
-    <p class="card-text"><b>23 km away</b></p>
+    <h4>Information</h4>
+    <p>{{product.size}} m²</p>
+    <p  ><b>23 km away</b></p>
   </div>
   <hr>
   <div>

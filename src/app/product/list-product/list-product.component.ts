@@ -9,7 +9,7 @@ import {Product} from "../../models/product.model";
 })
 export class ListProductComponent implements OnInit {
   products: any[] = [];
-  format: string = 'dd/MM/yyyy hh:mm:ss';
+  format: string = 'dd/MM/yyyy, hh:mm';
 
   constructor(private productService:ProductService) { }
 
