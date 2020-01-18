@@ -32,30 +32,47 @@ export class CreateProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  validate(checked : string){
-    if(checked === this.checked.checked2) {
+  validate(checked: string) {
+    if (checked === this.checked.checked2) {
       this.validations.check1 = false;
       this.validations.check2 = true;
-    }
-    else if(checked === this.checked.checked3) {
+    } else if (checked === this.checked.checked3) {
       this.validations.check2 = false;
       this.validations.check3 = true;
-    }
-    else if(checked === this.checked.checked4) {
+    } else if (checked === this.checked.checked4) {
       this.validations.check3 = false;
       this.validations.check4 = true;
-    }
-    else if(checked === this.checked.checked5) {
+    } else if (checked === this.checked.checked5) {
       this.validations.check4 = false;
       this.validations.check5 = true;
-    }
-    else if(checked === this.checked.checked6) {
+    } else if (checked === this.checked.checked6) {
       this.validations.check5 = false;
       this.validations.check6 = true;
-    }
-    else if(checked === this.checked.checked7) {
+    } else if (checked === this.checked.checked7) {
       this.validations.check6 = false;
       this.validations.check7 = true;
+    }
+  }
+
+  back(checked: string) {
+    if (checked === this.checked.checked2) {
+      this.validations.check1 = true;
+      this.validations.check2 = false;
+    } else if (checked === this.checked.checked3) {
+      this.validations.check2 = true;
+      this.validations.check3 = false;
+    } else if (checked === this.checked.checked4) {
+      this.validations.check3 = true;
+      this.validations.check4 = false;
+    } else if (checked === this.checked.checked5) {
+      this.validations.check4 = true;
+      this.validations.check5 = false;
+    } else if (checked === this.checked.checked6) {
+      this.validations.check5 = true;
+      this.validations.check6 = false;
+    } else if (checked === this.checked.checked7) {
+      this.validations.check6 = true;
+      this.validations.check7 = false;
     }
   }
 }
