@@ -1,7 +1,12 @@
 <div class="container mt-5">
   <form>
     <div class="d-flex justify-content-center mb-3">
-      <h5>Etape 1 : Quel type de bien voulez-vous louer ?</h5>
+      <h5 [hidden]="!validations.check1">Etape 1 : Type de bien que vous voulez louer</h5>
+      <h5 [hidden]="!validations.check2">Etape 1 : Nombre de personnes qui vont accéder au jardin</h5>
+      <h5 [hidden]="!validations.check3">Etape 1 : Ajouts des équipements annexes</h5>
+      <h5 [hidden]="!validations.check4">Etape 1 : Géolocalisation de votre bien</h5>
+      <h5 [hidden]="!validations.check5">Etape 1 : Accécibilité de votre jardin</h5>
+      <h5 [hidden]="!validations.check6">Etape 1 : Récapitulatif</h5>
     </div>
     <div [hidden]="!validations.check1" class="card">
       <div class="progress">
@@ -64,7 +69,7 @@
       </div>
       <div class="card-body">
         <div class="form-group">
-            <h6 class="puce">Combien de personnes vont accéder au METTRE LA VALEUR SELCTIONNER ?</h6>
+            <h6 class="puce">Sélectionner le nombre de personnes ?</h6>
           <div class="col-md-6">
           <select class="custom-select">
               <option selected disabled value="" #type required>Choose...</option>
@@ -201,15 +206,15 @@
           </label>
           <input class="form-control">
         </div>
-        <div class="form-group col-md-6 d-flex justify-content-between">
-          <label>
-            Code postal
-          </label>
-          <input class="form-control col-md-3">
-          <label>
-            Ville
-          </label>
-          <input class="form-control col-md-3">
+        <div class="form-row mx-2">
+          <div class="form-group col-md-3">
+            <label for="inputCity">Ville</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputCity">Code postal</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
         </div>
         <div class="card-footer bg-transparent">
           <button type="button" class="btn btn-primary float-left" (click)="back(checked.checked4)">Retour</button>
@@ -258,7 +263,7 @@
         </div>
       </div>
       <div class="card-body">
-        <h5>Etape 1 : Récapitulatif des donnes saisies. Passage à ETAPE 2</h5>
+        <h6 class="puce">Récapitulatif des donnes saisies. Passage à ETAPE 2</h6>
         <button type="button" class="btn btn-primary float-right">SUIVANT</button>
       </div>
     </div>
