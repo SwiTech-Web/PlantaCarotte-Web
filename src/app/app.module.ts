@@ -27,6 +27,7 @@ import { SummaryProductComponent } from './product/summary-product/summary-produ
 import { PreviewProductComponent } from './product/preview-product/preview-product.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { RateProductComponent } from './product/rate-product/rate-product.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SummaryProductComponent,
     PreviewProductComponent,
     ProfileComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    RateProductComponent
   ],
   imports: [
     BrowserModule,

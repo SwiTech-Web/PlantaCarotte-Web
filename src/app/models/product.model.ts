@@ -8,7 +8,7 @@ export interface Product {
   name: string;
   description: string;
   price: number;
-  score: number;
+  rate: number;
   size: number;
   rent: boolean;
   like: boolean;

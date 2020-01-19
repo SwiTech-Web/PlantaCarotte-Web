@@ -35,7 +35,6 @@
 </header>
 
 <div class="d-flex justify-content-between container pt-5">
-
   <!-- Filter bar left -->
   <div class="mr-5">
     <h5>Remove filter<i class="fas fa-times ml-4"></i></h5>
@@ -145,22 +144,23 @@
 
   <!-- List -->
   <div>
-    <div class="card mb-3" *ngFor="let product of products.slice().reverse()">
+    <div class="card card-effect mb-3" *ngFor="let product of products.slice().reverse()">
       <div class="row no-gutters" routerLink="/product/detail/{{product.id}}">
         <div class="col-md-4">
           <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="image">
         </div>
           <div class="card-body d-flex justify-content-between">
             <div>
-              <h4 class="card-title">{{product.name}}</h4>
-              <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>
-              <p class="card-text">
+              <h4 class="card-title">{{product.name}}
+                <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>
+              </h4>
+              <p class="card-text" style="color:#5cbd95"><b>
                 <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
                 <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
                 <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
                 <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
                 <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
-                {{product.type}}</p>
+                {{product.type}}</b></p>
               <p class="card-text ellipsis">{{product.description}}</p>
               <p class="card-text"><b>23 km away</b></p>
               <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>
@@ -168,45 +168,10 @@
             <div>
               <h6>{{product.price * 30}}€ / month</h6>
               <h6>{{product.price}}€ / day</h6>
-              <div *ngIf="product.score < '0.99'">
-                <i class="text-warning fas fa-star-half-alt"></i>
-              </div>
-              <div *ngIf="product.score >= '1' && product.score < '1.49'">
-                <i class="text-warning fa fa-star"></i>
-              </div>
-              <div *ngIf="product.score >= '1.50' && product.score < '1.99'">
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fas fa-star-half-alt"></i>
-              </div>
-              <div *ngIf="product.score >= '2' && product.score < '2.49'">
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-              </div>
-              <div *ngIf="product.score >= '2.50' && product.score < '2.99'">
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fas fa-star-half-alt"></i>
-              </div>
-              <div *ngIf="product.score >= '3' && product.score < '3.49'">
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-              </div>
-              <div *ngIf="product.score >= '3.50' && product.score < '3.99'">
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fas fa-star-half-alt"></i>
-              </div>
-              <div *ngIf="product.score == '4'">
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-                <i class="text-warning fa fa-star"></i>
-              </div>
-              <div class="mt-5">
-                <button *ngIf="product.like == false" type="button" class="btn btn-light like"><p class="card-text"><i class="far fa-heart"></i> Save</p></button>
-                <button *ngIf="product.like == true" type="button" class="btn btn-light like" style="border-color: #E00033"><p class="card-text"><i class="fas fa-heart"></i> Save</p></button>
+              <app-rate-product [rate]='product.rate'></app-rate-product>
+              <div class="save">
+                <button *ngIf="product.like == false" routerLink="/home" type="button" class="btn btn-light like"><p class="card-text"><i class="far fa-heart"></i> Save</p></button>
+                <button *ngIf="product.like == true" routerLink="/home" type="button" class="btn btn-light like" style="border-color: #E00033"><p class="card-text"><i class="fas fa-heart"></i> Save</p></button>
               </div>
             </div>
           </div>

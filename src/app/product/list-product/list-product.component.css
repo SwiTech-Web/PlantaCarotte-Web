@@ -19,7 +19,9 @@
   margin: 5%;
   color: #D2D0D2;
 }
-
+.save {
+  margin-top: 6em;
+}
 /*Search-bar*/
 .search {
   background-color: transparent;

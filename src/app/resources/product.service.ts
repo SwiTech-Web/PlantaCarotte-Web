@@ -27,7 +27,7 @@ export class ProductService {
     // return this.db.collection<Product>('products').().valueChanges();
   }
 
-  createProduct(type, city, dpts, name, description, size, price, score) {
+  createProduct(type, city, dpts, name, description, size, price) {
     const product: Product = {
       type: type,
       city: city,
@@ -36,7 +36,7 @@ export class ProductService {
       description: description,
       size: size,
       price: price,
-      score: score,
+      rate : 0,
       rent: false,
       like: false,
       date: new Date(),
@@ -53,7 +53,7 @@ export class ProductService {
     });
   }
 
-  deletePolicy(id: string){
+  deleteProduct(id: string){
     this.db.collection('products').doc(id).delete()
       .then(() => {
       this.ngZone.run(() => {

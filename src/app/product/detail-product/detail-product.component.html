@@ -5,44 +5,7 @@
       <div class="card-body">
         <h4>{{product.price * 30}}€ / month</h4>
         <h4>{{product.price}}€ / day</h4>
-        <div>
-          <div *ngIf="product.score < '0.99'">
-            <i class="text-warning fas fa-star-half-alt"></i>
-          </div>
-          <div *ngIf="product.score >= '1' && product.score < '1.49'">
-            <i class="text-warning fa fa-star"></i>
-          </div>
-          <div *ngIf="product.score >= '1.50' && product.score < '1.99'">
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fas fa-star-half-alt"></i>
-          </div>
-          <div *ngIf="product.score >= '2' && product.score < '2.49'">
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-          </div>
-          <div *ngIf="product.score >= '2.50' && product.score < '2.99'">
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fas fa-star-half-alt"></i>
-          </div>
-          <div *ngIf="product.score >= '3' && product.score < '3.49'">
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-          </div>
-          <div *ngIf="product.score >= '3.50' && product.score < '3.99'">
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fas fa-star-half-alt"></i>
-          </div>
-          <div *ngIf="product.score == '4'">
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-            <i class="text-warning fa fa-star"></i>
-          </div>
-        </div>
+        <app-rate-product [rate]="product.rate"></app-rate-product>
         <hr>
         <div>
           <form>
@@ -87,9 +50,17 @@
     <p>{{product.description}}</p>
     <p>{{product.size}} m²</p>
     <p  ><b>23 km away</b></p>
-  </div>
-  <hr>
-  <div>
-    <h4>Annonces simillaires</h4>
+    <div>
+      <h4 class="py-3">Le quartier</h4>
+      <img src="../../../assets/images/maps.PNG" class="rounded active-img" alt="image">
+    </div>
+    <hr>
+    <div>
+      <h4>Commantaires</h4>
+    </div>
+    <hr>
+    <div>
+      <h4>Annonces simillaires</h4>
+    </div>
   </div>
 </div>
