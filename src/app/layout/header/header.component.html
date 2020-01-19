@@ -32,6 +32,7 @@
         </a>
         <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownHeader">
           <a class="dropdown-item" routerLink="/profile">Profile</a>
+          <a class="dropdown-item" routerLink="/favorites/{{authService.userData.uid}}">Favorites</a>
           <a class="dropdown-item" (click)="authService.SignOut()"> Deconnexion</a>
         </div>
       </li>
