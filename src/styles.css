@@ -4,10 +4,28 @@ body {
   overflow-x: hidden !important;
   font-size: 14px !important;
 }
-.card {
-  box-shadow: 2px 2px 12px #555;
+.card-img{
+  padding: 3px;
+  height: 100%;
 }
-
+.card {
+  box-shadow:0 2px 3px 0px rgba(0,0,0,25);
+  transition: 0.2s all;
+}
+.card:hover {
+  cursor: pointer;
+  transform:scale(1);
+  filter:blur(0px);
+  opacity:1;
+  box-shadow:0 8px 20px 0px rgba(0,0,0,255);
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  width: 31em;
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
 input.form-control:focus {
   box-shadow: inset 0 0 0 #ddd;
   border-color: #ced4da;
