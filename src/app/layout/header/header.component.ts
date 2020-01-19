@@ -13,4 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  listFavoritesProducts() {
+    //do the list of favorite product
+  }
 }

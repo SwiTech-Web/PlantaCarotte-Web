@@ -12,12 +12,14 @@ import { ListProductComponent } from './product/list-product/list-product.compon
 import { CreateProductComponent } from './product/create-product/create-product.component';
 import { ProfileComponent } from "./profile/profile.component";
 import {DetailProductComponent} from "./product/detail-product/detail-product.component";
+import {FavoritesComponent} from "./favorites/favorites.component";
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'favorites/:id', component: FavoritesComponent, canActivate: [AuthGuard] },
   { path: 'product/list', component: ListProductComponent },
   { path: 'product/detail/:id', component: DetailProductComponent },
   { path: 'product/add', component: CreateProductComponent, canActivate: [AuthGuard] },
