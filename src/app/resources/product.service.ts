@@ -27,7 +27,7 @@ export class ProductService {
     // return this.db.collection<Product>('products').().valueChanges();
   }
 
-  createProduct(type, city, dpts, name, description, size, price) {
+  createProduct(type, city, dpts, name, description, size, price, score) {
     const product: Product = {
       type: type,
       city: city,
@@ -36,6 +36,7 @@ export class ProductService {
       description: description,
       size: size,
       price: price,
+      score: score,
       rent: false,
       like: false,
       date: new Date(),

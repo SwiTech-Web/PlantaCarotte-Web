@@ -156,7 +156,13 @@
                 <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>
               </h4>
 
-              <p class="card-text"><i class="fas fa-leaf"></i> {{product.type}}</p>
+              <p class="card-text">
+                <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
+                <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
+                <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
+                <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
+                <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
+                {{product.type}}</p>
               <p class="card-text ellipsis">{{product.description}}</p>
               <p class="card-text"><b>23 km away</b></p>
               <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>
@@ -164,7 +170,37 @@
             <div>
               <h6>{{product.price * 30}}€ / month</h6>
               <h6>{{product.price}}€ / day</h6>
-              <div>
+              <div *ngIf="product.score < '0.99'">
+                <i class="text-warning fas fa-star-half-alt"></i>
+              </div>
+              <div *ngIf="product.score >= '1' && product.score < '1.49'">
+                <i class="text-warning fa fa-star"></i>
+              </div>
+              <div *ngIf="product.score >= '1.50' && product.score < '1.99'">
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fas fa-star-half-alt"></i>
+              </div>
+              <div *ngIf="product.score >= '2' && product.score < '2.49'">
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+              </div>
+              <div *ngIf="product.score >= '2.50' && product.score < '2.99'">
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fas fa-star-half-alt"></i>
+              </div>
+              <div *ngIf="product.score >= '3' && product.score < '3.49'">
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+              </div>
+              <div *ngIf="product.score >= '3.50' && product.score < '3.99'">
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fa fa-star"></i>
+                <i class="text-warning fas fa-star-half-alt"></i>
+              </div>
+              <div *ngIf="product.score == '4'">
                 <i class="text-warning fa fa-star"></i>
                 <i class="text-warning fa fa-star"></i>
                 <i class="text-warning fa fa-star"></i>
