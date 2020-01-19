@@ -6,10 +6,42 @@
         <h4>{{product.price * 30}}€ / month</h4>
         <h4>{{product.price}}€ / day</h4>
         <div>
-          <i class="text-warning fa fa-star"></i>
-          <i class="text-warning fa fa-star"></i>
-          <i class="text-warning fa fa-star"></i>
-          <i class="text-warning fa fa-star"></i>
+          <div *ngIf="product.score < '0.99'">
+            <i class="text-warning fas fa-star-half-alt"></i>
+          </div>
+          <div *ngIf="product.score >= '1' && product.score < '1.49'">
+            <i class="text-warning fa fa-star"></i>
+          </div>
+          <div *ngIf="product.score >= '1.50' && product.score < '1.99'">
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fas fa-star-half-alt"></i>
+          </div>
+          <div *ngIf="product.score >= '2' && product.score < '2.49'">
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+          </div>
+          <div *ngIf="product.score >= '2.50' && product.score < '2.99'">
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fas fa-star-half-alt"></i>
+          </div>
+          <div *ngIf="product.score >= '3' && product.score < '3.49'">
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+          </div>
+          <div *ngIf="product.score >= '3.50' && product.score < '3.99'">
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fas fa-star-half-alt"></i>
+          </div>
+          <div *ngIf="product.score == '4'">
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+            <i class="text-warning fa fa-star"></i>
+          </div>
         </div>
         <hr>
         <div>
@@ -41,19 +73,18 @@
     </div>
   </div>
 
-  <div class="pt-2">
+  <div class="pt-2 col-7">
     <div class="d-flex justify-content-start">
-      <h1>{{product.name}}</h1>
+      <h4>{{product.name}}</h4>
       <div class="px-5 pt-2">
-        <img class="user-icon" src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
+        <img class="user-icon float-right" src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
         <p>{{user.displayName}}</p>
       </div>
     </div>
-
     <h6>{{product.dpts}}, {{product.city}}</h6>
     <hr>
-    <p>{{product.description}}</p>
     <h4>Information</h4>
+    <p>{{product.description}}</p>
     <p>{{product.size}} m²</p>
     <p  ><b>23 km away</b></p>
   </div>
