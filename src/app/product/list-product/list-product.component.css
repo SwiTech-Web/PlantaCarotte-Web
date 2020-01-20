@@ -33,3 +33,6 @@
 .search:focus {
   border-bottom-color: #5cbd95;
 }
+.first-u {
+  text-transform:capitalize;
+}

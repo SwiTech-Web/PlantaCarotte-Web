@@ -8,7 +8,7 @@ import {Product} from "../models/product.model";
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  products : Product[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) { }
 
