@@ -111,16 +111,15 @@ export class AuthenticationService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     }
-    return userRef.set(userData, {
-      merge: true
-    })
+    return userRef.set(userData, {merge: true});
   }
 
   // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['home']);
+      window.location.reload();
+      // this.router.navigate(['home']);
     })
   }
 }

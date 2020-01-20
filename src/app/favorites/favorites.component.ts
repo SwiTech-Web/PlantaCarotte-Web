@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../resources/product.service";
 import {Product} from "../models/product.model";
+import {LikedService} from "../resources/liked.service";
+import {AuthenticationService} from "../resources/authentication.service";
+import {Liked} from "../models/liked.model";
 
 @Component({
   selector: 'app-favorites',
@@ -10,13 +13,23 @@ import {Product} from "../models/product.model";
 export class FavoritesComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+              private likedService: LikedService,
+              private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
-    this.listAllProducts();
+    this.likedIdsList();
   }
 
-  listAllProducts() {
-    this.productService.getProducts().subscribe(product => this.products = product);
+  likedIdsList() {
+    this.likedService.getLikeByUser(this.authenticationService.userData.uid).subscribe(ids => {
+      this.listLikedProducts(ids);
+    });
+  }
+
+  listLikedProducts(ids: Liked[]){
+    for (const product of ids) {
+      this.productService.getProductById(product.pid).subscribe(product => this.products.push(<Product>product))
+    }
   }
 }
