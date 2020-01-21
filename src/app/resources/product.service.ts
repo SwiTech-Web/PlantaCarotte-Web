@@ -28,7 +28,7 @@ export class ProductService {
   }
 
   createProduct(type, city, dpts, name, description, size, price) {
-    const product: Product = {
+    const product: any = {
       type: type,
       city: city,
       dpts: dpts,

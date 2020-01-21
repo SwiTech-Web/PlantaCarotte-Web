@@ -2,6 +2,7 @@ enum types {
 }
 
 export interface Product {
+  id: string;
   type: string;
   city: string;
   dpts: string;

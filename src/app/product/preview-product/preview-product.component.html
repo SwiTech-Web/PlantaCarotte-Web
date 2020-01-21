@@ -1,50 +1,17 @@
-<div class="card-deck mt-4">
-  <div class="card overflow-hidden">
-    <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false">
-    <div class="card-body">
-      <h5 class="card-title">Potager</h5>
-      <p class="card-text">Un vaste terrain exploitable de 80m.</p>
-        <div style="float: left;">
-          <i class="text-warning fa fa-star"></i>
-          <i class="text-warning fa fa-star"></i>
-          <i class="text-warning fa fa-star"></i>
-          <i class="text-warning fa fa-star"></i>
-          <i class="text-warning fa fa-star"></i>
-        </div>
-        <div style="float: right;">
-          À partir de <b>39,99€</b>/mois
-        </div>
+<div class="card overflow-hidden card-effect my-3">
+  <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false">
+  <div class="card-body">
+    <div class="d-flex justify-content-center save">
+      <app-liked-product [product]="product"></app-liked-product>
     </div>
-  </div>
-  <div class="card overflow-hidden">
-    <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false">
-    <div class="card-body">
-      <h5 class="card-title">Potager</h5>
-      <p class="card-text">Un vaste terrain exploitable de 80m.</p>
-      <div style="float: left;">
-        <i class="text-warning fa fa-star"></i>
-        <i class="text-warning fa fa-star"></i>
-        <i class="text-warning fa fa-star"></i>
-        <i class="text-warning fa fa-star"></i>
+
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text ellipsis">{{product.description}}</p>
+      <div class="float-left">
+        <app-rate-product [rate]="product.rate"></app-rate-product>
       </div>
-      <div style="float: right;">
-        À partir de <b>39,99€</b>/mois
+      <div class="float-right">
+        À partir de <b>{{product.price}}</b>/jour
       </div>
-    </div>
-  </div>
-  <div class="card overflow-hidden">
-    <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false">
-    <div class="card-body">
-      <h5 class="card-title">Potager</h5>
-      <p class="card-text">Un vaste terrain exploitable de 80m.</p>
-      <div style="float: left;">
-        <i class="text-warning fa fa-star"></i>
-        <i class="text-warning fa fa-star"></i>
-        <i class="text-warning fa fa-star"></i>
-      </div>
-      <div style="float: right;">
-        À partir de <b>39,99€</b>/mois
-      </div>
-    </div>
   </div>
 </div>

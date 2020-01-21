@@ -28,6 +28,9 @@ import { PreviewProductComponent } from './product/preview-product/preview-produ
 import { ProfileComponent } from './profile/profile.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { RateProductComponent } from './product/rate-product/rate-product.component';
+import {FormsModule} from "@angular/forms";
+import {FilterPipeModule} from "ngx-filter-pipe";
+import { LikedProductComponent } from './product/liked-product/liked-product.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -50,23 +53,26 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PreviewProductComponent,
     ProfileComponent,
     FavoritesComponent,
-    RateProductComponent
+    RateProductComponent,
+    LikedProductComponent
   ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AppRoutingModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-        }
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        FilterPipeModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
+        AppRoutingModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        FormsModule,
+    ],
   providers: [
     AngularFirestore,
     AuthenticationService,

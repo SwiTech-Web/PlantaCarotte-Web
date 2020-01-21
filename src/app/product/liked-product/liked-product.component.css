@@ -1,0 +1,9 @@
+.like {
+  border-radius: 20px;
+}
+.fa-heart {
+  color: #E00033;
+}
+.liked {
+  border-color: #E00033;
+}

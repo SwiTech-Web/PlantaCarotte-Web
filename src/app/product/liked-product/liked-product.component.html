@@ -1,0 +1,18 @@
+<div *ngIf="authService.isLoggedIn; else notLogged">
+  <button *ngIf="!isLiked(product.id)" (click)="like(product.id)"
+          type="button" class="btn btn-light like">
+    <i class="far fa-heart"></i>
+  </button>
+  <button *ngIf="isLiked(product.id)" (click)="dislike(product.id)" type="button"
+          class="btn btn-light like liked">
+    <i class="fas fa-heart"></i>
+  </button>
+</div>
+
+<ng-template #notLogged>
+  <div>
+    <button routerLink="/login" type="button" class="btn btn-light like">
+      <i class="far fa-heart"></i>
+    </button>
+  </div>
+</ng-template>

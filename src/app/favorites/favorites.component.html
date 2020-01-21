@@ -1,21 +1,7 @@
 <div class="container my-5" *ngIf="products && authenticationService.userData && authenticationService.isLoggedIn">
   <div class="card-deck">
     <div *ngFor="let product of products">
-      <div class="card card-effect">
-        <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img-top" alt="image">
-        <div class="d-flex justify-content-between">
-          <div class="col-md-8">
-            <h4 class="card-title">{{product.name}}
-              <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>
-            </h4>
-            <p class="card-text"><i class="fas fa-leaf"></i> {{product.type}}</p>
-            <p class="card-text"><b>23 km away</b></p>
-          </div>
-          <div class="col-md-4 mt-2">
-             <app-rate-product [rate]="product.rate"></app-rate-product>
-          </div>
-        </div>
-      </div>
+      <app-preview-product [product]="product"></app-preview-product>
     </div>
   </div>
 </div>

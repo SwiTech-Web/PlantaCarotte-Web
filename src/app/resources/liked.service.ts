@@ -1,7 +1,8 @@
 import {Injectable, NgZone} from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
 import {Observable} from "rxjs";
 import {Liked} from '../models/liked.model';
+import {User} from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,16 +15,12 @@ export class LikedService {
     return this.db.collection<Liked>('liked').valueChanges({ idField: 'id'});
   }
 
-  getLikeByUser(id: string): Observable<Liked[]> {
+  getLikesByUser(id: string): Observable<Liked[]> {
     return this.db.collection<Liked>('liked', ref =>
       ref.where('uid', '==', id)).valueChanges({ idField: 'id'});
   }
 
-  addALike(uid: string, pid: string) {
-    const like: Liked = {
-      uid: uid,
-      pid: pid
-    }
+  addALike(like: any) {
     return this.db.collection('liked').add(like);
   }
 

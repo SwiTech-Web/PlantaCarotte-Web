@@ -1,8 +1,6 @@
-.like {
-  border-radius: 20px;
-}
-.fa-heart {
-  color: #E00033;
+.save {
+  margin-top: 6em;
+  float: right;
 }
 .text-center {
   color: #FFFFFF;
@@ -19,9 +17,7 @@
   margin: 5%;
   color: #D2D0D2;
 }
-.save {
-  margin-top: 6em;
-}
+
 /*Search-bar*/
 .search {
   background-color: transparent;

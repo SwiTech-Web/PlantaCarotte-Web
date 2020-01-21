@@ -22,7 +22,7 @@ export class FavoritesComponent implements OnInit {
   }
 
   likedIdsList() {
-    this.likedService.getLikeByUser(this.authenticationService.userData.uid).subscribe(ids => {
+    this.likedService.getLikesByUser(this.authenticationService.userData.uid).subscribe(ids => {
       this.listLikedProducts(ids);
     });
   }
