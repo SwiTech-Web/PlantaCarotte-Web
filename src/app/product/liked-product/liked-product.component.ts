@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LikedService} from "../../resources/liked.service";
-import {AuthenticationService} from "../../resources/authentication.service";
-import {Liked} from "../../models/liked.model";
-import {Product} from "../../models/product.model";
+import {LikedService} from '../../resources/liked.service';
+import {AuthenticationService} from '../../resources/authentication.service';
+import {Liked} from '../../models/liked.model';
+import {Product} from '../../models/product.model';
 
 @Component({
   selector: 'app-liked-product',
@@ -17,27 +17,28 @@ export class LikedProductComponent implements OnInit {
                public authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.listOfLikes();
+    if (this.authService.isLoggedIn) {
+      this.listOfLikes();
+    }
   }
 
   listOfLikes() {
     this.likedService.getLikesByUser(this.authService.userData.uid).subscribe(like => {
       this.likes = like;
-      console.log(this.likes);
     });
   }
 
   like(pid) {
     const like: any = {
       uid: this.authService.userData.uid,
-      pid: pid
+      pid
     }
     this.likedService.addALike(like).then();
   }
 
   dislike(pid) {
-    for(let like of this.likes) {
-      if(like.pid == pid) {
+    for (const like of this.likes) {
+      if (like.pid === pid) {
         this.likedService.deleteLike(like.id);
       }
     }
@@ -45,9 +46,9 @@ export class LikedProductComponent implements OnInit {
   }
 
   isLiked(productId: string) {
-    if(this.authService.isLoggedIn === true) {
-      for(let like of this.likes) {
-        if(like.pid == productId && like.uid === this.authService.userData.uid) {
+    if (this.authService.isLoggedIn === true) {
+      for (const like of this.likes) {
+        if (like.pid === productId && like.uid === this.authService.userData.uid) {
           return true;
         }
       }
