@@ -169,10 +169,24 @@
               <h6>{{product.price * 30}}€ / month</h6>
               <h6>{{product.price}}€ / day</h6>
               <app-rate-product [rate]='product.rate'></app-rate-product>
-              <div class="save">
-                <button *ngIf="!isLiked(product.id)" (click)="putALike(authService.userData.uid, product.id)" type="button" class="btn btn-light like"><p class="card-text"><i class="far fa-heart"></i> Save</p></button>
-                <button *ngIf="isLiked(product.id)" type="button" class="btn btn-light like" style="border-color: #E00033"><p class="card-text"><i class="fas fa-heart"></i> Save</p></button>
+              <div class="save" *ngIf="authService.isLoggedIn; else notLogged">
+                <button *ngIf="!isLiked(product.id)" (click)="putALike(authService.userData.uid, product.id)"
+                        type="button" class="btn btn-light like">
+                  <p class="card-text"><i class="far fa-heart"></i> Save</p>
+                </button>
+                <button *ngIf="isLiked(product.id)" type="button" class="btn btn-light like" style="border-color: #E00033">
+                  <p class="card-text"><i class="fas fa-heart"></i> Save</p>
+                </button>
               </div>
+              <ng-template #notLogged>
+                <div class="save">
+                  <button routerLink="/login" type="button" class="btn btn-light like">
+                    <p class="card-text"><i class="far fa-heart"></i> Save</p>
+                  </button>
+                </div>
+
+              </ng-template>
+
             </div>
           </div>
       </div>
