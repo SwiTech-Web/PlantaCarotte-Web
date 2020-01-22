@@ -85,7 +85,13 @@
   </div>
   <h5 class="mt-5">Nouveauté</h5>
   <span>Des terrains pour votre plaisir de la nature !</span>
-<!--  <app-preview-product></app-preview-product>-->
+  <div class="card-deck">
+    <div *ngFor="let product of products">
+
+      <app-preview-product [product]="product"></app-preview-product>
+    </div>
+  </div>
+
   <h5 class="mt-5">Potager</h5>
   <span style="z-index: 2">Votre vie est trop cher ? Il est temps de prendre votre vie en main et de manger bio à un prix normal !</span>
   <img src="../../assets/images/layer-1.png" alt="" style="position: absolute;left: 0; z-index: -9999" draggable="false">

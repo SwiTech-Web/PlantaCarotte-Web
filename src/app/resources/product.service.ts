@@ -23,8 +23,8 @@ export class ProductService {
     return this.db.collection<Product>('products').doc(id).valueChanges();
   }
 
-  getProductsByType(type: string){
-    // return this.db.collection<Product>('products').().valueChanges();
+  getLimitedList(): Observable<Product[]> {
+    return this.db.collection<Product>('products', ref => ref.limit(3)).valueChanges({ idField: 'id' });
   }
 
   createProduct(type, city, dpts, name, description, size, price) {

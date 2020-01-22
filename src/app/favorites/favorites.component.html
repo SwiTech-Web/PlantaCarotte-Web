@@ -1,4 +1,4 @@
-<div class="container my-5" *ngIf="products && authenticationService.userData && authenticationService.isLoggedIn">
+<div class="container my-5" *ngIf="products && authenticationService.isLoggedIn">
   <div class="card-deck">
     <div *ngFor="let product of products">
       <app-preview-product [product]="product"></app-preview-product>
