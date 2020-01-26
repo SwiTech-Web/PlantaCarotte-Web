@@ -1,10 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { User } from '../models/user.model';
-import {Product} from "../models/product.model";
+import {Product} from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,9 @@ export class AuthenticationService {
   userData: any; // Save logged in user data
 
   constructor(public afs: AngularFirestore,   // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
-    public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+              public afAuth: AngularFireAuth, // Inject Firebase auth service
+              public router: Router,
+              public ngZone: NgZone // NgZone service to remove outside scope warning
     ) {
 
     /* Saving user data in localstorage when
@@ -29,7 +29,7 @@ export class AuthenticationService {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
-    })
+    });
   }
 
   // Sign in with email/password
@@ -41,8 +41,8 @@ export class AuthenticationService {
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
-      })
+        window.alert(error.message);
+      });
   }
 
   // Sign up with email/password
@@ -54,8 +54,8 @@ export class AuthenticationService {
         this.SendVerificationMail();
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
-      })
+        window.alert(error.message);
+      });
   }
 
   // Send email verfificaiton when new user sign up
@@ -70,8 +70,8 @@ export class AuthenticationService {
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {}).catch((error) => {
-      window.alert(error)
-    })
+      window.alert(error);
+    });
   }
 
   // Returns true when user is looged in and email is verified
@@ -92,11 +92,10 @@ export class AuthenticationService {
        this.ngZone.run(() => {
           this.router.navigate(['home']);
         })
-        console.log(result.user);
-      this.SetUserData(result.user);
+       this.SetUserData(result.user);
     }).catch((error) => {
-      window.alert(error)
-    })
+      window.alert(error);
+    });
   }
 
   /* Setting up user data when sign in with username/password,
@@ -119,6 +118,6 @@ export class AuthenticationService {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['home']);
-    })
+    });
   }
 }
