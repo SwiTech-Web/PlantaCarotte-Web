@@ -32,3 +32,17 @@
 .first-u {
   text-transform:capitalize;
 }
+
+@media screen and (max-width: 768px) {
+  .input-group-text {
+    background: transparent!important;
+    border: none!important;
+  }
+  .ellipsis {
+    width: 10em !important;
+  }
+  .save {
+    margin: 0;
+  }
+}
+

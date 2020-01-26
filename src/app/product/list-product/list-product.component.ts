@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../../resources/product.service";
-import {AuthenticationService} from "../../resources/authentication.service";
-import {Product} from "../../models/product.model";
+import {ProductService} from '../../resources/product.service';
+import {AuthenticationService} from '../../resources/authentication.service';
+import {Product} from '../../models/product.model';
+import {StateService} from '../../resources/state.service';
 
 @Component({
   selector: 'app-list-product',
@@ -9,17 +10,20 @@ import {Product} from "../../models/product.model";
   styleUrls: ['./list-product.component.css']
 })
 export class ListProductComponent implements OnInit {
+  isMobile: boolean;
   products: Product[] = [];
   format: string = 'dd/mm/yyyy, hh:mm';
   filterProductType: any = {type: ''};
 
   constructor(private productService: ProductService,
-              public authService: AuthenticationService) {
+              public authService: AuthenticationService,
+              private stateService: StateService) {
 
   }
 
   ngOnInit() {
     this.listAllProducts();
+    this.isMobile = this.stateService.getSate();
   }
 
   listAllProducts() {
