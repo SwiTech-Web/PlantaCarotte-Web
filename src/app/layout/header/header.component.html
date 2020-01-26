@@ -8,6 +8,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0">
       <li class="nav-item">
@@ -23,13 +24,14 @@
       </li>
       <li class="nav-item dropdown" *ngIf="authService.isLoggedIn && authService.userData as user">
         <a class="nav-link" type="button" id="dropdownHeader" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
+           aria-haspopup="true" aria-expanded="false" (click)="listOfLikes()">
           <img class="user-icon" src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
           {{user.displayName}}
         </a>
         <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownHeader">
           <a class="dropdown-item" routerLink="/profile">Profile</a>
-          <a class="dropdown-item" routerLink="/favorites/{{user.uid}}">Favorites</a>
+          <a class="dropdown-item" routerLink="/favorites/{{user.uid}}" *ngIf="userLikes.length > 0">Favorites</a>
+          <a class="dropdown-item disabled"  disabled *ngIf="userLikes.length <= 0">Favorites</a>
           <a class="dropdown-item" (click)="authService.SignOut()"> Deconnexion</a>
         </div>
       </li>
@@ -66,7 +68,8 @@
     {{'header.login' | translate}}
   </a>
   <a (click)="closeMenu()" routerLink="/home"><i class="fas fa-home mr-3"></i>Accueil</a>
-  <a (click)="closeMenu()" *ngIf="authService.isLoggedIn && authService.userData as user" routerLink="/favorites/{{user.uid}}">
+
+  <a (click)="closeMenu()" *ngIf="userLikes.length > 0 && authService.isLoggedIn && authService.userData as user"  routerLink="/favorites/{{user.uid}}">
     <i class="fas fa-heart mr-3"></i>Favoris
   </a>
   <a (click)="closeMenu()" class="nav-link" routerLink="/help"><i class="far fa-question-circle mr-3"></i>Qui somme nous ?</a>

@@ -1,7 +1,7 @@
 <div class="container pt-5" *ngIf="product && user">
-  <div class="d-flex justify-content-between row">
+  <div class="row" [ngClass]="{'d-flex justify-content-between':!isMobile, 'd-flex justify-content-center':isMobile}">
     <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="rounded active-img" alt="active">
-    <div class="card">
+    <div class="card" *ngIf="!isMobile">
       <div class="card-body">
         <h4>{{product.price * 30}}€ / month</h4>
         <h4>{{product.price}}€ / day</h4>

@@ -2,8 +2,18 @@
   max-width: 650px;
 }
 .card {
-  width: 400px;
+  max-width: 400px;
 }
 .btn {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .active-img {
+    max-width: 350px;
+    max-height: 350px;
+  }
+  .card {
+    max-width: 350px;
+  }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../../resources/product.service";
-import {Router} from "@angular/router";
-import {UserService} from "../../resources/user.service";
+import {ProductService} from '../../resources/product.service';
+import {Router} from '@angular/router';
+import {UserService} from '../../resources/user.service';
+import {StateService} from '../../resources/state.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -9,14 +10,17 @@ import {UserService} from "../../resources/user.service";
   styleUrls: ['./detail-product.component.css']
 })
 export class DetailProductComponent implements OnInit {
+  isMobile: boolean
   product: any;
   user: any;
 
   constructor(private productService: ProductService,
               private userService: UserService,
-              private router: Router) { }
+              private router: Router,
+              private stateService: StateService) { }
 
   ngOnInit() {
+    this.isMobile = this.stateService.getSate();
     this.getProduct();
   }
 
