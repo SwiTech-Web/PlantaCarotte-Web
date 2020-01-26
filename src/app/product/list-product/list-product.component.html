@@ -7,7 +7,7 @@
         <p class="lead">Simplify your life by making it mesh</p>
         <br>
         <button class="btn btn-green" type="button" routerLink="/product/add"><b>Deposit an announcement</b></button>
-        <div class="row">
+        <div *ngIf="!isMobile" class="row">
           <div class="icon-banner">
             <img src="/assets/images/forest.png" width="70" alt="forest">
             <p>Forest</p>
@@ -34,9 +34,9 @@
   </div>
 </header>
 
-<div class="d-flex justify-content-between container pt-5">
+<div class="container pt-5" [ngClass]="{'d-flex justify-content-between':!isMobile}">
   <!-- Filter bar left -->
-  <div class="mr-5">
+  <div *ngIf="!isMobile" class="mr-5">
     <h5>Remove filter<i class="fas fa-times ml-4"></i></h5>
 
     <form class="form-inline md-form my-3">
@@ -141,18 +141,33 @@
         </div>
       </div>
     </form>
+    </div>
+
+  <div *ngIf="isMobile" class="my-3">
+    <form ngclass="form-inline md-form">
+      <div class="input-group">
+        <input class="form-control form-control-sm search" [(ngModel)]="filterProductType.type"
+               name="first" type="text" placeholder="Search" aria-label="Search">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 
   <!-- List -->
   <div *ngIf="products">
     <div class="card card-effect mb-3" *ngFor="let product of products.slice().reverse() | filterBy: filterProductType">
-      <div class="row no-gutters">
+      <!-- Desktop -->
+      <div class="row no-gutters" *ngIf="!isMobile">
         <div class="col-md-4" routerLink="/product/detail/{{product.id}}">
           <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="image" draggable="false">
         </div>
           <div class="card-body d-flex justify-content-between">
             <div routerLink="/product/detail/{{product.id}}">
-              <h4 class="card-title">{{product.name}}
+              <h4 class="card-title ellipsis">{{product.name}}
                 <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>
               </h4>
               <p class="card-text first-u" style="color:#5cbd95"><b>
@@ -174,6 +189,43 @@
               </div>
             </div>
           </div>
+      </div>
+
+      <!-- Mobile -->
+      <div class="no-gutters" *ngIf="isMobile">
+        <div class="col-md-4" routerLink="/product/detail/{{product.id}}">
+          <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="image" draggable="false">
+        </div>
+        <div class="card-body">
+          <div routerLink="/product/detail/{{product.id}}">
+            <h4 class="card-title ellipsis">{{product.name}}
+              <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>
+            </h4>
+            <p class="card-text first-u" style="color:#5cbd95"><b>
+              <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
+              <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
+              <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
+              <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
+              <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
+              {{product.type}}</b>
+            </p>
+            <p class="card-text ellipsis">{{product.description}}</p>
+            <p class="card-text"><b>23 km away</b></p>
+            <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>
+          </div>
+          <div>
+            <h6>{{product.price}}€ / jour</h6>
+            <div class="d-flex justify-content-between">
+              <div>
+                <app-rate-product [rate]='product.rate'></app-rate-product>
+              </div>
+              <div class="save">
+                <app-liked-product [product]="product"></app-liked-product>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>

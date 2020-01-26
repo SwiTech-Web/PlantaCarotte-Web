@@ -18,12 +18,14 @@ export class FavoritesComponent implements OnInit {
               public authenticationService: AuthenticationService) { }
 
   ngOnInit() {
-    this.likedIdsList();
+    if (this.authenticationService.isLoggedIn) {
+      this.listOfLikes();
+    }
   }
 
-  likedIdsList() {
-    this.likedService.getLikesByUser(this.authenticationService.userData.uid).subscribe(ids => {
-      this.listLikedProducts(ids);
+  listOfLikes() {
+    this.likedService.getLikesByUser(this.authenticationService.userData.uid).subscribe(like => {
+      this.listLikedProducts(like);
     });
   }
 

@@ -1,7 +1,10 @@
 img {
-  max-width: 120px;
-  max-height: 85px;
+  width: 120px;
+  height: 75px;
+  border-radius: 12px 0px 0px 12px!important;
 }
 .card {
   width: 400px;
+  border-radius: 12px!important;
 }
+

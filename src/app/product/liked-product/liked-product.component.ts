@@ -3,6 +3,7 @@ import {LikedService} from '../../resources/liked.service';
 import {AuthenticationService} from '../../resources/authentication.service';
 import {Liked} from '../../models/liked.model';
 import {Product} from '../../models/product.model';
+import {ProductService} from '../../resources/product.service';
 
 @Component({
   selector: 'app-liked-product',
@@ -32,7 +33,7 @@ export class LikedProductComponent implements OnInit {
     const like: any = {
       uid: this.authService.userData.uid,
       pid
-    }
+    };
     this.likedService.addALike(like).then();
   }
 
