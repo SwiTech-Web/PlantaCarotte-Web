@@ -31,6 +31,7 @@ import { RateProductComponent } from './product/rate-product/rate-product.compon
 import { FormsModule } from '@angular/forms';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { LikedProductComponent } from './product/liked-product/liked-product.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -54,7 +55,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ProfileComponent,
     FavoritesComponent,
     RateProductComponent,
-    LikedProductComponent
+    LikedProductComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,
