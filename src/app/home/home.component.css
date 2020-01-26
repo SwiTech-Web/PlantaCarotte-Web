@@ -40,8 +40,15 @@
   border-radius: 50%!important;
   margin: 10px;
 }
+
+.carousel-inner {
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 14px;
+}
+
 @media screen and (max-width: 768px) {
-  .carousel {
+  .carousel-inner {
     max-width: 350px;
     max-height: 350px;
   }
