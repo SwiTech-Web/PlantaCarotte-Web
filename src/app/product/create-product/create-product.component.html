@@ -6,7 +6,8 @@
       <h5 [hidden]="!validations.check3">Etape 1 : Ajouts des équipements annexes</h5>
       <h5 [hidden]="!validations.check4">Etape 1 : Géolocalisation de votre bien</h5>
       <h5 [hidden]="!validations.check5">Etape 1 : Accécibilité de votre jardin</h5>
-      <h5 [hidden]="!validations.check6">Etape 1 : Récapitulatif</h5>
+      <h5 [hidden]="!validations.check6">Récapitulatif de l'étape 1</h5>
+      <h5 [hidden]="!validations.check7">Etape 2 : Votre ambiance</h5>
     </div>
     <div [hidden]="!validations.check1" class="card">
       <div class="progress">
@@ -263,11 +264,51 @@
         </div>
       </div>
       <div class="card-body">
-        <h6 class="puce">Récapitulatif des donnes saisies. Passage à ETAPE 2</h6>
+        <h6>Vos données sont-elles correct ? <a href="#">Modifier</a></h6>
+        <p>Vous êtes un particulier et vous voulez faire louer un <b>Jardin</b></p>
+        <p>Le nombre de personne maximum sur votre Jardin est de 8 personnes.</p>
+        <h6>Les equipements sont : <a href="#">Modifier</a></h6>
+        <p class="puce">Des outils de jardin</p>
+        <p class="puce">Des tables</p>
+        <p class="puce">Des chaises</p>
+        <h6>Vous résidez <a href="#">Modifier</a></h6>
+        <p>Au 6 avenue lincoln à Lagny-sur-Marne dans le 77400</p>
+        <h6>Accésibilité <a href="#">Modifier</a></h6>
+        <p>Il y a un acces handicapé</p>
+        <button type="button" class="btn btn-primary float-left" (click)="back(checked.checked6)">Retour</button>
+        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked7)">Suivant</button>      </div>
+    </div>
+
+    <div [hidden]="!validations.check7" class="card">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="33"
+             aria-valuemin="0" aria-valuemax="100" style="width:33%">
+          <span class="sr-only">100% Complete</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h6>Décrivez votre Jardin</h6>
+        <textarea></textarea>
+        <h6>L'accès au bien se fait :</h6>
+        <div class="radio">
+          <input class="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+          <label class="form-check-label ml-4" for="exampleRadios1">
+            Vous donnez une clé à votre locataire
+          </label>
+        </div>
+        <div class="radio">
+          <input class="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios" value="option2">
+          <label class="form-check-label ml-4" for="exampleRadios">
+            Se fait à horraire fixes
+          </label>
+        </div>
+        <h6>Ajoutez les disponibilités de votre bien : </h6>
+        <p>Tiens</p>
+        <h6>Donnez un nom à votre annonce</h6>
+        <input>
         <button type="button" class="btn btn-primary float-right">SUIVANT</button>
       </div>
     </div>
   </form>
   <!--              <input type="button" class="btn btn-outline-primary connected" value="ajouter le produit" (click)="productService.createProduct(type.value, city.value, dpts.value, name.value, description.value, size.value, price.value)">-->
-
 </div>
