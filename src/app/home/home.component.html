@@ -1,6 +1,6 @@
 <div class="banner-home">
-  <div class="d-flex justify-content-end container">
-    <div class="card filter-card m-5">
+  <div class="d-flex py-5 container" [ngClass]="{'justify-content-end':!isMobile}">
+    <div class="card filter-card">
       <div class="card-body">
         <h5 class="mb-3">Réserver votre terrain pour manger 5 fruits et légumes par jours.</h5>
         <form>
@@ -8,7 +8,7 @@
           <div class="input-group mb-3">
             <input type="email" class="form-control no-border-right" placeholder="Paris">
             <div class="input-group-append">
-              <span class="input-group-text"><i class="fas fa-map-marker-alt" style="color: #5cbd95"></i></span>
+              <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
             </div>
           </div>
           <div class="form-row">
@@ -46,13 +46,13 @@
 
   <h5 class="mt-4">{{'app-name' | translate}} vous accompagne dans une demarche bio</h5>
   <img src="../../assets/images/layer-2.png" alt="" style="position: absolute;right: 0;" draggable="false">
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between " [ngClass]="{'row':isMobile}">
     <div>
       <p class="mt-5">Faite avancé la planéte dans une action écologique ainsi que vos économies.<br>Une terre saine avec de la nourriture saine pour votre foyer.<br><br>Votre foyer à besoin d'une qualité de vie à un prix minime.</p>
       <img class="rounded mx-auto d-block" src="../../assets/images/icon-home.png" alt="" style="width: 60%;" draggable="false">
     </div>
     <div>
-      <div class="" style="max-width: 500px; max-height: 500px; border-radius: 14px;">
+      <div>
 <!--        <img src="../../assets/images/carou-1.png" style="width: 500px; height: 500px; border-radius: 14px;" draggable="false">-->
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -103,6 +103,7 @@
     <img src="../../assets/images/bg-banner-home.png" alt="home" class="rounded img-fluid"  style="height: 350px; border-radius: 12px!important;" draggable="false">
   </div>
 </div>
+
 <footer class="page-footer font-small blue-grey lighten-5 mt-5">
 
   <div style="background-color: #5CBD95;">
