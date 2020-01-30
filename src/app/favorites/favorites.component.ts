@@ -4,6 +4,7 @@ import {Product} from '../models/product.model';
 import {LikedService} from '../resources/liked.service';
 import {AuthenticationService} from '../resources/authentication.service';
 import {Liked} from '../models/liked.model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-favorites',
@@ -11,10 +12,11 @@ import {Liked} from '../models/liked.model';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  products: Product[] = [];
+  products: any[] = [];
 
   constructor(private productService: ProductService,
               private likedService: LikedService,
+              private router: Router,
               public authenticationService: AuthenticationService) { }
 
   ngOnInit() {
@@ -24,14 +26,13 @@ export class FavoritesComponent implements OnInit {
   }
 
   listOfLikes() {
-    this.likedService.getLikesByUser(this.authenticationService.userData.uid).subscribe(like => {
-      this.listLikedProducts(like);
-    });
+    const id = this.router.url.split("/", 4).pop();
+    this.likedService.getLikesByUser(id).subscribe(like => this.listLikedProducts(like));
   }
 
-  listLikedProducts(ids: Liked[]) {
-    for (const product of ids) {
-      this.productService.getProductById(product.pid).subscribe(products => this.products.push(products as Product));
-    }
+  listLikedProducts(like: Liked[]) {
+    like.filter(id => this.productService.getProductById(id.pid).subscribe(product => this.products.push(product as Product)));
+
+    // this.productService.getLikedProducts(list).subscribe(product => this.products = product);
   }
 }

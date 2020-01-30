@@ -4,6 +4,7 @@ import { Product } from '../models/product.model';
 import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
 import {AuthenticationService} from './authentication.service';
+import {Liked} from "../models/liked.model";
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,17 @@ export class ProductService {
     return this.db.collection<Product>('products').valueChanges({ idField: 'id' });
   }
 
+  getLikedProducts(list: string[]) {
+    // return this.db.collection<Product>('products')(function (querySnapshot) {
+    //   querySnapshot.forEach(function (doc) {
+    //     console.log(doc.id, ' => ', doc.data());
+    //   });
+    // });
+  }
+
+
   getProductById(id: string) {
-    return this.db.collection<Product>('products').doc(id).valueChanges();
+    return this.db.collection('products').doc(id).valueChanges();
   }
 
   getLimitedList(): Observable<Product[]> {

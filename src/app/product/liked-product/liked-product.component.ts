@@ -18,7 +18,7 @@ export class LikedProductComponent implements OnInit {
                public authService: AuthenticationService) { }
 
   ngOnInit() {
-    if (this.authService.isLoggedIn) {
+    if (this.authService.isLoggedIn && this.authService.userData){
       this.listOfLikes();
     }
   }

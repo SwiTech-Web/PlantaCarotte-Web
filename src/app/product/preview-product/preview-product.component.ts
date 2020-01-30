@@ -13,9 +13,7 @@ import {AuthenticationService} from '../../resources/authentication.service';
 export class PreviewProductComponent implements OnInit {
   @Input() product: Product;
 
-  constructor(private productService: ProductService,
-              private likedService: LikedService,
-              public authenticationService: AuthenticationService) { }
+  constructor() { }
 
   ngOnInit() {
   }

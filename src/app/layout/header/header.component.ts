@@ -11,6 +11,7 @@ import {Liked} from "../../models/liked.model";
 })
 export class HeaderComponent implements OnInit {
   isMobile: boolean;
+  enableFavorite: boolean;
   userLikes:Liked[];
 
   constructor(public authService: AuthenticationService,
@@ -19,17 +20,25 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isMobile = this.stateService.getSate();
-    this.listOfLikes();
+    this.enableFavorite = false;
   }
 
   listOfLikes() {
     this.userLikes = [];
-    this.likedService.getLikesByUser(this.authService.userData.uid).subscribe(like => this.userLikes = like);
+    this.likedService.getLikesByUser(this.authService.userData.uid).subscribe(like => {
+      this.userLikes = like;
+      if(this.userLikes.length > 0) {
+        this.enableFavorite = true;
+      } else {
+        this.enableFavorite = false;
+      }
+    });
   }
   openMenu() {
     this.listOfLikes();
     document.getElementById('sideMenu').style.width = '85%';
   }
+
   closeMenu() {
     document.getElementById('sideMenu').style.width = '0';
   }
