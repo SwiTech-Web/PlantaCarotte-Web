@@ -3,7 +3,7 @@ import {LikedService} from '../../resources/liked.service';
 import {AuthenticationService} from '../../resources/authentication.service';
 import {Liked} from '../../models/liked.model';
 import {Product} from '../../models/product.model';
-import {ProductService} from '../../resources/product.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-liked-product',
@@ -15,7 +15,8 @@ export class LikedProductComponent implements OnInit {
   @Input() product: Product;
 
   constructor( private likedService: LikedService,
-               public authService: AuthenticationService) { }
+               public authService: AuthenticationService,
+               private modalService: NgbModal) { }
 
   ngOnInit() {
     if (this.authService.isLoggedIn && this.authService.userData){
@@ -55,5 +56,8 @@ export class LikedProductComponent implements OnInit {
       }
     }
     return false;
+  }
+  show(content) {
+    this.modalService.open(content);
   }
 }

@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
@@ -18,8 +18,8 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { VerifyEmailComponent } from './authentication/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { HomeComponent } from './home/home.component';
-import {AppRoutingModule} from './app-routing.module';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CreateProductComponent } from './product/create-product/create-product.component';
 import { ListProductComponent } from './product/list-product/list-product.component';
 import { DetailProductComponent } from './product/detail-product/detail-product.component';
@@ -32,6 +32,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { LikedProductComponent } from './product/liked-product/liked-product.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -74,6 +75,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
             }
         }),
         FormsModule,
+        NgbModule
     ],
   providers: [
     AngularFirestore,

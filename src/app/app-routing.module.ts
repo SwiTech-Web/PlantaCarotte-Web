@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'product/list', component: ListProductComponent },
   { path: 'product/detail/:id', component: DetailProductComponent },
   { path: 'product/add', component: CreateProductComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
+  //{ path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },

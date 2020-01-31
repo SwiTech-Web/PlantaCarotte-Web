@@ -20,7 +20,9 @@
     </ul>
     <ul class="navbar-nav mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login" *ngIf="!authService.isLoggedIn">{{'header.login' | translate}}<i class="fas fa-sign-in-alt ml-2"></i></a>
+        <a class="nav-link" *ngIf="!authService.isLoggedIn" (click)="showModal(login)">
+          {{'header.login' | translate}}<i class="fas fa-sign-in-alt ml-2"></i>
+        </a>
       </li>
       <li class="nav-item dropdown" *ngIf="authService.isLoggedIn && authService.userData as user">
         <a class="nav-link" type="button" id="dropdownHeader" data-toggle="dropdown"
@@ -63,7 +65,7 @@
   </a>
     <a (click)="closeMenu()" routerLink="/product/list"><i class="fas fa-search mr-3"></i>{{'header.find-plot' | translate}}</a>
   <hr/>
-  <a *ngIf="!authService.isLoggedIn" (click)="closeMenu()" routerLink="/login">
+  <a *ngIf="!authService.isLoggedIn" (click)="showModal(login)">
     <i class="fas fa-sign-in-alt mr-2"></i>
     {{'header.login' | translate}}
   </a>
@@ -77,3 +79,7 @@
     <i class="fas fa-sign-out-alt txt-g mr-3"></i>Deconnexion
   </a>
 </div>
+
+<ng-template #login let-c="close" let-d="dismiss">
+  <app-login></app-login>
+</ng-template>
