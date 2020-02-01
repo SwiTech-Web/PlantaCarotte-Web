@@ -1,55 +1,57 @@
-<div class="container pt-5" *ngIf="product && user">
-  <div class="row" [ngClass]="{'d-flex justify-content-between':!isMobile, 'd-flex justify-content-center':isMobile}">
-    <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="rounded active-img" alt="active">
-    <div class="card" *ngIf="!isMobile">
-      <div class="card-body">
-        <h4>{{product.price * 30}}€ / month</h4>
-        <h4>{{product.price}}€ / day</h4>
-        <app-rate-product [rate]="product.rate"></app-rate-product>
-        <hr>
-        <div>
-          <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label>Date de debut</label>
-                <input type="date" class="form-control">
+<div class="container" [ngClass]="{'pt-5':!isMobile}" *ngIf="product && user">
+  <div class="row" [ngClass]="{'d-flex justify-content-center':isMobile}">
+    <div class="col-sm-6">
+      <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="rounded active-img" alt="active">
+    </div>
+    <div class="col-sm-6 d-flex justify-content-end">
+      <div class="card card-rent" *ngIf="!isMobile">
+        <div class="card-body">
+          <h4>{{product.price * 30}}€ / month</h4>
+          <h4>{{product.price}}€ / day</h4>
+          <app-rate-product [rate]="product.rate"></app-rate-product>
+          <hr>
+          <div>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Date de debut</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label>Durée</label>
+                  <select class="custom-select">
+                    <option selected disabled value="">Choose...</option>
+                    <option>1 ans</option>
+                    <option>2 ans</option>
+                  </select>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label>Durée</label>
-                <select class="custom-select">
-                  <option selected disabled value="">Choose...</option>
-                  <option>1 ans</option>
-                  <option>2 ans</option>
-                </select>
+              <div class="form-group my-3">
+                <button type="submit" class="btn btn-primary">Louer ce terrain</button>
               </div>
-            </div>
-            <div class="form-group my-3">
-              <button type="submit" class="btn btn-primary">Louer ce terrain</button>
-            </div>
-            <div>
-              Ce terrain attire beaucoup l'attention.
-              L'annonce a été consultée plus de 500 fois au cours de la dernière semaine.
-            </div>
-          </form>
+              <div>
+                L'annonce a été consultée plus de 500 fois au cours de la dernière semaine.
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="pt-2 col-7">
-    <div class="d-flex justify-content-start">
-      <h4>{{product.name}}</h4>
-      <div class="px-5 pt-2">
-        <img class="user-icon float-right" src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
-        <p>{{user.displayName}}</p>
+  <div class="pt-2" [ngClass]="{'col-sm-7': !isMobile}">
+    <h4>{{product.name}}</h4>
+    <h6><i class="fas fa-map-marker-alt mr-1"></i>{{product.dpts}}, {{product.city}}</h6>
+    <div class="d-flex justify-content-end">
+      <div>
+        <img class="user-icon" src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
+        {{user.displayName}}
       </div>
     </div>
-    <h6>{{product.dpts}}, {{product.city}}</h6>
     <hr>
     <h4>Information</h4>
     <p>{{product.description}}</p>
-    <p>{{product.size}} m²</p>
-    <p  ><b>23 km away</b></p>
+    <p><b>Superficie de la location :</b> {{product.size}} m²</p>
     <div>
       <h4 class="py-3">Le quartier</h4>
       <img src="../../../assets/images/maps.PNG" class="rounded active-img" alt="image">
@@ -63,4 +65,13 @@
       <h4>Annonces simillaires</h4>
     </div>
   </div>
+  <div class="card" *ngIf="isMobile">
+    <div class="card-body">
+      <h5>{{product.price}}€ / day</h5>
+      <div class="form-group my-3">
+        <button type="submit" class="btn btn-primary">Louer ce terrain</button>
+      </div>
+    </div>
+  </div>
+
 </div>

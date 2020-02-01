@@ -43,7 +43,7 @@
 
 <!-- Mobile version -->
 <nav *ngIf="isMobile" class="navbar navbar-expand-lg  navbar-light bg-light sticky-top">
-  <span (click)="openMenu()">&#9776;</span>
+  <span (click)="openMenu()" style="font-size:16px">&#9776;</span>
   <a class="navbar-brand mr-auto ml-auto" routerLink="/home">
     {{'app-name' | translate}}
   </a>
