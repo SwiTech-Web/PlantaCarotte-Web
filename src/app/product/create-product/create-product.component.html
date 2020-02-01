@@ -276,7 +276,8 @@
         <h6>Accésibilité <a href="#">Modifier</a></h6>
         <p>Il y a un acces handicapé</p>
         <button type="button" class="btn btn-primary float-left" (click)="back(checked.checked6)">Retour</button>
-        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked7)">Suivant</button>      </div>
+        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked7)">Suivant</button>
+      </div>
     </div>
 
     <div [hidden]="!validations.check7" class="card">
@@ -288,7 +289,48 @@
       </div>
       <div class="card-body">
         <h6>Décrivez votre Jardin</h6>
-        <textarea></textarea>
+        <div class="container">
+
+          <form id="theform" action="javascript:void(0);">
+
+            <label for="about-yourself">About yourself:</label>
+            <div class="ta-container">
+              <textarea id="about-yourself" class="ta" name="about-yourself" rows="6" cols="75" data-maxchars="20" data-over="false" placeholder="Enter text here..." required></textarea>
+              <div class="status-bar">
+                <table>
+                  <tr><td>Characters:</td><td class="charcount"></td></tr>
+                  <tr><td class="remaining-label">Remaining:</td><td class="remaining"></td></tr>
+                </table>
+              </div>
+            </div>
+
+            <label for="your-proposal">Your proposal:</label>
+            <div class="ta-container">
+              <textarea id="your-proposal" class="ta" name="your-proposal" rows="6" cols="75" data-maxchars="25" data-over="false" placeholder="Enter text here..." required></textarea>
+              <div class="status-bar">
+                <table>
+                  <tr><td>Characters:</td><td class="charcount"></td></tr>
+                  <tr><td class="remaining-label">Remaining:</td><td class="remaining"></td></tr>
+                </table>
+              </div>
+            </div>
+
+            <label for="supporting-info">Supporting information:</label>
+            <div class="ta-container">
+              <textarea id="supporting-info" class="ta" name="supporting-info" rows="6" cols="75" data-maxchars="40" data-over="false" placeholder="Enter text here..." required></textarea>
+              <div class="status-bar">
+                <table>
+                  <tr><td>Characters:</td><td class="charcount"></td></tr>
+                  <tr><td class="remaining-label">Remaining:</td><td class="remaining"></td></tr>
+                </table>
+              </div>
+            </div>
+
+            <input id="submitbtn" type="submit" value="Submit">
+
+          </form>
+
+        </div>
         <h6>L'accès au bien se fait :</h6>
         <div class="radio">
           <input class="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
@@ -306,6 +348,62 @@
         <p>Tiens</p>
         <h6>Donnez un nom à votre annonce</h6>
         <input>
+        <button type="button" class="btn btn-primary float-left" (click)="back(checked.checked7)">Retour</button>
+        <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked8)">Suivant</button>
+      </div>
+    </div>
+
+    <div [hidden]="!validations.check8" class="card">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="66"
+             aria-valuemin="0" aria-valuemax="100" style="width:66%">
+          <span class="sr-only">100% Complete</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h6>Page 8</h6>
+        <div class="container">
+
+          <form id="theform" action="javascript:void(0);">
+
+            <label for="about-yourself">About yourself:</label>
+            <div class="ta-container">
+              <textarea id="about-yourself" class="ta" name="about-yourself" rows="6" cols="75" data-maxchars="20" data-over="false" placeholder="Enter text here..." required></textarea>
+              <div class="status-bar">
+                <table>
+                  <tr><td>Characters:</td><td class="charcount"></td></tr>
+                  <tr><td class="remaining-label">Remaining:</td><td class="remaining"></td></tr>
+                </table>
+              </div>
+            </div>
+
+            <label for="your-proposal">Your proposal:</label>
+            <div class="ta-container">
+              <textarea id="your-proposal" class="ta" name="your-proposal" rows="6" cols="75" data-maxchars="25" data-over="false" placeholder="Enter text here..." required></textarea>
+              <div class="status-bar">
+                <table>
+                  <tr><td>Characters:</td><td class="charcount"></td></tr>
+                  <tr><td class="remaining-label">Remaining:</td><td class="remaining"></td></tr>
+                </table>
+              </div>
+            </div>
+
+            <label for="supporting-info">Supporting information:</label>
+            <div class="ta-container">
+              <textarea id="supporting-info" class="ta" name="supporting-info" rows="6" cols="75" data-maxchars="40" data-over="false" placeholder="Enter text here..." required></textarea>
+              <div class="status-bar">
+                <table>
+                  <tr><td>Characters:</td><td class="charcount"></td></tr>
+                  <tr><td class="remaining-label">Remaining:</td><td class="remaining"></td></tr>
+                </table>
+              </div>
+            </div>
+
+            <input id="submitbtn" type="submit" value="Submit">
+
+          </form>
+
+        </div>
         <button type="button" class="btn btn-primary float-right">SUIVANT</button>
       </div>
     </div>

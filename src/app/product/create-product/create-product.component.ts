@@ -16,6 +16,7 @@ export class CreateProductComponent implements OnInit {
     check5: false,
     check6: false,
     check7: false,
+    check8: false,
   };
   checked = {
     checked1: '1',
@@ -25,6 +26,7 @@ export class CreateProductComponent implements OnInit {
     checked5: '5',
     checked6: '6',
     checked7: '7',
+    checked8: '8',
   };
 
   constructor(public productService: ProductService) { }
@@ -51,6 +53,9 @@ export class CreateProductComponent implements OnInit {
     } else if (checked === this.checked.checked7) {
       this.validations.check6 = false;
       this.validations.check7 = true;
+    } else if (checked === this.checked.checked8) {
+      this.validations.check7 = false;
+      this.validations.check8 = true;
     }
   }
 
@@ -73,6 +78,9 @@ export class CreateProductComponent implements OnInit {
     } else if (checked === this.checked.checked7) {
       this.validations.check6 = true;
       this.validations.check7 = false;
+    } else if (checked === this.checked.checked8) {
+      this.validations.check7 = true;
+      this.validations.check8 = false;
     }
   }
 }
