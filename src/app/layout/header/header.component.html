@@ -57,7 +57,7 @@
   <div href="javascript:void(0)" class="closebtn" (click)="closeMenu()">&times;</div>
 
   <a *ngIf="authService.isLoggedIn && authService.userData as user" (click)="closeMenu()" routerLink="/profile">
-    <img src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';">
+    <img src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" class="user-icon">
     {{user.displayName}}
   </a>
   <a (click)="closeMenu()">

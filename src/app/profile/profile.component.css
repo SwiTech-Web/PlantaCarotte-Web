@@ -22,3 +22,14 @@
   background-image: linear-gradient(to right, #419bdd , #3142a1);
   border-radius: 40px;
 }
+
+.card {
+  width: 500px;
+  border-radius: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    max-width: 350px;
+  }
+}

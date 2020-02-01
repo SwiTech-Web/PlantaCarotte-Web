@@ -1,58 +1,47 @@
-<!--<div class="d-flex justify-content-center py-5 px-1">
-  <div class="card p-3">
-    <h3 class="text-center txt-green pb-3"></h3>
-    <div class="form-group">
-      <form>
-        <div class="form-group">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Jardin" #displayName required>
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="button" class="btn btn-outline-primary connected" value="modifier profil">
-        </div>
-      </form>
-    </div>
-  </div>
-</div>-->
+
 <img src="../../assets/images/layer-1.png" alt="" style="position: absolute;left: 0; z-index: -9999" draggable="false">
-<img *ngIf="!isMobile" src="../../assets/images/layer-2.png" alt="layer" style="position: absolute;right: 0; top:40%" draggable="false">
-<div class="container">
-  <div class="d-flex justify-content-between m-5">
-    <div class="card m-5" style="width: 550px; height: 650px; border-radius: 16px;">
-      <img src="../../assets/images/profile.jpg" style="height: 50%; border-radius: 16px;">
-      <div class="container ml-3 mt-3">
-        <div class="float-left">
-          <h6>My profile</h6>
-          <p>Particulier</p>
-        </div>
-        <div class="float-right mr-5">
-          <p>Last login January 26 2020</p>
-          <p>Plateforme : Windows</p>
-        </div>
-        <div class="mt-5">
-          <form>
-            <h6>Information</h6>
+<img src="../../assets/images/layer-2.png" alt="layer" style="position: absolute;right: 0; top:40%" draggable="false">
+<div class="container" *ngIf="authService.isLoggedIn && authService.userData as user">
+  <div class="row d-flex" [ngClass]="{'justify-content-between': !isMobile, 'justify-content-center':isMobile}">
+    <div class="card"  [ngClass]="{'my-5':!isMobile}">
+      <div class="d-flex justify-content-center mt-2">
+        <img src="../../assets/images/profile.jpg"  class="user-icon" style="width:15em;height: 15em;">
+      </div>
+      <div class="card-body">
+       <div class="d-flex justify-content-between">
+         <h6><i class="fas fa-check-circle"></i> Vérifié</h6>
+         <p>Last login January 26 2020</p>
+       </div>
+
+        <div class="mt-2">
+        <h6>Information</h6>
+          <p>Membre depuis 2018</p>
             <div class="form-row">
-              <div class="form-group col-md-5">
-                <label for="pseudoProfil">Pseudo</label>
-                <input type="text" class="form-control search" id="pseudoProfil" value="{{ authService.userData.displayName }}">
+              <div class="form-group col-md-6">
+                <label for="pseudo">Pseudo</label>
+                <span type="text" class="form-control search" id="pseudo">{{user.displayName}}</span>
               </div>
-              <div class="form-group col-md-5 mr-2">
-                <label for="numberProfil">Number</label>
-                <input type="text" class="form-control search" id="numberProfil" value="{{ authService.userData.email }}">
+              <div class="form-group col-md-6">
+                <label for="sexe">Sexe</label>
+                <span type="text" class="form-control search" id="sexe">Homme</span>
               </div>
             </div>
-            <h6>Password</h6>
-            <input class="form-control form-control-sm mr-3 w-75 search"
-                   name="first" type="password" placeholder="Search" aria-label="Search" value="value">
-            <a href="#" class="custom-btn text-center yellow mt-3">save</a>
-          </form>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="place">Lieu</label>
+                <span class="form-control search"  type="text" id="place">Paris, France</span>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="langage">Langue</label>
+                <span class="form-control search"  type="text" id="langage">Français</span>
+              </div>
+            </div>
         </div>
       </div>
     </div>
-    <div style="width: 50%;">
-      <div class="card m-5" style="width: 100%; height: 300px; border-radius: 16px;">
+    <div>
+      <div class="card" [ngClass]="{'my-5':!isMobile, 'my-2':isMobile}">
         <div class="container ml-3 mt-3">
           <h6>Moyen de payement</h6>
         </div>
@@ -94,7 +83,7 @@
           </div>
         </div>
       </div>
-      <div class="card m-5" style="width: 100%; height: 300px; border-radius: 16px;">
+      <div class="card">
         <div class="container ml-3 mt-3">
           <h6>Mes locations</h6>
         </div>
@@ -139,3 +128,10 @@
   </div>
 </div>
 </div>
+
+<!--                <label for="number">Numéro de </label>-->
+<!--                <input type="text" class="form-control search" id="number" value="06.07.33.69.36">-->
+<!--            <h6>Password</h6>-->
+<!--            <input class="form-control form-control-sm mr-3 w-75 search"-->
+<!--                   name="first" type="password" placeholder="Search" aria-label="Search" value="value">-->
+<!--            <a href="#" class="custom-btn">save</a>-->
