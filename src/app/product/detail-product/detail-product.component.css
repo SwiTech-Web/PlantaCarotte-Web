@@ -7,13 +7,21 @@
 .btn {
   width: 100%;
 }
-
+.card-rent{
+  position: fixed;
+  z-index: 9999;
+}
 @media screen and (max-width: 768px) {
   .active-img {
-    max-width: 350px;
+    max-width: 100%;
     max-height: 350px;
   }
   .card {
-    max-width: 350px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
   }
 }
