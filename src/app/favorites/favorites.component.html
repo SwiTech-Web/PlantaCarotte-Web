@@ -1,6 +1,8 @@
 <div class="container my-5" *ngIf="products && authenticationService.isLoggedIn && authenticationService.userData">
   <div class="card-deck">
     <div *ngFor="let product of products">
+      <h3>Retrouver votre liste d'objet likez ci-dessous</h3>
+      <p>Si l’annonce n’est plus active sur le site, elle disparaîtra automatiquement de votre sélection.</p>
       <app-preview-product [product]="product"></app-preview-product>
     </div>
   </div>

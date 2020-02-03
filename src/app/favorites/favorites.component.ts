@@ -4,7 +4,7 @@ import {Product} from '../models/product.model';
 import {LikedService} from '../resources/liked.service';
 import {AuthenticationService} from '../resources/authentication.service';
 import {Liked} from '../models/liked.model';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-favorites',
@@ -26,7 +26,7 @@ export class FavoritesComponent implements OnInit {
   }
 
   listOfLikes() {
-    const id = this.router.url.split("/", 4).pop();
+    const id = this.router.url.split('/', 4).pop();
     this.likedService.getLikesByUser(id).subscribe(like => this.listLikedProducts(like));
   }
 

@@ -10,9 +10,9 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { ListProductComponent } from './product/list-product/list-product.component';
 import { CreateProductComponent } from './product/create-product/create-product.component';
-import { ProfileComponent } from "./profile/profile.component";
-import {DetailProductComponent} from "./product/detail-product/detail-product.component";
-import {FavoritesComponent} from "./favorites/favorites.component";
+import { ProfileComponent } from './profile/profile.component';
+import {DetailProductComponent} from './product/detail-product/detail-product.component';
+import {FavoritesComponent} from './favorites/favorites.component';
 
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'product/list', component: ListProductComponent },
   { path: 'product/detail/:id', component: DetailProductComponent },
   { path: 'product/add', component: CreateProductComponent, canActivate: [AuthGuard] },
-  //{ path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
+  // { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
