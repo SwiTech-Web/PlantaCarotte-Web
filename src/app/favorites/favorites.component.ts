@@ -31,8 +31,11 @@ export class FavoritesComponent implements OnInit {
   }
 
   listLikedProducts(like: Liked[]) {
-    like.filter(id => this.productService.getProductById(id.pid).subscribe(product => this.products.push(product as Product)));
-
-    // this.productService.getLikedProducts(list).subscribe(product => this.products = product);
+    like.filter(id => this.productService.getProductById(id.pid).subscribe(product => {
+        // @ts-ignore
+        product.id = id.pid;
+        this.products.push(product as Product)
+      console.log(this.products);
+    }));
   }
 }

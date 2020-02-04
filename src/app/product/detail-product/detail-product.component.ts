@@ -3,6 +3,7 @@ import {ProductService} from '../../resources/product.service';
 import {Router} from '@angular/router';
 import {UserService} from '../../resources/user.service';
 import {StateService} from '../../resources/state.service';
+import {Product} from "../../models/product.model";
 
 @Component({
   selector: 'app-detail-product',
@@ -13,6 +14,7 @@ export class DetailProductComponent implements OnInit {
   isMobile: boolean
   product: any;
   user: any;
+  similarProducts: Product[] = [];
 
   constructor(private productService: ProductService,
               private userService: UserService,
@@ -31,10 +33,14 @@ export class DetailProductComponent implements OnInit {
     this.productService.getProductById(id).subscribe(product =>  {
       this.product = product;
       this.getUserDetails();
+      this.getSimilarProduct( this.product.type);
     });
   }
 
   getUserDetails() {
     this.userService.getUserById(this.product.uid).subscribe(user => this.user = user);
+  }
+  getSimilarProduct(type: string) {
+    this.productService.getProductsByType(type).subscribe(products => this.similarProducts = products)
   }
 }

@@ -1,9 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../../models/product.model';
-import {Liked} from '../../models/liked.model';
-import {ProductService} from '../../resources/product.service';
-import {LikedService} from '../../resources/liked.service';
-import {AuthenticationService} from '../../resources/authentication.service';
 
 @Component({
   selector: 'app-preview-product',
@@ -16,5 +12,6 @@ export class PreviewProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.product.id);
   }
 }

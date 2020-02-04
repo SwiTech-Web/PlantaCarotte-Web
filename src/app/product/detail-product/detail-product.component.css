@@ -9,7 +9,7 @@
 }
 .card-rent{
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
 }
 @media screen and (max-width: 768px) {
   .active-img {

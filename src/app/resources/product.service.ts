@@ -28,9 +28,11 @@ export class ProductService {
     // });
   }
 
-
   getProductById(id: string) {
     return this.db.collection('products').doc(id).valueChanges();
+  }
+  getProductsByType(type: string): Observable<Product[]> {
+    return this.db.collection<Product>('products', ref => ref.where('type', '==', type)).valueChanges({ idField: 'id' });
   }
 
   getLimitedList(): Observable<Product[]> {

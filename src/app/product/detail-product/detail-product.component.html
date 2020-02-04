@@ -51,6 +51,7 @@
     <hr>
     <h4>Information</h4>
     <p>{{product.description}}</p>
+    <p><b>Type de location :</b> {{product.type}}</p>
     <p><b>Superficie de la location :</b> {{product.size}} m²</p>
     <div>
       <h4 class="py-3">Le quartier</h4>
@@ -63,6 +64,13 @@
     <hr>
     <div>
       <h4>Annonces simillaires</h4>
+
+      <div class="card-deck">
+        <div *ngFor="let product of similarProducts" [ngClass]="{'d-flex justify-content-center':isMobile}">
+          <app-preview-product [product]="product"></app-preview-product>
+        </div>
+      </div>
+
     </div>
   </div>
   <div class="card" *ngIf="isMobile">

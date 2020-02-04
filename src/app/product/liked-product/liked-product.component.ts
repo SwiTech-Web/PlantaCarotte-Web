@@ -25,9 +25,7 @@ export class LikedProductComponent implements OnInit {
   }
 
   listOfLikes() {
-    this.likedService.getLikesByUser(this.authService.userData.uid).subscribe(like => {
-      this.likes = like;
-    });
+    this.likedService.getLikesByUser(this.authService.userData.uid).subscribe(like => this.likes = like);
   }
 
   like(pid) {
@@ -57,6 +55,7 @@ export class LikedProductComponent implements OnInit {
     }
     return false;
   }
+
   show(content) {
     this.modalService.open(content);
   }

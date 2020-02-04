@@ -2,6 +2,9 @@
   border-radius: 10px;
   width: 350px;
 }
+.card-body {
+  padding-top: 0 !important;
+}
 .card-img-top {
   width: 350px;
   height: 200px;
@@ -10,5 +13,5 @@
   width: 22em;
 }
 .save {
-  margin-top: -2.5em;
+  margin-top: -1em;
 }
