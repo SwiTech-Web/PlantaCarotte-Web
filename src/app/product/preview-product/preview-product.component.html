@@ -1,11 +1,12 @@
 <div class="card overflow-hidden card-effect my-3">
   <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false"
        routerLink="/product/detail/{{product.id}}">
+
   <div class="d-flex justify-content-center save">
     <app-liked-product [product]="product"></app-liked-product>
   </div>
-  <div class="card-body" routerLink="/product/detail/{{product.id}}">
 
+  <div class="card-body" routerLink="/product/detail/{{product.id}}">
     <h5 class="card-title">{{product.name}}</h5>
     <p class="card-text ellipsis">{{product.description}}</p>
       <div class="float-left">
