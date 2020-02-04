@@ -26,8 +26,11 @@
                   </select>
                 </div>
               </div>
-              <div class="form-group my-3">
+              <div class="form-group my-3" *ngIf="authService.isLoggedIn">
                 <button type="submit" class="btn btn-primary">Louer ce terrain</button>
+              </div>
+              <div class="form-group my-3" *ngIf="!authService.isLoggedIn">
+                <button type="submit" class="btn btn-primary" (click)="show(login)">Louer ce terrain</button>
               </div>
               <div>
                 L'annonce a été consultée plus de 500 fois au cours de la dernière semaine.
@@ -73,13 +76,21 @@
 
     </div>
   </div>
+
   <div class="card" *ngIf="isMobile">
     <div class="card-body">
       <h5>{{product.price}}€ / day</h5>
-      <div class="form-group my-3">
+      <div class="form-group my-3" *ngIf="authService.isLoggedIn">
         <button type="submit" class="btn btn-primary">Louer ce terrain</button>
+      </div>
+      <div class="form-group my-3" *ngIf="!authService.isLoggedIn">
+        <button type="submit" class="btn btn-primary" (click)="show(login)">Louer ce terrain</button>
       </div>
     </div>
   </div>
 
 </div>
+
+<ng-template #login let-c="close" let-d="dismiss">
+  <app-login></app-login>
+</ng-template>

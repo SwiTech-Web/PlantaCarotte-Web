@@ -3,7 +3,9 @@ import {ProductService} from '../../resources/product.service';
 import {Router} from '@angular/router';
 import {UserService} from '../../resources/user.service';
 import {StateService} from '../../resources/state.service';
-import {Product} from "../../models/product.model";
+import {Product} from '../../models/product.model';
+import {AuthenticationService} from '../../resources/authentication.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-product',
@@ -19,7 +21,9 @@ export class DetailProductComponent implements OnInit {
   constructor(private productService: ProductService,
               private userService: UserService,
               private router: Router,
-              private stateService: StateService) { }
+              private stateService: StateService,
+              private modalService: NgbModal,
+              public authService: AuthenticationService) { }
 
   ngOnInit() {
     this.isMobile = this.stateService.getSate();
@@ -42,5 +46,9 @@ export class DetailProductComponent implements OnInit {
   }
   getSimilarProduct(type: string) {
     this.productService.getProductsByType(type).subscribe(products => this.similarProducts = products)
+  }
+
+  show(content) {
+    this.modalService.open(content);
   }
 }
