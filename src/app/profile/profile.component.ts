@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../resources/authentication.service';
-import {StateService} from "../resources/state.service";
+import {StateService} from '../resources/state.service';
+import {UserService} from '../resources/user.service';
+import {User} from '../models/user.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -9,12 +11,18 @@ import {StateService} from "../resources/state.service";
 })
 export class ProfileComponent implements OnInit {
   isMobile: boolean;
+  user: User;
 
-  constructor(public authService: AuthenticationService,
-              private stateService: StateService) { }
+  constructor(private stateService: StateService,
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
     this.isMobile = this.stateService.getSate();
+    this.getUserDetails();
   }
-
+  getUserDetails() {
+    const id = this.router.url.split('/', 4).pop();
+    this.userService.getUserById(id).subscribe(user => this.user = user);
+  }
 }

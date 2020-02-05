@@ -2,6 +2,7 @@
     border: 1px solid #484848;
     font-weight: bold;
     color: #484848;
+    width: 100%;
 }
 .or {
     text-align: center;
@@ -42,9 +43,6 @@
 }
 .card {
     width: 28rem;
-}
-.btn {
-    width: 100%;
 }
 .close {
   outline: none;

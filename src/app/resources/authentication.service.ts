@@ -4,7 +4,6 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { User } from '../models/user.model';
-import {Product} from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'

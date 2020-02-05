@@ -1,15 +1,16 @@
 
 <img src="../../assets/images/layer-1.png" alt="" style="position: absolute;left: 0; z-index: -9999" draggable="false">
 <img src="../../assets/images/layer-2.png" alt="layer" style="position: absolute;right: 0; top:40%" draggable="false">
-<div class="container" *ngIf="authService.isLoggedIn && authService.userData as user">
+<div class="container">
   <div class="row d-flex" [ngClass]="{'justify-content-between': !isMobile, 'justify-content-center':isMobile}">
     <div class="card"  [ngClass]="{'my-5':!isMobile}">
       <div class="d-flex justify-content-center mt-2">
-        <img src="../../assets/images/profile.jpg"  class="user-icon" style="width:15em;height: 15em;">
+        <img src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" class="user-icon img-profile">
       </div>
       <div class="card-body">
        <div class="d-flex justify-content-between">
-         <h6><i class="fas fa-check-circle"></i> Vérifié</h6>
+         <h6 *ngIf="user.emailVerified"><i class="fas fa-check-circle"></i> Vérifié</h6>
+         <h6 *ngIf="!user.emailVerified"><i class="fas fa-times-circle"></i> Pas Vérifié</h6>
          <p>Last login January 26 2020</p>
        </div>
 

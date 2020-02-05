@@ -40,6 +40,29 @@ input.form-control:focus {
   -moz-border-radius: 50%;
   border-radius: 50%;
 }
+.search {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0;
+  outline: none;
+}
+.search:focus {
+  border-bottom-color: #5cbd95!important;
+  background-color: transparent!important;
+}
+.img-profile{
+  height: 12em;
+  width: 12em;
+}
+.fa-check-circle {
+  color: #5cbd95;
+  font-size: 1.3em;
+}
+.fa-times-circle {
+  font-size: 1.3em;
+  color: darkred;
+}
 
 /* customize boutton */
 .btn-green {
@@ -53,6 +76,17 @@ input.form-control:focus {
 }
 .btn {
   font-size: 14px !important;
+}
+.btn:hover{
+  cursor: pointer!important;
+}
+.btn-primary {
+  border: none;
+  text-align: center;
+  color: #fff;
+  background-image: linear-gradient(to right, #419bdd , #3142a1);
+  border-radius: 40px;
+  width: 100%;
 }
 
 /* utilities */

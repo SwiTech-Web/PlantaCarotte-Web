@@ -1,8 +1,8 @@
 /* Desktop version */
-@font-face {
-  font-family: Courgette;
-  src: url('https://fonts.googleapis.com/css?family=Courgette&display=swap&selection.subset=latin-ext');
-}
+/*@font-face {*/
+/*  font-family: Courgette;*/
+/*  src: url('https://fonts.googleapis.com/css?family=Courgette&display=swap&selection.subset=latin-ext');*/
+/*}*/
 .brand-icon {
   width: 45px;
   height: 45px;
@@ -13,6 +13,9 @@
   background: -webkit-linear-gradient(0deg, rgba(49,66,161,1) 0%, rgba(65,155,221,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.dropdown-menu {
+  width: 17em;
 }
 ul a {
   display: block;

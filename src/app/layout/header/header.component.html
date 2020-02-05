@@ -10,7 +10,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0">
+    <ul class="navbar-nav mr-auto ml-auto">
       <li class="nav-item">
         <button class="nav-link btn btn-green" routerLink="/product/add"><i class="far fa-plus-square mr-2"></i>{{'header.add-plot' | translate}}</button>
       </li>
@@ -18,7 +18,7 @@
         <a class="nav-link" routerLink="/product/list"><i class="fas fa-search mr-2"></i>{{'header.find-plot' | translate}}</a>
       </li>
     </ul>
-    <ul class="navbar-nav mt-2 mt-lg-0">
+    <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" *ngIf="!authService.isLoggedIn" (click)="showModal(login)">
           {{'header.login' | translate}}<i class="fas fa-sign-in-alt ml-2"></i>
@@ -31,9 +31,12 @@
           {{user.displayName}}
         </a>
         <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownHeader">
-          <a class="dropdown-item" routerLink="/profile">Profile</a>
-          <a class="dropdown-item" routerLink="/favorites/{{user.uid}}" *ngIf="enableFavorite">Favorites</a>
-          <a class="dropdown-item disabled"  disabled *ngIf="!enableFavorite">Favorites</a>
+          <a class="dropdown-item" routerLink="/profile/{{user.uid}}">Profil</a>
+          <a class="dropdown-item" routerLink="/account">Compte</a>
+          <a class="dropdown-item" routerLink="/favorites/{{user.uid}}" *ngIf="enableFavorite">Favoris</a>
+          <a class="dropdown-item disabled"  disabled *ngIf="!enableFavorite">Favoris</a>
+          <a class="dropdown-item">Mes locations</a>
+          <a class="dropdown-item">Qui somme nous ?</a>
           <a class="dropdown-item" (click)="authService.SignOut()"> Deconnexion</a>
         </div>
       </li>
@@ -56,7 +59,7 @@
   </div>
   <div href="javascript:void(0)" class="closebtn" (click)="closeMenu()">&times;</div>
 
-  <a *ngIf="authService.isLoggedIn && authService.userData as user" (click)="closeMenu()" routerLink="/profile">
+  <a *ngIf="authService.isLoggedIn && authService.userData as user" (click)="closeMenu()" routerLink="/profile/{{user.uid}}">
     <img src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" class="user-icon">
     {{user.displayName}}
   </a>
@@ -70,10 +73,11 @@
     {{'header.login' | translate}}
   </a>
   <a (click)="closeMenu()" routerLink="/home"><i class="fas fa-home mr-3"></i>Accueil</a>
-
+  <a (click)="closeMenu()" routerLink="/account"><i class="fas fa-file-signature mr-3"></i>Compte</a>
   <a (click)="closeMenu()" *ngIf="enableFavorite && authService.isLoggedIn && authService.userData as user"  routerLink="/favorites/{{user.uid}}">
     <i class="fas fa-heart mr-3"></i>Favoris
   </a>
+  <a (click)="closeMenu()"><i class="fas fa-leaf mr-3"></i>Mes locations</a>
   <a (click)="closeMenu()" class="nav-link" routerLink="/help"><i class="far fa-question-circle mr-3"></i>Qui somme nous ?</a>
   <a class="nav-link txt-g" routerLink="/home" *ngIf="authService.isLoggedIn" (click)="authService.SignOut() && closeMenu()">
     <i class="fas fa-sign-out-alt txt-g mr-3"></i>Deconnexion

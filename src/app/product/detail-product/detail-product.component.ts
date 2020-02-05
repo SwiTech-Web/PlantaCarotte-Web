@@ -6,6 +6,7 @@ import {StateService} from '../../resources/state.service';
 import {Product} from '../../models/product.model';
 import {AuthenticationService} from '../../resources/authentication.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {User} from '../../models/user.model';
 
 @Component({
   selector: 'app-detail-product',
@@ -14,8 +15,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class DetailProductComponent implements OnInit {
   isMobile: boolean
-  product: any;
-  user: any;
+  product: Product;
+  user: User;
   similarProducts: Product[] = [];
 
   constructor(private productService: ProductService,
@@ -31,11 +32,10 @@ export class DetailProductComponent implements OnInit {
   }
 
   getProduct() {
-    const url = this.router.url;
-    const splitUrl = url.split("/", 4);
-    const id = splitUrl.pop();
+    const id = this.router.url.split('/', 4).pop();
     this.productService.getProductById(id).subscribe(product =>  {
       this.product = product;
+      this.product.id = id;
       this.getUserDetails();
       this.getSimilarProduct( this.product.type);
     });
@@ -44,6 +44,7 @@ export class DetailProductComponent implements OnInit {
   getUserDetails() {
     this.userService.getUserById(this.product.uid).subscribe(user => this.user = user);
   }
+
   getSimilarProduct(type: string) {
     this.productService.getProductsByType(type).subscribe(products => this.similarProducts = products)
   }
