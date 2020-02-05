@@ -1,7 +1,7 @@
 
 <img src="../../assets/images/layer-1.png" alt="" style="position: absolute;left: 0; z-index: -9999" draggable="false">
-<img src="../../assets/images/layer-2.png" alt="layer" style="position: absolute;right: 0; top:40%" draggable="false">
-<div class="container">
+<img src="../../assets/images/layer-2.png" alt="layer" style="position: absolute;right: 0; top:40%;z-index: -9999" draggable="false">
+<div class="container" *ngIf="user">
   <div class="row d-flex" [ngClass]="{'justify-content-between': !isMobile, 'justify-content-center':isMobile}">
     <div class="card"  [ngClass]="{'my-5':!isMobile}">
       <div class="d-flex justify-content-center mt-2">
@@ -86,53 +86,28 @@
       </div>
       <div class="card" >
         <div class="container ml-3 mt-3">
-          <h6>Mes locations</h6>
+          <h6>Annonce de {{user.displayName}}</h6>
         </div>
         <hr>
-        <div class="container ml-3 mt-3">
-          <div class="float-left">
-            <i class="fas fa-water float-left"></i>
-            <p class="ml-3 float-left"> Lac</p>
-          </div>
-          <div class="float-right">
-            <i class="fas fa-ellipsis-h float-right mr-3"></i>
-          </div>
-        </div>
-        <div class="container ml-3 mt-3">
-          <div class="float-left">
-            <i class="fas fa-swimming-pool float-left"></i>
-            <p class="ml-3 float-left"> Piscine</p>
-          </div>
-          <div class="float-right">
-            <i class="fas fa-ellipsis-h float-right mr-3"></i>
-          </div>
-        </div>
-        <div class="container ml-3 mt-3">
-          <div class="float-left">
-            <i class="fas fa-tree float-left"></i>
-            <p class="ml-3 float-left"> Forêt</p>
-          </div>
-          <div class="float-right">
-            <i class="fas fa-ellipsis-h float-right mr-3"></i>
+        <div class="container t-3" *ngFor="let product of userProducts">
+          <div class="d-flex justify-content-between cursor" routerLink="/product/detail/{{product.id}}">
+            <p>
+              <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
+              <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
+              <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
+              <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
+              <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
+              {{product.type}}
+            </p>
+            <p><b>{{product.name}}</b></p>
+            <app-rate-product [rate]="product.rate"></app-rate-product>
+            <div>
+              <i class="fas fa-eye"></i>
+            </div>
           </div>
         </div>
-        <div class="container ml-3 mt-3">
-          <div class="float-left">
-            <i class="fas fa-leaf float-left"></i>
-            <p class="ml-3 float-left"> Jardin</p>
-          </div>
-          <div class="float-right">
-            <i class="fas fa-ellipsis-h float-right mr-3"></i>
-          </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
 
-<!--                <label for="number">Numéro de </label>-->
-<!--                <input type="text" class="form-control search" id="number" value="06.07.33.69.36">-->
-<!--            <h6>Password</h6>-->
-<!--            <input class="form-control form-control-sm mr-3 w-75 search"-->
-<!--                   name="first" type="password" placeholder="Search" aria-label="Search" value="value">-->
-<!--            <a href="#" class="custom-btn">save</a>-->

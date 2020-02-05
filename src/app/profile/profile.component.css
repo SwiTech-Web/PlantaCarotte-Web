@@ -2,7 +2,9 @@
   width: 500px;
   border-radius: 16px;
 }
-
+.cursor:hover {
+  cursor: pointer;
+}
 @media screen and (max-width: 768px) {
   .card {
     max-width: 350px;

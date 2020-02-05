@@ -31,6 +31,10 @@ export class ProductService {
     return this.db.collection<Product>('products', ref => ref.limit(3)).valueChanges({ idField: 'id' });
   }
 
+  getProductsByUserId(id: string): Observable<Product[]> {
+    return this.db.collection<Product>('products', ref => ref.where('uid', '==', id)).valueChanges({ idField: 'id' });
+  }
+
   createProduct(type, city, dpts, name, description, size, price) {
     const product: any = {
       type,
