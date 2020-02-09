@@ -89,20 +89,25 @@
           <h6>Annonce de {{user.displayName}}</h6>
         </div>
         <hr>
-        <div class="container t-3" *ngFor="let product of userProducts">
-          <div class="d-flex justify-content-between cursor" routerLink="/product/detail/{{product.id}}">
-            <p>
-              <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
-              <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
-              <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
-              <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
-              <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
-              {{product.type}}
-            </p>
-            <p><b>{{product.name}}</b></p>
-            <app-rate-product [rate]="product.rate"></app-rate-product>
-            <div>
-              <i class="fas fa-eye"></i>
+        <p *ngIf="userProducts.length === 0" class="pb-2 text-center">
+          {{user.displayName}} n'a posté aucunes annonces.
+        </p>
+        <div *ngIf="userProducts.length !== 0">
+          <div class="container t-3" *ngFor="let product of userProducts">
+            <div class="d-flex justify-content-between cursor" routerLink="/product/detail/{{product.id}}">
+              <p>
+                <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
+                <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
+                <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
+                <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
+                <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
+                {{product.type}}
+              </p>
+              <p><b>{{product.name}}</b></p>
+              <app-rate-product [rate]="product.rate"></app-rate-product>
+              <div>
+                <i class="fas fa-eye"></i>
+              </div>
             </div>
           </div>
         </div>

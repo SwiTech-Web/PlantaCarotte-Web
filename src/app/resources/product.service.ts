@@ -46,7 +46,6 @@ export class ProductService {
       price,
       rate : 0,
       rent: false,
-      like: false,
       date: new Date(),
       uid: this.authService.userData.uid
     };

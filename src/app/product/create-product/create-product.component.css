@@ -1,19 +1,17 @@
 .progress-bar {
   background-color: #5cbd95;
 }
-
 .puce {
   display: list-item;
   list-style-type: disc;
   list-style-position: inside;
 }
-
 h6{
   margin-bottom: 2%;
 }
-
-
-
+.btn-primary {
+    width: 130px;
+}
 ul {list-style-type: none;}
 .month {
   padding: 10px 25px;

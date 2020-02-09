@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  products: any[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService,
               private likedService: LikedService,
@@ -31,11 +31,10 @@ export class FavoritesComponent implements OnInit {
   }
 
   listLikedProducts(like: Liked[]) {
+    this.products = [];
     like.filter(id => this.productService.getProductById(id.pid).subscribe(product => {
-        // @ts-ignore
         product.id = id.pid;
-        this.products.push(product as Product)
-      console.log(this.products);
+        this.products.push(product);
     }));
   }
 }

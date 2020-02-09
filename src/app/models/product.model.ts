@@ -12,7 +12,6 @@ export interface Product {
   rate: number;
   size: number;
   rent: boolean;
-  like: boolean;
   date: Date;
   uid: string;
 }

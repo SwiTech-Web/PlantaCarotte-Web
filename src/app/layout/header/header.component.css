@@ -1,8 +1,4 @@
-/* Desktop version */
-/*@font-face {*/
-/*  font-family: Courgette;*/
-/*  src: url('https://fonts.googleapis.com/css?family=Courgette&display=swap&selection.subset=latin-ext');*/
-/*}*/
+/* Desktop */
 .brand-icon {
   width: 45px;
   height: 45px;
@@ -16,6 +12,9 @@
 }
 .dropdown-menu {
   width: 17em;
+}
+.dropdown-item {
+  background-color: transparent!important;
 }
 ul a {
   display: block;
