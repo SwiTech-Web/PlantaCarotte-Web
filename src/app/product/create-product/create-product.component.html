@@ -24,7 +24,7 @@
           <h6 class="puce">Choisissez votre bien dans les différentes catégories</h6>
           <div class="col-md-6">
             <select class="custom-select" name="select_category">
-              <option selected disabled value="" #type required>Choose...</option>
+              <option selected disabled value="" #type required>Choisir</option>
               <option value="foret" >Fôret</option>
               <option value="potager">Potager</option>
               <option value="jardin">Jardin</option>
@@ -92,7 +92,7 @@
           <h6 class="puce">Sélectionner le nombre de personnes ?</h6>
           <div class="col-md-6">
             <select class="custom-select">
-              <option selected disabled value="" #type required>Choose...</option>
+              <option selected disabled value="" #type required>Choisir</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -127,7 +127,7 @@
             <div class="checkbox">
               <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_1" value="choice_step_1">
               <label class="form-check-label ml-4" for="choice_step_1">
-                Pets allowed
+                Animaux acceptés
               </label>
             </div>
             <div class="checkbox">
@@ -139,49 +139,43 @@
             <div class="checkbox">
               <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_3" value="choice_step_3">
               <label class="form-check-label ml-4" for="choice_step_3">
-                Sanitary
+                Sanitaires
               </label>
             </div>
             <div class="checkbox">
               <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_4" value="choice_step_4">
               <label class="form-check-label ml-4" for="choice_step_4">
-                Table & chairs
+                Tables & Chaises
               </label>
             </div>
             <div class="checkbox">
               <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_5" value="choice_step_5">
               <label class="form-check-label ml-4" for="choice_step_5">
-                Terrace
+                Terrasse
               </label>
             </div>
             <div class="checkbox">
               <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_6" value="choice_step_6">
               <label class="form-check-label ml-4" for="choice_step_6">
-                Beach umbrella
+                Parasoles
               </label>
             </div>
             <div class="checkbox">
               <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_7" value="choice_step_7">
               <label class="form-check-label ml-4" for="choice_step_7">
-                Outdoor games
-              </label>
-            </div>
-            <div class="checkbox">
-              <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_8" value="choice_step_8">
-              <label class="form-check-label ml-4" for="choice_step_8">
-                Petanque
+                Jeux d'extérieurs
               </label>
             </div>
             <div class="checkbox">
               <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_9" value="choice_step_9">
               <label class="form-check-label ml-4" for="choice_step_9">
-                Sports area
+                Aire de sport
               </label>
             </div>
             <div class="checkbox">
               <input class="form-check-input mx-2" type="checkbox" name="choice_step" id="choice_step_10" value="choice_step_10">
               <label class="form-check-label ml-4" for="choice_step_10">
-                Accessible water point
+                Accès point d'eau
               </label>
             </div>
           </div>
@@ -210,7 +204,7 @@
         <h6 class="puce">Remplissez vos coordonnées ?</h6>
         <div class="form-group col-md-6">
           <label>
-            Country / Region
+            Pays / Région
           </label>
           <input class="form-control">
         </div>
@@ -251,17 +245,17 @@
         </div>
       </div>
       <div class="card-body">
-        <h6>Vos données sont-elles correct ? <a href="#">Modifier</a></h6>
-        <p>Vous êtes un particulier et vous voulez faire louer un <b>Jardin</b></p>
+        <h6>Vos données sont-elles correctes ? <a href="#">Modifier</a></h6>
+        <p>Vous êtes un particulier et vous voulez mettre en location votre <b>Jardin</b></p>
         <p>Le nombre de personne maximum sur votre Jardin est de 8 personnes.</p>
-        <h6>Les equipements sont : <a href="#">Modifier</a></h6>
+        <h6>Les équipements sont : <a href="#">Modifier</a></h6>
         <p class="puce">Des outils de jardin</p>
         <p class="puce">Des tables</p>
         <p class="puce">Des chaises</p>
         <h6>Vous résidez <a href="#">Modifier</a></h6>
         <p>Au 6 avenue lincoln à Lagny-sur-Marne dans le 77400</p>
-        <h6>Accésibilité <a href="#">Modifier</a></h6>
-        <p>Il y a un acces handicapé</p>
+        <h6>Accesibilité <a href="#">Modifier</a></h6>
+        <p>Il y a un accès handicapé</p>
         <button type="button" class="btn btn-primary float-left" (click)="back(checked.checked5)">Retour</button>
         <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked6)">Suivant</button>
       </div>
@@ -281,7 +275,7 @@
         </div>
         <h6 class="puce">Décrivez votre Jardin</h6>
         <div class="form-group col-md-6">
-          <textarea id="#" class="ta" name="#" rows="6" cols="75" data-maxchars="20" data-over="false" placeholder="Enter text here..." required></textarea>
+          <textarea id="#" class="ta" name="#" rows="6" cols="75" data-maxchars="20" data-over="false" placeholder="Votre ambiance..." required></textarea>
         </div>
         <div class="form-group col-md-6">
           <h6 class="puce">L'accès au bien se fait :</h6>
@@ -294,7 +288,7 @@
           <div class="radio">
             <input class="form-check-input mx-2" type="radio" name="exampleRadios" id="exampleRadios" value="option2">
             <label class="form-check-label ml-4" for="exampleRadios">
-              Se fait à horraire fixes
+              Se fait via horaires fixes
             </label>
           </div>
         </div>
@@ -320,7 +314,7 @@
         <hr>
         <h6>Avant de réserver, tous les locataires doivent : </h6>
         <h6 class="puce">Accepter votre règlement intérieur</h6>
-        <h6 class="puce">Vous envoyer un message concernant leur location</h6>
+        <h6 class="puce">Vous envoyez un message concernant leur location</h6>
         <h6 class="puce">Avoir un accès pour la location</h6>
         <button type="button" class="btn btn-primary float-left" (click)="back(checked.checked7)">Retour</button>
         <button type="button" class="btn btn-primary float-right" (click)="validate(checked.checked8)">Suivant</button>
@@ -335,10 +329,10 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-10">
           <h4>Fixer un règlement intérieur pour vos locataires : </h4>
           <p>Les voyageurs doivent accepter votre règlement intérieur avant de réserver.</p>
-          <h6>Événement ou fêtes possibles</h6>
+          <h6>Évènement ou fêtes possibles</h6>
           <h6>Animaux acceptés</h6>
           <h6>Horaires fixes</h6>
         </div>
@@ -347,7 +341,7 @@
           <h6><b>Règles supplémentaires</b></h6>
           <div class="form-group col-md-6">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <input type="text" class="form-control" aria-describedby="button-addon2">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter</button>
               </div>
@@ -370,7 +364,7 @@
         <div class="form-group col-md-6">
           <h4>Fixer un règlement intérieur pour vos locataires : </h4>
           <p>Les voyageurs doivent accepter votre règlement intérieur avant de réserver.</p>
-          <h6>Événement ou fêtes possibles</h6>
+          <h6>Évènement ou fêtes possibles</h6>
           <h6>Animaux acceptés</h6>
           <h6>Horaires fixes</h6>
         </div>
@@ -379,7 +373,7 @@
           <h6><b>Règles supplémentaires</b></h6>
           <div class="form-group col-md-6">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <input type="text" class="form-control" aria-describedby="button-addon2">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter</button>
               </div>
