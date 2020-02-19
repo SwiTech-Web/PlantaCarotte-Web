@@ -13,7 +13,8 @@ export class ListProductComponent implements OnInit {
   isMobile: boolean;
   products: Product[] = [];
   format = 'dd/mm/yyyy, hh:mm';
-  filterProductType: any = {type: ''};
+  filterProduct: any = {type: '', name: ''};
+  textFilter = '';
 
   constructor(private productService: ProductService,
               public authService: AuthenticationService,
@@ -28,5 +29,11 @@ export class ListProductComponent implements OnInit {
 
   listAllProducts() {
     this.productService.getProducts().subscribe(product => this.products = product);
+  }
+
+  applyFilter() {
+    this.filterProduct = {
+      $or: [{type: this.textFilter}, {name: this.textFilter}]
+    };
   }
 }

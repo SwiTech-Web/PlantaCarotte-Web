@@ -37,7 +37,7 @@ export class AuthenticationService {
       .then((result) => {
         this.ngZone.run(() => {
           window.location.reload();
-          //this.router.navigate(['home']);
+          // this.router.navigate(['home']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -63,7 +63,7 @@ export class AuthenticationService {
     return this.afAuth.auth.currentUser.sendEmailVerification()
     .then(() => {
       this.router.navigate(['verify-email']);
-    })
+    });
   }
 
   // Reset Forggot password
@@ -108,8 +108,8 @@ export class AuthenticationService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-    }
+      emailVerified: user.emailVerified
+    };
     return userRef.set(userData, {merge: true});
   }
 

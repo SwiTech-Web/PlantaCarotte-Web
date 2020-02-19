@@ -41,7 +41,7 @@
 
     <form class="form-inline md-form my-3">
       <i class="fas fa-search" aria-hidden="true"></i>
-      <input class="form-control form-control-sm mr-3 w-75 search" [(ngModel)]="filterProductType.type"
+      <input class="form-control form-control-sm mr-3 w-75 search" [(ngModel)]=textFilter (ngModelChange)="applyFilter()"
              name="first" type="text" placeholder="Search" aria-label="Search">
     </form>
 
@@ -146,7 +146,7 @@
   <div *ngIf="isMobile" class="my-3">
     <form ngclass="form-inline md-form">
       <div class="input-group">
-        <input class="form-control form-control-sm search" [(ngModel)]="filterProductType.type"
+        <input class="form-control form-control-sm search" [(ngModel)]="filterProduct.type"
                name="first" type="text" placeholder="Search" aria-label="Search">
         <div class="input-group-prepend">
           <div class="input-group-text">
@@ -159,7 +159,7 @@
 
   <!-- List -->
   <div *ngIf="products">
-    <div class="card card-effect mb-3" *ngFor="let product of products.slice().reverse() | filterBy: filterProductType">
+    <div class="card card-effect mb-3" *ngFor="let product of products.slice().reverse() | filterBy: filterProduct">
       <!-- Desktop -->
       <div class="row no-gutters" *ngIf="!isMobile">
         <div class="col-md-4" routerLink="/product/detail/{{product.id}}">

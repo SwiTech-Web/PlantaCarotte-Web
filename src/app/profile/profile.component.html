@@ -6,6 +6,9 @@
     <div class="card"  [ngClass]="{'my-5':!isMobile}">
       <div class="d-flex justify-content-center mt-2">
         <img src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" class="user-icon img-profile">
+        <div class="d-flex justify-content-between float-right">
+          <a class="text-muted fixed-right" routerLink="/account">Edit compte</a>
+        </div>
       </div>
       <div class="card-body">
        <div class="d-flex justify-content-between">

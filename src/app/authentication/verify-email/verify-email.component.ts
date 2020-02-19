@@ -8,7 +8,7 @@ import { AuthenticationService } from 'src/app/resources/authentication.service'
 })
 export class VerifyEmailComponent implements OnInit {
   isSend: Boolean = false;
-  
+
   constructor(public authService: AuthenticationService) { }
 
   ngOnInit() {
