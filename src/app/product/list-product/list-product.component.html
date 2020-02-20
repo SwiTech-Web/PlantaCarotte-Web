@@ -50,7 +50,7 @@
       <h3>Category</h3>
       <div class="box">
         <div class="checkbox">
-          <input id="choice_category_button_1" class="styled" type="checkbox" name="choice">
+          <input #CheckBox1 id="CheckBox1" class="styled" type="checkbox" name="choice" [checked]="saveUsername" (change)="CheckFilter(CheckBox1.checked)">
           <label for="choice_category_button_1">Forest</label>
         </div>
         <div class="checkbox">

@@ -15,6 +15,7 @@ export class ListProductComponent implements OnInit {
   format = 'dd/mm/yyyy, hh:mm';
   filterProduct: any = {type: '', name: ''};
   textFilter = '';
+  check1: boolean;
 
   constructor(private productService: ProductService,
               public authService: AuthenticationService,
@@ -35,5 +36,14 @@ export class ListProductComponent implements OnInit {
     this.filterProduct = {
       $or: [{type: this.textFilter}, {name: this.textFilter}]
     };
+  }
+
+  CheckFilter(value:boolean) {
+    this.check1 = value
+    if (this.check1 == true) {
+      this.filterProduct = {type: 'Permaculture'}
+    } else {
+      this.filterProduct = {type: ''}
+    }
   }
 }
