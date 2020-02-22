@@ -34,6 +34,7 @@ import { LikedProductComponent } from './product/liked-product/liked-product.com
 import { FooterComponent } from './layout/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from './account/account.component';
+import { NgxUiLoaderModule } from  'ngx-ui-loader';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -66,6 +67,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         FilterPipeModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireDatabaseModule,
+        NgxUiLoaderModule,
         AngularFireAuthModule,
         AppRoutingModule,
         HttpClientModule,
