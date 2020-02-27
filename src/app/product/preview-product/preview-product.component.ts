@@ -8,7 +8,7 @@ import {Product} from '../../models/product.model';
 })
 export class PreviewProductComponent implements OnInit {
   @Input() product: Product;
-
+  @Input() enableFavorite: boolean;
   constructor() { }
 
   ngOnInit() {

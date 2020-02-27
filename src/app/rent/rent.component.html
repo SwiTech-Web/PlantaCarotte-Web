@@ -1,0 +1,24 @@
+<div class="container my-5"*ngIf="products.length > 0">
+  <div class="mb-5">
+    <h3>Demandes</h3>
+    <h5 *ngIf="rents.length == 0" class="text-center">Vous n'avez aucune demande</h5>
+    <div *ngFor="let rent of rents" class="card my-3">
+      <div class="card-body">
+        <label> User Infos : </label> {{rent.rid}}
+        <br/>
+        <label>Product infos :</label> {{rent.pid}}
+      <br/>
+        <button class="btn btn-success mr-2">Accepter</button>
+        <button class="btn btn-danger">Rejeter la demande</button>
+      </div>
+
+    </div>
+  </div>
+
+  <h3>Vos Annonces</h3>
+  <div class="card-deck">
+    <div *ngFor="let product of products">
+      <app-preview-product [enableFavorite]="false" [product]="product"></app-preview-product>
+    </div>
+  </div>
+</div>

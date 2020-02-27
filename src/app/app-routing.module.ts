@@ -13,12 +13,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { DetailProductComponent } from './product/detail-product/detail-product.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { AccountComponent } from './account/account.component';
+import { RentComponent } from './rent/rent.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'profile/:id', component: ProfileComponent},
+  { path: 'rent/:id', component: RentComponent, canActivate: [AuthGuard]},
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
   { path: 'favorites/:id', component: FavoritesComponent, canActivate: [AuthGuard] },
   { path: 'product/list', component: ListProductComponent },

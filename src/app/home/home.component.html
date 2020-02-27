@@ -89,7 +89,7 @@
   <span>Des terrains pour votre plaisir de la nature !</span>
   <div class="card-deck">
     <div *ngFor="let product of products" [ngClass]="{'d-flex justify-content-center':isMobile}">
-      <app-preview-product [product]="product"></app-preview-product>
+      <app-preview-product [enableFavorite]="true" [product]="product"></app-preview-product>
     </div>
   </div>
 

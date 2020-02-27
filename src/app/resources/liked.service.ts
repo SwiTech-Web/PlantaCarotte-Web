@@ -1,8 +1,7 @@
-import {Injectable, NgZone} from '@angular/core';
-import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
+import {Injectable} from '@angular/core';
+import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from "rxjs";
 import {Liked} from '../models/liked.model';
-import {User} from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'

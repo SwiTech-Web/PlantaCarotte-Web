@@ -29,7 +29,7 @@
                 </div>
               </div>
               <div class="form-group my-3" *ngIf="authService.isLoggedIn">
-                <button type="submit" class="btn btn-primary">Louer ce terrain</button>
+                <button type="submit" class="btn btn-primary" (click)="rentProduct()">Louer ce terrain</button>
               </div>
               <div class="form-group my-3" *ngIf="!authService.isLoggedIn">
                 <button type="submit" class="btn btn-primary" (click)="show(login)">Louer ce terrain</button>
@@ -60,7 +60,6 @@
     <p><b>Superficie de la location :</b> {{product.size}} m²</p>
     <div>
       <h4 class="py-3">Le quartier</h4>
-      <div #mapRef class="active-img" style="height:400px"></div>
       <img src="../../../assets/images/maps.PNG" class="rounded active-img" alt="image">
     </div>
     <hr>
@@ -73,7 +72,7 @@
 
       <div class="card-deck">
         <div *ngFor="let product of similarProducts" [ngClass]="{'d-flex justify-content-center':isMobile}">
-          <app-preview-product [product]="product"></app-preview-product>
+          <app-preview-product [enableFavorite]="true" [product]="product"></app-preview-product>
         </div>
       </div>
 
@@ -87,7 +86,7 @@
         <app-liked-product [product]="product"></app-liked-product>
       </div>
       <div class="form-group my-3" *ngIf="authService.isLoggedIn">
-        <button type="submit" class="btn btn-primary">Louer ce terrain</button>
+        <button type="submit" class="btn btn-primary" (click)="rentProduct()">Louer ce terrain</button>
       </div>
       <div class="form-group my-3" *ngIf="!authService.isLoggedIn">
         <button type="submit" class="btn btn-primary" (click)="show(login)">Louer ce terrain</button>

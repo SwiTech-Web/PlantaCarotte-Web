@@ -35,6 +35,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from './account/account.component';
 import { NgxUiLoaderModule } from  'ngx-ui-loader';
+import { RentComponent } from './rent/rent.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -60,27 +61,28 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     RateProductComponent,
     LikedProductComponent,
     FooterComponent,
-    AccountComponent
+    AccountComponent,
+    RentComponent
   ],
-    imports: [
-        BrowserModule,
-        FilterPipeModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireDatabaseModule,
-        NgxUiLoaderModule,
-        AngularFireAuthModule,
-        AppRoutingModule,
-        HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        }),
-        FormsModule,
-        NgbModule
-    ],
+  imports: [
+    BrowserModule,
+    FilterPipeModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    NgxUiLoaderModule,
+    AngularFireAuthModule,
+    AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    }),
+    FormsModule,
+    NgbModule
+  ],
   providers: [
     AngularFirestore,
     AuthenticationService,

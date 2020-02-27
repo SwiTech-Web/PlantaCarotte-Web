@@ -3,7 +3,7 @@
   <p>Si l’annonce n’est plus active sur le site, elle disparaîtra automatiquement de votre sélection.</p>
   <div class="card-deck">
     <div *ngFor="let product of products">
-      <app-preview-product [product]="product"></app-preview-product>
+      <app-preview-product [enableFavorite]="true" [product]="product"></app-preview-product>
     </div>
   </div>
 </div>

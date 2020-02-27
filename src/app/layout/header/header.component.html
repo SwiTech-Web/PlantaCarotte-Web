@@ -35,7 +35,7 @@
           <a class="dropdown-item" routerLink="/account">Compte</a>
           <a class="dropdown-item" routerLink="/favorites/{{user.uid}}" *ngIf="enableFavorite">Favoris</a>
           <a class="dropdown-item disabled"  disabled *ngIf="!enableFavorite">Favoris</a>
-          <a class="dropdown-item">Mes locations</a>
+          <a class="dropdown-item" routerLink="/rent/{{user.uid}}" *ngIf="enableRent">Mes locations</a>
           <a class="dropdown-item">Qui somme nous ?</a>
           <a class="dropdown-item" (click)="authService.SignOut()"> Deconnexion</a>
         </div>
@@ -74,10 +74,15 @@
   </a>
   <a (click)="closeMenu()" routerLink="/home"><i class="fas fa-home mr-3"></i>Accueil</a>
   <a (click)="closeMenu()" routerLink="/account"><i class="fas fa-file-signature mr-3"></i>Compte</a>
+
   <a (click)="closeMenu()" *ngIf="enableFavorite && authService.isLoggedIn && authService.userData as user"  routerLink="/favorites/{{user.uid}}">
     <i class="fas fa-heart mr-3"></i>Favoris
   </a>
-  <a (click)="closeMenu()"><i class="fas fa-leaf mr-3"></i>Mes locations</a>
+
+  <a (click)="closeMenu()" *ngIf="enableRent && authService.isLoggedIn && authService.userData as user" routerLink="/rent/{{user.uid}}">
+    <i class="fas fa-leaf mr-3"></i>Mes locations
+  </a>
+
   <a (click)="closeMenu()" class="nav-link" routerLink="/help"><i class="far fa-question-circle mr-3"></i>Qui somme nous ?</a>
   <a class="nav-link txt-g" routerLink="/home" *ngIf="authService.isLoggedIn" (click)="authService.SignOut() && closeMenu()">
     <i class="fas fa-sign-out-alt txt-g mr-3"></i>Deconnexion

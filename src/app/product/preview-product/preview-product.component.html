@@ -2,7 +2,7 @@
   <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false"
        routerLink="/product/detail/{{product.id}}">
 
-  <div class="d-flex justify-content-center save">
+  <div class="d-flex justify-content-center save" *ngIf="enableFavorite">
     <app-liked-product [product]="product"></app-liked-product>
   </div>
 
