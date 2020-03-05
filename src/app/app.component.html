@@ -1,33 +1,19 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+
+<!-- spinner -->
 <ngx-ui-loader
-bgsColor="red"
-bgsOpacity="0.5"
-bgsPosition="bottom-right"
-bgsSize="60"
-bgsType="ball-spin-clockwise"
-blur="5"
-delay="0"
-fgsColor="#3E84CD"
-fgsPosition="center-center"
-fgsSize="60"
-fgsType="square-jelly-box"
-gap="24"
-logoPosition="center-center"
-logoSize="120"
-logoUrl="/assets/images/logo.png"
-masterLoaderId="master"
-overlayBorderRadius="0"
-overlayColor="rgba(40, 40, 40, 0.8)"
-pbColor="#5cbd95"
-pbDirection="ltr"
-pbThickness="3"
-hasProgressBar="true"
-text=""
-textColor="#FFFFFF"
-textPosition="center-center"
-maxTime="-1"
-minTime="500"
+  bgsOpacity="0.5"
+  fgsColor="#5cbd95"
+  fgsPosition="center-center"
+  fgsType="fading-circle"
+  fgsSize="90"
+  masterLoaderId="master"
+  overlayBorderRadius="0"
+  overlayColor="rgba(40, 40, 40, 0.8)"
+  pbColor="#5cbd95"
+  pbDirection="ltr"
+  pbThickness="3"
+  hasProgressBar="true"
 ></ngx-ui-loader>

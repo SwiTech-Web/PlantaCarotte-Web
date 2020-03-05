@@ -5,6 +5,7 @@ import {User} from '../models/user.model';
 import {Router} from '@angular/router';
 import {ProductService} from '../resources/product.service';
 import {Product} from '../models/product.model';
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +21,8 @@ export class ProfileComponent implements OnInit {
   constructor(private stateService: StateService,
               private userService: UserService,
               private router: Router,
-              private productService: ProductService) { }
+              private productService: ProductService,
+              private spinner: NgxUiLoaderService) { }
 
   ngOnInit() {
     this.isMobile = this.stateService.getSate();
@@ -29,10 +31,18 @@ export class ProfileComponent implements OnInit {
   }
 
   getUserDetails() {
-    this.userService.getUserById(this.id).subscribe(user => this.user = user);
+    this.spinner.start();
+    this.userService.getUserById(this.id).subscribe(user => {
+      this.user = user;
+      this.spinner.stop();
+    });
   }
   getProductByUsers() {
-    this.productService.getProductsByUserId(this.id).subscribe(product => this.userProducts = product);
+    this.spinner.start();
+    this.productService.getProductsByUserId(this.id).subscribe(product => {
+      this.userProducts = product;
+      this.spinner.stop();
+    });
   }
 
 }

@@ -8,6 +8,7 @@ import {AuthenticationService} from '../../resources/authentication.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../models/user.model';
 import {RentedService} from "../../resources/rented.service";
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 @Component({
   selector: 'app-detail-product',
@@ -27,7 +28,8 @@ export class DetailProductComponent implements OnInit {
               private stateService: StateService,
               private modalService: NgbModal,
               private rentedService: RentedService,
-              public authService: AuthenticationService) { }
+              public authService: AuthenticationService,
+              private spinner: NgxUiLoaderService) { }
 
   ngOnInit() {
     this.isMobile = this.stateService.getSate();
@@ -35,11 +37,13 @@ export class DetailProductComponent implements OnInit {
   }
 
   getProduct() {
+    this.spinner.start();
     this.productService.getProductById(this.id).subscribe(product =>  {
       this.product = product;
       this.product.id = this.id;
       this.getUserDetails();
       this.getSimilarProduct( this.product.type);
+      this.spinner.stop();
     });
   }
 
