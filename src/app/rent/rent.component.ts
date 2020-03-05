@@ -7,20 +7,19 @@ import {RentedService} from "../resources/rented.service";
 import {Rent} from "../models/rent.model";
 import {UserService} from "../resources/user.service";
 import {User} from "../models/user.model";
+import {RentRequest} from "../models/rentRequest.model";
 
 @Component({
   selector: 'app-rent',
   templateUrl: './rent.component.html',
   styleUrls: ['./rent.component.css']
 })
+
 export class RentComponent implements OnInit {
   products: Product[] = [];
-  rents: Rent[] = [];
-  result: any;
-  user: User;
-  product: Product;
-  data: {};
-  requestData: any[] = [];
+  rent: Rent;
+  data: RentRequest;
+  requestData: RentRequest[] = [];
 
   constructor(public authService: AuthenticationService,
               private productService: ProductService,
@@ -29,7 +28,7 @@ export class RentComponent implements OnInit {
               private rentedService: RentedService) { }
 
   ngOnInit() {
-    if(this.authService.isLoggedIn) {
+    if (this.authService.isLoggedIn) {
       this.getProductsUser();
     }
   }
@@ -37,21 +36,19 @@ export class RentComponent implements OnInit {
   getRentRequest(list: Product[]) {
     list.forEach(p => {
       this.rentedService.getRentByProductId(p.id).subscribe(rent => {
-        this.result = rent.pop();
-        if(this.result != undefined) {
-          this.rents.push(this.result);
+        this.rent = rent.pop();
+        if(this.rent != undefined) {
+          this.getRequestData(this.rent);
         }
       });
     });
   }
-
-  getRequestData(rents: Rent[]) {
-    rents.forEach(rent => {
-      this.userService.getUserById(rent.rid).subscribe(user => this.user = user);
-      this.productService.getProductById(rent.pid).subscribe(product => this.product = product);
-      this.data = {'user': this.user, 'product': this.product};
-      console.log(this.data);
-      this.requestData.push(this.data);
+  getRequestData(rent: Rent) {
+    this.userService.getUserById(rent.rid).subscribe(user => {
+      this.productService.getProductById(rent.pid).subscribe(product => {
+        this.data = {'id': rent.id, 'user': user, 'product': product};
+        this.requestData.push(this.data);
+      });
     });
   }
 
@@ -60,14 +57,13 @@ export class RentComponent implements OnInit {
     this.productService.getProductsByUserId(id).subscribe(products => {
       this.products = products;
       this.getRentRequest(this.products);
-
-      console.log(this.rents);
-      this.getRequestData(this.rents);
-      console.log(this.requestData);
-
       if(this.products.length <= 0) {
         this.router.navigate(['product/list']);
       }
     });
+  }
+
+  deleteARequest(id: string) {
+   this.rentedService.deleteRentRequest(id);
   }
 }

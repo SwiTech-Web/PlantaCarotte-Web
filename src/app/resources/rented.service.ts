@@ -19,7 +19,7 @@ export class RentedService {
     return this.db.collection('rent').add(rent);
   }
 
-  // deleteLike(id: string){
-  //   this.db.collection('liked').doc(id).delete().then();
-  // }
+  deleteRentRequest(id: string){
+    this.db.collection('rent').doc(id).delete().then();
+  }
 }

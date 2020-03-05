@@ -1,17 +1,35 @@
 <div class="container my-5"*ngIf="products.length > 0">
   <div class="mb-5">
     <h3>Demandes</h3>
-    <h5 *ngIf="rents.length == 0" class="text-center">Vous n'avez aucune demande</h5>
-    <div *ngFor="let rent of rents" class="card my-3">
+    <h5 *ngIf="requestData.length == 0" class="text-center">Vous n'avez aucune demande</h5>
+    <div *ngFor="let rent of requestData" class="card my-3">
       <div class="card-body">
-        <label> User Infos : </label> {{rent.rid}}
-        <br/>
-        <label>Product infos :</label> {{rent.pid}}
-      <br/>
-        <button class="btn btn-success mr-2">Accepter</button>
-        <button class="btn btn-danger">Rejeter la demande</button>
+        <div class="d-flex justify-content-between">
+          <div>
+            <img class="user-icon" src="{{rent.user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{rent.user.displayName}}">
+            <span class="mr-2">{{rent.user.displayName}}</span>
+            <!-- for test -->
+            <span class="mr-2">{{rent.user.email}}</span>
+            <div class="d-flex justify-content-end">
+              <h6 *ngIf="rent.user.emailVerified"><i class="fas fa-check-circle"></i> Vérifié</h6>
+              <h6 *ngIf="!rent.user.emailVerified"><i class="fas fa-times-circle"></i> Pas Vérifié</h6>
+            </div>
+          </div>
+          <div>
+            <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false"
+                 style="width: 250px">
+            <h5>{{rent.product.name}}</h5>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <button class="btn btn-success mr-2">Accepter</button>
+          </div>
+          <div>
+            <button class="btn btn-danger" (click)="deleteARequest(rent.id)">Rejeter la demande</button>
+          </div>
+        </div>
       </div>
-
     </div>
   </div>
 
