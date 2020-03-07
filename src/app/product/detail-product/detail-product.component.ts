@@ -66,7 +66,9 @@ export class DetailProductComponent implements OnInit {
       window.alert(error);
     });
   }
-
+  refresh() {
+    window.location.reload();
+  }
   show(content) {
     this.modalService.open(content);
   }

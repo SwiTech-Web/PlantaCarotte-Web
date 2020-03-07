@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
              ) { }
 
   ngOnInit() {
-    this.getNewProducts();
     this.isMobile = this.stateService.getSate();
+    this.getNewProducts();
   }
 
   getNewProducts() {

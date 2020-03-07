@@ -16,6 +16,9 @@ export class ListProductComponent implements OnInit {
   format = 'dd/mm/yyyy, hh:mm';
   filterProduct: any = {type: '', name: ''};
   textFilter = '';
+  pageOfItems:  Array<any>;
+  totalProduct = 0;
+
 
   constructor(private productService: ProductService,
               public authService: AuthenticationService,
@@ -27,6 +30,12 @@ export class ListProductComponent implements OnInit {
   ngOnInit() {
     this.listAllProducts();
     this.isMobile = this.stateService.getSate();
+  }
+
+  onChangePage(pageOfItems:  Array<any>) {
+    this.pageOfItems = pageOfItems;
+    window.scroll(0,0);
+    this.totalProduct += pageOfItems.length;
   }
 
   listAllProducts() {

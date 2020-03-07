@@ -36,6 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from './account/account.component';
 import { NgxUiLoaderModule } from  'ngx-ui-loader';
 import { RentComponent } from './rent/rent.component';
+import {JwPaginationComponent} from "jw-angular-pagination";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -45,6 +46,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    JwPaginationComponent,
     HeaderComponent,
     LoginComponent,
     RegisterComponent,

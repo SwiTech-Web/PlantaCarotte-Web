@@ -34,7 +34,7 @@
   </div>
 </header>
 
-<div class="container " [ngClass]="{'d-flex justify-content-between pt-5':!isMobile}">
+<div class="container" [ngClass]="{'d-flex justify-content-between pt-5':!isMobile}">
   <!-- Filter bar left -->
   <div *ngIf="!isMobile" class="mr-5">
     <h5>Remove filter<i class="fas fa-times ml-4"></i></h5>
@@ -159,7 +159,7 @@
 
   <!-- List -->
   <div *ngIf="products">
-    <div class="card card-effect mb-3" *ngFor="let product of products.slice().reverse() | filterBy: filterProduct">
+    <div class="card card-effect mb-3" *ngFor="let product of pageOfItems| filterBy: filterProduct">
       <!-- Desktop -->
       <div class="row no-gutters" *ngIf="!isMobile">
         <div class="col-md-4" routerLink="/product/detail/{{product.id}}">
@@ -179,7 +179,7 @@
                 {{product.type}}</b></p>
               <p class="card-text ellipsis">{{product.description}}</p>
               <p class="card-text"><b>23 km away</b></p>
-              <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>
+             <!-- <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>-->
             </div>
             <div>
               <h6>{{product.price}}€ / jour</h6>
@@ -211,7 +211,7 @@
             </p>
             <p class="card-text ellipsis">{{product.description}}</p>
             <p class="card-text"><b>23 km away</b></p>
-            <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>
+           <!-- <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>-->
           </div>
           <div>
             <h6>{{product.price}}€ / jour</h6>
@@ -223,10 +223,15 @@
                 <app-liked-product [product]="product"></app-liked-product>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
+
+    <div class="pb-0 pt-3">
+      <jw-pagination [items]="products" (changePage)="onChangePage($event)"></jw-pagination>
+      <h6>Vous avez vu {{totalProduct}} locations sur {{products.length}}</h6>
+    </div>
   </div>
+
 </div>
