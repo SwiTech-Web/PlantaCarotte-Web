@@ -6,9 +6,6 @@
     <div class="card"  [ngClass]="{'my-5':!isMobile}">
       <div class="d-flex justify-content-center mt-2">
         <img src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" class="user-icon img-profile">
-        <div class="d-flex justify-content-between float-right">
-          <a class="text-muted fixed-right" routerLink="/account">Edit compte</a>
-        </div>
       </div>
       <div class="card-body">
        <div class="d-flex justify-content-between">
@@ -41,53 +38,13 @@
                 <span class="form-control search"  type="text" id="langage">Français</span>
               </div>
             </div>
+          <div class="d-flex justify-content-between float-right">
+            <a class="text-muted fixed-right" routerLink="/account"><i class="fas fa-pencil-alt"></i> Edit compte</a>
+          </div>
         </div>
       </div>
     </div>
-    <div>
-      <div class="card" [ngClass]="{'my-5':!isMobile, 'my-2':isMobile}">
-        <div class="container ml-3 mt-3">
-          <h6>Moyen de payement</h6>
-        </div>
-        <hr>
-        <div class="container ml-3 mt-3">
-          <div class="float-left">
-            <i class="fab fa-cc-visa fa-2x float-left" style="color: #419bdd;"></i>
-            <p class="ml-3 float-left">•••• •••• •••• 5046</p>
-          </div>
-          <div class="float-right">
-            <i class="fas fa-ellipsis-h float-right mr-3"></i>
-          </div>
-        </div>
-        <div class="container ml-3 mt-3">
-          <div class="float-left">
-            <i class="fab fa-cc-paypal fa-2x float-left" style="color: #419bdd;"></i>
-            <p class="ml-3 float-left">•••• •••• •••• 5046</p>
-          </div>
-          <div class="float-right">
-            <i class="fas fa-ellipsis-h float-right mr-3"></i>
-          </div>
-        </div>
-        <div class="container ml-3 mt-3">
-          <div class="float-left">
-            <i class="fab fa-cc-visa fa-2x float-left" style="color: #419bdd;"></i>
-            <p class="ml-3 float-left">•••• •••• •••• 5046</p>
-          </div>
-          <div class="float-right">
-            <i class="fas fa-ellipsis-h float-right mr-3"></i>
-          </div>
-        </div>
-        <div class="container ml-3 mt-3">
-          <div class="float-left">
-            <i class="fab fa-cc-paypal fa-2x float-left" style="color: #419bdd;"></i>
-            <p class="ml-3 float-left">•••• •••• •••• 5046</p>
-          </div>
-          <div class="float-right">
-            <i class="fas fa-ellipsis-h float-right mr-3"></i>
-          </div>
-        </div>
-      </div>
-      <div class="card" >
+      <div class="card"  [ngClass]="{'my-5':!isMobile}">
         <div class="container ml-3 mt-3">
           <h6>Annonce de {{user.displayName}}</h6>
         </div>
@@ -96,26 +53,42 @@
           {{user.displayName}} n'a posté aucunes annonces.
         </p>
         <div *ngIf="userProducts.length !== 0">
-          <div class="container t-3" *ngFor="let product of userProducts">
-            <div class="d-flex justify-content-between cursor" routerLink="/product/detail/{{product.id}}">
-              <p>
-                <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
-                <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
-                <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
-                <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
-                <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
-                {{product.type}}
+          <div class="container t-3" *ngFor="let product of userProducts; let i=index">
+            <div class="d-flex justify-content-between cursor" routerLink="/product/detail/{{product.id}}" *ngIf="i<5">
+              <table class="table">
+                <tbody>
+                <tr>
+                  <td style="width: 30%">
+                    <p>
+                      <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
+                      <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
+                      <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
+                      <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
+                      <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
+                      {{product.type}}
+                    </p>
+                  </td>
+                  <td style="width: 35%">
+                    <p><b>{{product.name}}</b></p>
+                  </td>
+                  <td style="width: 30%">
+                    <app-rate-product [rate]="product.rate"></app-rate-product>
+                  </td>
+                  <td style="width:  5%">
+                    <i class="fas fa-eye"></i>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div *ngIf="i==4" class="float-right">
+              <p routerLink="/rent/{{user.uid}}">
+                <a class="text-muted" routerLink="/rent/{{user.uid}}">Voir toutes vos annonces</a>
               </p>
-              <p><b>{{product.name}}</b></p>
-              <app-rate-product [rate]="product.rate"></app-rate-product>
-              <div>
-                <i class="fas fa-eye"></i>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
 </div>
 

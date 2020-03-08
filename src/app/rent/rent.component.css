@@ -1,0 +1,11 @@
+.request {
+  border-radius: 10px;
+  width: 350px;
+}
+.card-img-top {
+  width: 350px;
+  height: 200px;
+}
+.ellipsis {
+  width: 22em;
+}

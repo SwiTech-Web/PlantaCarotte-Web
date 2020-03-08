@@ -32,33 +32,103 @@
           </div>
         </div>
       </div>-->
-    <div *ngFor="let rent of requestData" class="card overflow-hidden card-effect my-3">
-      <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false">
+    <div class="card-deck">
+      <div *ngFor="let rent of requestData">
+        <div class="card request overflow-hidden card-effect my-3">
+          <img class="card-img-top" src="../../../assets/images/bg-home.jpg" alt="Card image cap" draggable="false">
 
-      <div class="card-body">
-        <h5 class="card-title">{{rent.product.name}}</h5>
-        <p class="card-text ellipsis">{{rent.product.description}}</p>
-        <div class="float-left">
-          <img class="user-icon" src="{{rent.user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{rent.user.displayName}}">
-          <span class="mr-2">{{rent.user.displayName}}</span>
-          <!-- for test -->
-          <span class="mr-2">{{rent.user.email}}</span>
-          <div class="d-flex justify-content-end">
-            <h6 *ngIf="rent.user.emailVerified"><i class="fas fa-check-circle"></i> Vérifié</h6>
-            <h6 *ngIf="!rent.user.emailVerified"><i class="fas fa-times-circle"></i> Pas Vérifié</h6>
+          <div class="card-body">
+            <h5 class="card-title">{{rent.product.name}}</h5>
+            <p class="card-text ellipsis">{{rent.product.description}}</p>
+            <div class="raw">
+              <img class="user-icon" src="{{rent.user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{rent.user.displayName}}">
+              <span class="mr-2"> {{rent.user.displayName}}</span>
+              <span *ngIf="rent.user.emailVerified"><i class="fas fa-check-circle"></i> Vérifié</span>
+              <span *ngIf="!rent.user.emailVerified"><i class="fas fa-times-circle"></i> Pas Vérifié</span>
+            </div>
+            <div class="float-left mt-2">
+              <button class="btn btn-success mr-2">Accepter</button>
+            </div>
+            <div class="float-right">
+              <button class="btn btn-danger" (click)="deleteARequest(rent.id)">Rejeter la demande</button>
+            </div>
           </div>
-          <button class="btn btn-success mr-2">Accepter</button>
-        </div>
-        <div class="float-right">
-          <button class="btn btn-danger" (click)="deleteARequest(rent.id)">Rejeter la demande</button>
         </div>
       </div>
     </div>
-
     <h3>Vos Annonces</h3>
+<!--    <div class="card-deck">-->
+<!--      <div *ngFor="let product of products">-->
+<!--        <app-preview-product [enableFavorite]="false" [product]="product"></app-preview-product>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="card-deck">
-      <div *ngFor="let product of products">
-        <app-preview-product [enableFavorite]="false" [product]="product"></app-preview-product>
+      <div *ngIf="products">
+        <div class="card card-effect mb-3" *ngFor="let product of products">
+          <!-- Desktop -->
+          <div class="row no-gutters">
+            <div class="col-md-4" routerLink="/product/detail/{{product.id}}">
+              <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="image" draggable="false">
+            </div>
+            <div class="card-body d-flex justify-content-between">
+              <div routerLink="/product/detail/{{product.id}}">
+                <h4 class="card-title ellipsis">{{product.name}}
+                  <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>
+                </h4>
+                <p class="card-text first-u" style="color:#5cbd95"><b>
+                  <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>
+                  <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>
+                  <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>
+                  <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>
+                  <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>
+                  {{product.type}}</b></p>
+                <p class="card-text ellipsis">{{product.description}}</p>
+                <p class="card-text"><b>23 km away</b></p>
+                <!-- <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>-->
+              </div>
+              <div>
+                <h6>{{product.price}}€ / jour</h6>
+                <app-rate-product [rate]='product.rate'></app-rate-product>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile -->
+<!--          <div class="no-gutters" *ngIf="isMobile">-->
+<!--            <div class="col-md-4" routerLink="/product/detail/{{product.id}}">-->
+<!--              <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="card-img" alt="image" draggable="false">-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <div routerLink="/product/detail/{{product.id}}">-->
+<!--                <h4 class="card-title ellipsis">{{product.name}}-->
+<!--                  <h6 class="card-title"><i class="fas fa-map-marker-alt"></i> {{product.dpts}}, {{product.city}}</h6>-->
+<!--                </h4>-->
+<!--                <p class="card-text first-u" style="color:#5cbd95"><b>-->
+<!--                  <i *ngIf="product.type == 'lac'" class="fas fa-water"></i>-->
+<!--                  <i *ngIf="product.type == 'piscine'" class="fas fa-swimming-pool"></i>-->
+<!--                  <i *ngIf="product.type == 'forêt'" class="fas fa-tree"></i>-->
+<!--                  <i *ngIf="product.type == 'jardin'" class="fas fa-leaf"></i>-->
+<!--                  <i *ngIf="product.type == 'permaculture'" class="fab fa-envira"></i>-->
+<!--                  {{product.type}}</b>-->
+<!--                </p>-->
+<!--                <p class="card-text ellipsis">{{product.description}}</p>-->
+<!--                <p class="card-text"><b>23 km away</b></p>-->
+<!--                &lt;!&ndash; <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>&ndash;&gt;-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <h6>{{product.price}}€ / jour</h6>-->
+<!--                <div class="d-flex justify-content-between">-->
+<!--                  <div>-->
+<!--                    <app-rate-product [rate]='product.rate'></app-rate-product>-->
+<!--                  </div>-->
+<!--                  <div class="save">-->
+<!--                    <app-liked-product [product]="product"></app-liked-product>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+        </div>
       </div>
     </div>
   </div>
