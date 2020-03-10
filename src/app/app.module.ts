@@ -37,6 +37,7 @@ import { AccountComponent } from './account/account.component';
 import { NgxUiLoaderModule } from  'ngx-ui-loader';
 import { RentComponent } from './rent/rent.component';
 import {JwPaginationComponent} from "jw-angular-pagination";
+import { TypesProductComponent } from './product/types-product/types-product.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -64,7 +65,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LikedProductComponent,
     FooterComponent,
     AccountComponent,
-    RentComponent
+    RentComponent,
+    TypesProductComponent
   ],
   imports: [
     BrowserModule,

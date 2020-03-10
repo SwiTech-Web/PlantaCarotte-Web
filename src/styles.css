@@ -100,6 +100,15 @@ input.form-control:focus {
     color: #5cbd95 !important;
 }
 
+.vertical{
+  margin: auto;
+}
+
+.middle {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 /* BUTTON RADIO */
 .box {
   margin-top:20px;

@@ -8,9 +8,11 @@
   width: 100%;
 }
 .card-rent{
-  position: fixed;
+  position: fixed !important;
+  position: -webkit-sticky !important;
   z-index: 999;
 }
+
 @media screen and (max-width: 768px) {
   .active-img {
     max-width: 100%;

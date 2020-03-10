@@ -179,7 +179,7 @@
                 {{product.type}}</b></p>
               <p class="card-text ellipsis">{{product.description}}</p>
               <p class="card-text"><b>23 km away</b></p>
-             <!-- <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>-->
+             <p class="card-text"><small class="text-muted">{{product.date | date: format}}</small></p>
             </div>
             <div>
               <h6>{{product.price}}€ / jour</h6>
@@ -211,6 +211,7 @@
             </p>
             <p class="card-text ellipsis">{{product.description}}</p>
             <p class="card-text"><b>23 km away</b></p>
+            <p class="card-text"><small class="text-muted">{{product.date | date: format}}</small></p>
            <!-- <p class="card-text"><small class="text-muted">{{product.date.toDate() | date: format}}</small></p>-->
           </div>
           <div>

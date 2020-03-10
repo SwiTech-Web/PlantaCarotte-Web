@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ProductService} from '../../resources/product.service';
 import {Router} from '@angular/router';
 import {UserService} from '../../resources/user.service';
@@ -21,6 +21,8 @@ export class DetailProductComponent implements OnInit {
   user: User;
   similarProducts: Product[] = [];
   id = this.router.url.split('/', 4).pop();
+  // @ts-ignore
+  @ViewChild('widgetsContent', { read: ElementRef }) public widgetsContent: ElementRef<any>;
 
   constructor(private productService: ProductService,
               private userService: UserService,
@@ -71,5 +73,13 @@ export class DetailProductComponent implements OnInit {
   }
   show(content) {
     this.modalService.open(content);
+  }
+
+  public scrollRight(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft + 250), behavior: 'smooth' });
+  }
+
+  public scrollLeft(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 250), behavior: 'smooth' });
   }
 }

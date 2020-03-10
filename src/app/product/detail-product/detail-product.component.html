@@ -63,22 +63,11 @@
       <img src="../../../assets/images/maps.PNG" class="rounded active-img" alt="image">
     </div>
     <hr>
-    <div>
+   <!-- <div>
       <h4>Commantaires</h4>
     </div>
-    <hr>
+    <hr>-->
   </div>
-  <div>
-    <h4>Annonces simillaires</h4>
-
-    <div class="card-deck">
-      <div *ngFor="let product of similarProducts" [ngClass]="{'d-flex justify-content-center':isMobile}">
-        <app-preview-product [enableFavorite]="true" [product]="product" (click)="refresh()"></app-preview-product>
-      </div>
-    </div>
-
-  </div>
-
   <div class="card" *ngIf="isMobile">
     <div class="card-body">
       <div class="d-flex justify-content-between">
@@ -93,7 +82,20 @@
       </div>
     </div>
   </div>
-
+  <h4>Annonces simillaires</h4>
+  <div class="d-flex justify-content-start">
+    <div class="mr-1 vertical">
+      <button (click)="scrollLeft()" class="btn btn-primary"><i class="fas fa-chevron-left"></i></button>
+    </div>
+    <div #widgetsContent class="middle d-flex justify-content-start">
+      <div *ngFor="let product of similarProducts" [ngClass]="{'d-flex justify-content-center':isMobile}">
+        <app-summary-product [enableFavorite]="true" [product]="product" (click)="refresh()"></app-summary-product>
+      </div>
+    </div>
+    <div class="vertical ml-1">
+      <button (click)="scrollRight()" class="btn btn-primary"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
 </div>
 
 <ng-template #login let-c="close" let-d="dismiss">

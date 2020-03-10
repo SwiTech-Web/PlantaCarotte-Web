@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-start">
+  <div class="mr-1 vertical">
+    <button (click)="scrollLeft()" class="btn btn-primary"><i class="fas fa-chevron-left"></i></button>
+  </div>
+  <div #widgetsContent class="middle d-flex justify-content-start">
+    <div *ngFor="let explore of explorer" class="">
+      <div class="card mr-2" routerLink="/product/list">
+        <div>
+          <img src="{{explore.image}}" alt="home" class="img-fluid" draggable="false">
+          <h5 class="d-inline-block ml-3">{{explore.name}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ml-1 vertical">
+    <button (click)="scrollRight()" class="btn btn-primary"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</div>

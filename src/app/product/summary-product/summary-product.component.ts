@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {StateService} from '../../resources/state.service';
+import {Product} from "../../models/product.model";
 
 @Component({
   selector: 'app-summary-product',
@@ -7,22 +8,10 @@ import {StateService} from '../../resources/state.service';
   styleUrls: ['./summary-product.component.css']
 })
 export class SummaryProductComponent implements OnInit {
-  isMobile: boolean;
-  constructor(private stateService: StateService) { }
-  explorer = [{
-      name: 'Terrain',
-      image: '../../../assets/images/bg-home.jpg'
-    },
-    {
-      name: 'Jardins',
-      image: '../../../assets/images/bg-home.jpg'
-    },
-    {
-      name: 'Lacs & Etangs',
-      image: '../../../assets/images/banner-list-dark.jpg'
-    }];
+  @Input() product: Product;
+  @Input() enableFavorite: boolean;
+  constructor() { }
 
   ngOnInit() {
-    this.isMobile =  this.stateService.getSate();
   }
 }
