@@ -1,73 +1,65 @@
-<div class="container" [ngClass]="{'pt-5':!isMobile}" *ngIf="product && user">
-  <div class="row" [ngClass]="{'d-flex justify-content-center':isMobile}">
-    <div class="col-sm-6">
+<div class="container d-flex justify-content-between" [ngClass]="{'py-5':!isMobile}" *ngIf="product && user">
+    <div [ngClass]="{'d-flex justify-content-center':isMobile, 'mr-4':!isMobile}">
       <img src="https://ak7.picdn.net/shutterstock/videos/1014027977/thumb/1.jpg" class="rounded active-img" alt="active">
+        <h4 class="mt-3">{{product.name}}</h4>
+        <h6><i class="fas fa-map-marker-alt mr-1"></i>{{product.dpts}}, {{product.city}}</h6>
+        <div class="d-flex justify-content-end">
+          <div routerLink="/profile/{{user.uid}}">
+            <img class="user-icon" src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
+            {{user.displayName}}
+          </div>
+        </div>
+        <hr>
+        <h4>Information</h4>
+        <p>{{product.description}}</p>
+        <p><b>Type de location :</b> {{product.type}}</p>
+        <p><b>Superficie de la location :</b> {{product.size}} m²</p>
+        <div>
+          <h4 class="py-3">Le quartier</h4>
+          <img src="../../../assets/images/maps.PNG" class="rounded active-img" alt="image">
+        </div>
     </div>
-    <div class="col-sm-6 d-flex justify-content-end">
-      <div class="card card-rent" *ngIf="!isMobile">
-        <div class="card-body">
-          <div class="d-flex justify-content-between">
-            <h4>{{product.price}}€ / day</h4>
-            <app-liked-product [product]="product"></app-liked-product>
-          </div>
-          <app-rate-product [rate]="product.rate"></app-rate-product>
-          <hr>
-          <div>
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label>Date de debut</label>
-                  <input type="date" class="form-control">
-                </div>
-                <div class="col-md-6">
-                  <label>Durée</label>
-                  <select class="custom-select">
-                    <option selected disabled value="">Choose...</option>
-                    <option>1 ans</option>
-                    <option>2 ans</option>
-                  </select>
-                </div>
+  <div class="col-sm-6">
+    <div class="card card-rent" *ngIf="!isMobile">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h4>{{product.price}}€ / day</h4>
+          <app-liked-product [product]="product"></app-liked-product>
+        </div>
+        <app-rate-product [rate]="product.rate"></app-rate-product>
+        <hr>
+        <div>
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Date de debut</label>
+                <input type="date" class="form-control">
               </div>
-              <div class="form-group my-3" *ngIf="authService.isLoggedIn">
-                <button type="submit" class="btn btn-primary" (click)="rentProduct()">Louer ce terrain</button>
+              <div class="col-md-6">
+                <label>Durée</label>
+                <select class="custom-select">
+                  <option selected disabled value="">Choose...</option>
+                  <option>1 ans</option>
+                  <option>2 ans</option>
+                </select>
               </div>
-              <div class="form-group my-3" *ngIf="!authService.isLoggedIn">
-                <button type="submit" class="btn btn-primary" (click)="show(login)">Louer ce terrain</button>
-              </div>
-              <div>
-                L'annonce a été consultée plus de 500 fois au cours de la dernière semaine.
-              </div>
-            </form>
-          </div>
+            </div>
+            <div class="form-group my-3" *ngIf="authService.isLoggedIn">
+              <button type="submit" class="btn btn-primary" (click)="rentProduct()">Louer ce terrain</button>
+            </div>
+            <div class="form-group my-3" *ngIf="!authService.isLoggedIn">
+              <button type="submit" class="btn btn-primary" (click)="show(login)">Louer ce terrain</button>
+            </div>
+            <div>
+              L'annonce a été consultée plus de 500 fois au cours de la dernière semaine.
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="pt-2" [ngClass]="{'col-sm-7': !isMobile}">
-    <h4>{{product.name}}</h4>
-    <h6><i class="fas fa-map-marker-alt mr-1"></i>{{product.dpts}}, {{product.city}}</h6>
-    <div class="d-flex justify-content-end">
-      <div routerLink="/profile/{{user.uid}}">
-        <img class="user-icon" src="{{user.photoURL}}" onerror="this.src='../../assets/images/default-user.png';" alt="{{user.displayName}}">
-        {{user.displayName}}
-      </div>
-    </div>
-    <hr>
-    <h4>Information</h4>
-    <p>{{product.description}}</p>
-    <p><b>Type de location :</b> {{product.type}}</p>
-    <p><b>Superficie de la location :</b> {{product.size}} m²</p>
-    <div>
-      <h4 class="py-3">Le quartier</h4>
-      <img src="../../../assets/images/maps.PNG" class="rounded active-img" alt="image">
-    </div>
-    <hr>
-   <!-- <div>
-      <h4>Commantaires</h4>
-    </div>
-    <hr>-->
-  </div>
+  <!-- mobile -->
   <div class="card" *ngIf="isMobile">
     <div class="card-body">
       <div class="d-flex justify-content-between">
@@ -82,6 +74,9 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="container">
   <h4>Annonces simillaires</h4>
   <div class="d-flex justify-content-start">
     <div class="mr-1 vertical">
