@@ -9,6 +9,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../models/user.model';
 import {RentedService} from "../../resources/rented.service";
 import {NgxUiLoaderService} from "ngx-ui-loader";
+import {LocationService} from "../../resources/location.service";
 
 @Component({
   selector: 'app-detail-product',
@@ -21,8 +22,9 @@ export class DetailProductComponent implements OnInit {
   user: User;
   similarProducts: Product[] = [];
   id = this.router.url.split('/', 4).pop();
+  currentPosition: string;
   // @ts-ignore
-  @ViewChild('widgetsContent', { read: ElementRef }) public widgetsContent: ElementRef<any>;
+  @ViewChild('widgetsContent', {read: ElementRef}) public widgetsContent: ElementRef<any>;
 
   constructor(private productService: ProductService,
               private userService: UserService,
@@ -31,20 +33,27 @@ export class DetailProductComponent implements OnInit {
               private modalService: NgbModal,
               private rentedService: RentedService,
               public authService: AuthenticationService,
-              private spinner: NgxUiLoaderService) { }
+              private spinner: NgxUiLoaderService,
+              private locationService: LocationService) {
+  }
 
   ngOnInit() {
     this.isMobile = this.stateService.getSate();
     this.getProduct();
+
+    this.locationService.getPosition().then(pos=> {
+      console.log(`Positon: ${pos.lng} ${pos.lat}`);
+      this.currentPosition = 'longitude: ' + pos.lng + ' /latitude: '+pos.lat;
+    });
   }
 
   getProduct() {
     this.spinner.start();
-    this.productService.getProductById(this.id).subscribe(product =>  {
+    this.productService.getProductById(this.id).subscribe(product => {
       this.product = product;
       this.product.id = this.id;
       this.getUserDetails();
-      this.getSimilarProduct( this.product.type);
+      this.getSimilarProduct(this.product.type);
       this.spinner.stop();
     });
   }
@@ -58,7 +67,7 @@ export class DetailProductComponent implements OnInit {
   }
 
   rentProduct() {
-    let rent:any = {
+    let rent: any = {
       rid: this.authService.userData.uid,
       pid: this.product.id
     }
@@ -68,18 +77,27 @@ export class DetailProductComponent implements OnInit {
       window.alert(error);
     });
   }
+
   refresh() {
     window.location.reload();
   }
+
   show(content) {
     this.modalService.open(content);
   }
 
   public scrollRight(): void {
-    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft + 250), behavior: 'smooth' });
+    this.widgetsContent.nativeElement.scrollTo({
+      left: (this.widgetsContent.nativeElement.scrollLeft + 250),
+      behavior: 'smooth'
+    });
   }
 
   public scrollLeft(): void {
-    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 250), behavior: 'smooth' });
+    this.widgetsContent.nativeElement.scrollTo({
+      left: (this.widgetsContent.nativeElement.scrollLeft - 250),
+      behavior: 'smooth'
+    });
   }
 }
+
